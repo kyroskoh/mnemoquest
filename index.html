@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="MnemoQuest - Memory Skill Training Web Game">
+    <meta name="author" content="Kyros Koh">
+    <meta name="theme-color" content="#0d9488">
+    <title>🧠 MnemoQuest - Memory Training</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="app">
+        <!-- Navigation -->
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-brand">
+                    <span class="logo">🧠</span>
+                    <h1>MnemoQuest</h1>
+                </div>
+                <div class="nav-links">
+                    <button class="nav-btn" id="homeBtn">Home</button>
+                    <button class="nav-btn" id="progressBtn">Progress</button>
+                    <button class="nav-btn" id="settingsBtn">Settings</button>
+                    <button class="nav-btn" id="aboutBtn">About</button>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-container">
+            <!-- Dashboard View -->
+            <div id="dashboardView" class="view active">
+                <section class="hero">
+                    <h2>Welcome to Your Memory Training Journey</h2>
+                    <p>Enhance your cognitive abilities through fun, science-backed mini-games</p>
+                </section>
+
+                <section class="stats-overview">
+                    <div class="stat-card">
+                        <div class="stat-icon">📊</div>
+                        <div class="stat-content">
+                            <h3 id="totalScore">0</h3>
+                            <p>Total XP</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">🔥</div>
+                        <div class="stat-content">
+                            <h3 id="dailyStreak">0</h3>
+                            <p>Day Streak</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">🎯</div>
+                        <div class="stat-content">
+                            <h3 id="avgAccuracy">0%</h3>
+                            <p>Avg Accuracy</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">⚡</div>
+                        <div class="stat-content">
+                            <h3 id="gamesPlayed">0</h3>
+                            <p>Games Played</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="game-modules">
+                    <h2>Choose Your Challenge</h2>
+                    <div class="games-grid">
+                        <div class="game-card" data-game="memory-grid">
+                            <div class="game-icon">🎯</div>
+                            <h3>Memory Grid</h3>
+                            <p>Recall positions of symbols in a grid</p>
+                            <span class="skill-tag">Spatial Recall</span>
+                            <button class="play-btn">Play Now</button>
+                        </div>
+                        <div class="game-card" data-game="sequence-sparks">
+                            <div class="game-icon">✨</div>
+                            <h3>Sequence Sparks</h3>
+                            <p>Remember and repeat light sequences</p>
+                            <span class="skill-tag">Working Memory</span>
+                            <button class="play-btn">Play Now</button>
+                        </div>
+                        <div class="game-card" data-game="card-match">
+                            <div class="game-icon">🎴</div>
+                            <h3>Card Match</h3>
+                            <p>Match pairs under time pressure</p>
+                            <span class="skill-tag">Visual Memory</span>
+                            <button class="play-btn">Play Now</button>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Game View -->
+            <div id="gameView" class="view">
+                <div class="game-header">
+                    <button class="back-btn" id="backBtn">← Back to Dashboard</button>
+                    <div class="game-info">
+                        <span id="currentGameTitle">Memory Grid</span>
+                        <span id="currentLevel">Level 1</span>
+                    </div>
+                    <div class="game-timer" id="gameTimer">0:00</div>
+                </div>
+                <div id="gameContainer"></div>
+            </div>
+
+            <!-- Progress View -->
+            <div id="progressView" class="view">
+                <h2>Your Progress</h2>
+                <div class="progress-container">
+                    <div class="chart-container">
+                        <canvas id="accuracyChart"></canvas>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="performanceChart"></canvas>
+                    </div>
+                </div>
+                <div class="badges-section">
+                    <h3>Achievements</h3>
+                    <div id="badgesContainer" class="badges-grid"></div>
+                </div>
+            </div>
+
+            <!-- Settings View -->
+            <div id="settingsView" class="view">
+                <h2>Settings</h2>
+                <div class="settings-container">
+                    <div class="setting-item">
+                        <label for="soundToggle">
+                            <span>🔊 Sound Effects</span>
+                            <input type="checkbox" id="soundToggle" checked>
+                        </label>
+                    </div>
+                    <div class="setting-item">
+                        <label for="colorBlindMode">
+                            <span>🎨 Color-Blind Mode</span>
+                            <input type="checkbox" id="colorBlindMode">
+                        </label>
+                    </div>
+                    <div class="setting-item">
+                        <label for="animationsToggle">
+                            <span>✨ Animations</span>
+                            <input type="checkbox" id="animationsToggle" checked>
+                        </label>
+                    </div>
+                    <div class="setting-item">
+                        <button class="danger-btn" id="resetProgressBtn">Reset All Progress</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- About View -->
+            <div id="aboutView" class="view">
+                <h2>About MnemoQuest</h2>
+                <div class="about-content">
+                    <p>MnemoQuest is a science-backed cognitive training platform designed to enhance your memory, focus, and recall speed.</p>
+                    <h3>How It Works</h3>
+                    <p>Our adaptive difficulty system adjusts challenges based on your performance, ensuring you're always in the optimal learning zone.</p>
+                    <h3>Benefits</h3>
+                    <ul>
+                        <li>Improve short-term recall and working memory</li>
+                        <li>Enhance spatial recognition abilities</li>
+                        <li>Boost focus and concentration</li>
+                        <li>Track your cognitive progress over time</li>
+                    </ul>
+                    <h3>Developer</h3>
+                    <p style="margin-top: 1rem;">
+                        <strong>Kyros Koh</strong><br>
+                        📧 <a href="mailto:me@kyroskoh.com" style="color: var(--primary);">me@kyroskoh.com</a><br>
+                        🐙 <a href="https://github.com/kyroskoh" target="_blank" rel="noopener noreferrer" style="color: var(--primary);">github.com/kyroskoh</a><br>
+                        💻 <a href="https://github.com/kyroskoh/mnemoquest" target="_blank" rel="noopener noreferrer" style="color: var(--primary);">View Source Code</a>
+                    </p>
+                    <p style="margin-top: 1rem; font-size: 0.875rem; color: var(--text-secondary);">
+                        Version 1.0.0 • Built with TypeScript & Vite • MIT License
+                    </p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script type="module" src="/src/main.ts"></script>
+</body>
+</html>
+
