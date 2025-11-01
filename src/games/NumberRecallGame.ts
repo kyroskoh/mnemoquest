@@ -217,7 +217,6 @@ export class NumberRecallGame extends BaseGame {
   }
 
   private endGame(): void {
-    this.gameState = 'complete';
     this.completeGame();
   }
 
