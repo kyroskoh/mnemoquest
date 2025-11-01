@@ -86,6 +86,70 @@ export class TutorialManager {
           }
         ];
 
+      case 'number-recall':
+        return [
+          {
+            title: `🔢 ${t('tutorial.numberRecall.welcome')}`,
+            description: t('tutorial.numberRecall.intro')
+          },
+          {
+            title: t('tutorial.howToPlay'),
+            description: t('tutorial.numberRecall.steps')
+          },
+          {
+            title: t('tutorial.tips'),
+            description: t('tutorial.numberRecall.tips')
+          }
+        ];
+
+      case 'flash-count':
+        return [
+          {
+            title: `⚡ ${t('tutorial.flashCount.welcome')}`,
+            description: t('tutorial.flashCount.intro')
+          },
+          {
+            title: t('tutorial.howToPlay'),
+            description: t('tutorial.flashCount.steps')
+          },
+          {
+            title: t('tutorial.tips'),
+            description: t('tutorial.flashCount.tips')
+          }
+        ];
+
+      case 'word-trail':
+        return [
+          {
+            title: `📝 ${t('tutorial.wordTrail.welcome')}`,
+            description: t('tutorial.wordTrail.intro')
+          },
+          {
+            title: t('tutorial.howToPlay'),
+            description: t('tutorial.wordTrail.steps')
+          },
+          {
+            title: t('tutorial.tips'),
+            description: t('tutorial.wordTrail.tips')
+          }
+        ];
+
+      case 'pattern-path':
+        return [
+          {
+            title: `🧩 ${t('tutorial.patternPath.welcome')}`,
+            description: t('tutorial.patternPath.intro')
+          },
+          {
+            title: t('tutorial.howToPlay'),
+            description: t('tutorial.patternPath.steps')
+          },
+          {
+            title: t('tutorial.tips'),
+            description: t('tutorial.patternPath.tips')
+          }
+        ];
+
       default:
         return [];
     }
