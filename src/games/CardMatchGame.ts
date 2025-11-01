@@ -20,7 +20,7 @@ export class CardMatchGame extends BaseGame {
   start(): void {
     // Calculate pairs based on difficulty (4 to 12 pairs)
     this.totalPairs = Math.min(12, Math.max(4, Math.floor(3 + this.difficulty * 0.8)));
-    this.timeLimit = Math.max(30, 60 - (this.difficulty * 3));
+    this.timeLimit = Math.floor(Math.max(30, 60 - (this.difficulty * 3)));
     this.timeRemaining = this.timeLimit;
     
     this.initializeGame();
