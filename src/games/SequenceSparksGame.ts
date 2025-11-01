@@ -80,7 +80,7 @@ export class SequenceSparksGame extends BaseGame {
   private async showSequence(): Promise<void> {
     this.gameState = 'showing';
     const instructionEl = document.getElementById('instructionText');
-    if (instructionEl) instructionEl.textContent = 'Watch the sequence...';
+    if (instructionEl) instructionEl.textContent = this.t('games.sequenceSparks.watch');
 
     this.disableButtons();
 
@@ -112,7 +112,7 @@ export class SequenceSparksGame extends BaseGame {
   private enablePlayerTurn(): void {
     this.gameState = 'player-turn';
     const instructionEl = document.getElementById('instructionText');
-    if (instructionEl) instructionEl.textContent = 'Now repeat the sequence!';
+    if (instructionEl) instructionEl.textContent = this.t('games.sequenceSparks.repeat');
 
     this.enableButtons();
     this.updateProgress();
@@ -164,7 +164,7 @@ export class SequenceSparksGame extends BaseGame {
   private showError(): void {
     const instructionEl = document.getElementById('instructionText');
     if (instructionEl) {
-      instructionEl.textContent = 'Oops! Wrong sequence. Try the next one!';
+      instructionEl.textContent = this.t('games.sequenceSparks.wrong');
       instructionEl.style.color = '#ef4444';
       
       setTimeout(() => {
