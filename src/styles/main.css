@@ -651,6 +651,18 @@ body {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+  /* Root font size adjustment */
+  :root {
+    --font-size-xs: 0.7rem;
+    --font-size-sm: 0.8rem;
+    --font-size-base: 0.9rem;
+    --font-size-lg: 1rem;
+    --font-size-xl: 1.15rem;
+    --font-size-2xl: 1.4rem;
+    --font-size-3xl: 1.75rem;
+  }
+
+  /* Navigation */
   .nav-toggle {
     display: flex;
   }
@@ -690,22 +702,187 @@ body {
   .nav-brand h1 {
     font-size: 1.25rem;
   }
-  
+
+  /* Main container */
+  .main-container {
+    padding: var(--spacing-md) var(--spacing-sm);
+  }
+
+  /* Hero section */
+  .hero {
+    margin-bottom: var(--spacing-lg);
+    padding: 0 var(--spacing-xs);
+  }
+
+  .hero h2 {
+    font-size: var(--font-size-xl);
+    line-height: 1.3;
+    margin-bottom: var(--spacing-xs);
+  }
+
+  .hero p {
+    font-size: var(--font-size-sm);
+    line-height: 1.5;
+  }
+
+  /* Stats overview */
   .stats-overview {
     grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-lg);
   }
-  
+
+  .stat-card {
+    padding: var(--spacing-sm);
+  }
+
+  .stat-icon {
+    font-size: 1.5rem;
+    width: 40px;
+    height: 40px;
+  }
+
+  .stat-content h3 {
+    font-size: var(--font-size-lg);
+  }
+
+  .stat-content p {
+    font-size: var(--font-size-xs);
+  }
+
+  /* Game modules */
+  .game-modules h2 {
+    font-size: var(--font-size-xl);
+    margin-bottom: var(--spacing-md);
+  }
+
   .games-grid {
     grid-template-columns: 1fr;
+    gap: var(--spacing-md);
   }
-  
+
+  .game-card {
+    padding: var(--spacing-md);
+  }
+
+  .game-icon {
+    font-size: 2rem;
+    width: 60px;
+    height: 60px;
+  }
+
+  .game-card h3 {
+    font-size: var(--font-size-lg);
+  }
+
+  .game-card p {
+    font-size: var(--font-size-sm);
+  }
+
+  .skill-tag {
+    font-size: var(--font-size-xs);
+    padding: 0.25rem 0.5rem;
+  }
+
+  .play-btn {
+    font-size: var(--font-size-sm);
+    padding: var(--spacing-xs) var(--spacing-md);
+  }
+
+  /* Progress */
   .progress-container {
     grid-template-columns: 1fr;
   }
-  
+
+  /* Game header */
   .game-header {
     flex-direction: column;
     gap: var(--spacing-sm);
+    padding: var(--spacing-sm);
+  }
+
+  .game-header h2 {
+    font-size: var(--font-size-lg);
+  }
+
+  .game-info {
+    font-size: var(--font-size-sm);
+    flex-wrap: wrap;
+  }
+
+  /* Settings */
+  .setting-item {
+    padding: var(--spacing-sm) 0;
+  }
+
+  .setting-item label {
+    font-size: var(--font-size-sm);
+  }
+
+  /* Badges */
+  .badges-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-sm);
+  }
+
+  .badge-card {
+    padding: var(--spacing-sm);
+  }
+
+  /* Chart container */
+  .chart-container {
+    padding: var(--spacing-sm);
+  }
+
+  /* View sections */
+  .view h2 {
+    font-size: var(--font-size-xl);
+    margin-bottom: var(--spacing-md);
+  }
+
+  /* About content */
+  .about-content {
+    padding: 0 var(--spacing-xs);
+  }
+
+  .about-content h3 {
+    font-size: var(--font-size-lg);
+  }
+
+  .about-content p,
+  .about-content li {
+    font-size: var(--font-size-sm);
+  }
+}
+
+/* Extra small devices */
+@media (max-width: 480px) {
+  :root {
+    --spacing-xs: 0.25rem;
+    --spacing-sm: 0.5rem;
+    --spacing-md: 0.75rem;
+    --spacing-lg: 1rem;
+    --spacing-xl: 1.5rem;
+  }
+
+  .nav-brand h1 {
+    font-size: 1rem;
+  }
+
+  .logo {
+    font-size: 1.5rem;
+  }
+
+  .stats-overview {
+    grid-template-columns: 1fr;
+  }
+
+  .hero h2 {
+    font-size: var(--font-size-lg);
+  }
+
+  .game-modules h2 {
+    font-size: var(--font-size-lg);
   }
 }
 
