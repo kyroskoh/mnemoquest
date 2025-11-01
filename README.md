@@ -64,14 +64,15 @@ npm run build
 
 ### Using Grunt (recommended for CI/CD):
 ```bash
-# Install Grunt CLI (one-time)
+# Install Grunt CLI (one-time, optional for local use)
 npm install -g grunt-cli
 
-# Build
+# Build (with grunt-cli installed)
 grunt build
 
-# Or deploy-ready build
-grunt deploy
+# Or use npm scripts (works without grunt-cli)
+npm run grunt:build
+npm run grunt:deploy
 ```
 
 The production-ready files will be in the `dist` directory.
