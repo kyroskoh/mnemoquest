@@ -17,6 +17,7 @@ export class GameManager {
   private currentGame: BaseGame | null = null;
   private currentGameType: string = '';
   private startTime: number = 0;
+  private timerAnimationId: number | null = null;
 
   constructor(storageManager: StorageManager, uiManager: UIManager, translationManager: TranslationManager) {
     this.storageManager = storageManager;
@@ -99,15 +100,16 @@ export class GameManager {
   }
 
   private startTimer(): void {
+    // Clear any existing timer first
+    this.stopTimer();
+    
     const timerEl = document.getElementById('gameTimer');
     if (!timerEl) return;
-
-    let animationId: number;
     
     const updateTimer = () => {
       // Stop timer if game is no longer active
       if (!this.currentGame) {
-        if (animationId) cancelAnimationFrame(animationId);
+        this.stopTimer();
         return;
       }
 
@@ -116,15 +118,25 @@ export class GameManager {
       const seconds = elapsed % 60;
       timerEl.textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
 
-      animationId = requestAnimationFrame(updateTimer);
+      this.timerAnimationId = requestAnimationFrame(updateTimer);
     };
 
     updateTimer();
   }
 
+  private stopTimer(): void {
+    if (this.timerAnimationId !== null) {
+      cancelAnimationFrame(this.timerAnimationId);
+      this.timerAnimationId = null;
+    }
+  }
+
   private onGameComplete(result: { score: number; accuracy: number; mistakes: number; successRate: number }): void {
     const endTime = Date.now();
     const timeTaken = Math.floor((endTime - this.startTime) / 1000);
+
+    // Stop the timer
+    this.stopTimer();
 
     // Update difficulty based on performance
     this.difficultyManager.updateDifficulty(
@@ -150,6 +162,9 @@ export class GameManager {
   }
 
   exitGame(): void {
+    // Stop the timer
+    this.stopTimer();
+    
     if (this.currentGame) {
       this.currentGame.destroy();
       this.currentGame = null;
