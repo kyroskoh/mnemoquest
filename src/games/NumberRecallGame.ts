@@ -5,8 +5,6 @@ export class NumberRecallGame extends BaseGame {
   private playerInput: string = '';
   private digitCount: number = 3;
   private displaySpeed: number = 1500; // ms per digit
-  private currentDigitIndex: number = 0;
-  private gameState: 'showing' | 'input' | 'complete' = 'showing';
   private isReverseMode: boolean = false;
 
   start(): void {
@@ -57,14 +55,12 @@ export class NumberRecallGame extends BaseGame {
   }
 
   private async showSequence(): Promise<void> {
-    this.gameState = 'showing';
     const digitEl = document.getElementById('currentDigit');
     const progressEl = document.getElementById('progressIndicator');
     
     if (!digitEl || !progressEl) return;
 
     for (let i = 0; i < this.sequence.length; i++) {
-      this.currentDigitIndex = i;
       
       // Show digit
       digitEl.textContent = this.sequence[i].toString();
@@ -90,7 +86,6 @@ export class NumberRecallGame extends BaseGame {
   }
 
   private enableInput(): void {
-    this.gameState = 'input';
     const instructionEl = document.getElementById('instructionText');
     const displayEl = document.getElementById('numberDisplay');
     const inputSection = document.getElementById('inputSection');

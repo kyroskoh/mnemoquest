@@ -6,8 +6,6 @@ export class WordTrailGame extends BaseGame {
   private playerWords: string[] = [];
   private wordCount: number = 3;
   private displayTime: number = 2000; // ms per word
-  private currentWordIndex: number = 0;
-  private gameState: 'showing' | 'input' | 'complete' = 'showing';
 
   start(): void {
     // Calculate difficulty
@@ -46,14 +44,12 @@ export class WordTrailGame extends BaseGame {
   }
 
   private async showWords(): Promise<void> {
-    this.gameState = 'showing';
     const wordEl = document.getElementById('currentWord');
     const counterEl = document.getElementById('wordCounter');
     
     if (!wordEl || !counterEl) return;
 
     for (let i = 0; i < this.words.length; i++) {
-      this.currentWordIndex = i;
       
       // Show word
       wordEl.textContent = this.words[i];
@@ -71,7 +67,6 @@ export class WordTrailGame extends BaseGame {
   }
 
   private enableInput(): void {
-    this.gameState = 'input';
     const instructionEl = document.getElementById('instructionText');
     const displayEl = document.getElementById('wordDisplay');
     const inputSection = document.getElementById('inputSection');
@@ -250,7 +245,6 @@ export class WordTrailGame extends BaseGame {
   }
 
   private endGame(): void {
-    this.gameState = 'complete';
     this.completeGame();
   }
 

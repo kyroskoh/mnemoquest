@@ -261,7 +261,6 @@ export class PatternPathGame extends BaseGame {
     if (!container) return;
 
     let correctSteps = 0;
-    const minLength = Math.min(this.path.length, this.playerPath.length);
 
     // Check each step
     for (let i = 0; i < this.path.length; i++) {

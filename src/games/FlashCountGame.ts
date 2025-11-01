@@ -75,7 +75,6 @@ export class FlashCountGame extends BaseGame {
     const container = document.getElementById('flashContainer');
     if (!container) return;
 
-    const containerRect = container.getBoundingClientRect();
     const availableShapes = this.shapes.slice(0, Math.min(this.shapes.length, this.categories + 1));
     const availableColors = this.colors.slice(0, Math.min(this.colors.length, this.categories + 1));
 
