@@ -33,18 +33,18 @@ export class CardMatchGame extends BaseGame {
     this.container.innerHTML = `
       <div class="card-match-game">
         <div class="game-instructions">
-          <h3>Card Match</h3>
+          <h3>${this.t('games.cardMatch.name')}</h3>
           <div class="game-stats">
             <div class="stat">
-              <span class="stat-label">Pairs Found:</span>
+              <span class="stat-label">${this.t('gameUI.pairsFound')}:</span>
               <span class="stat-value" id="pairsFound">0/${this.totalPairs}</span>
             </div>
             <div class="stat">
-              <span class="stat-label">Time:</span>
+              <span class="stat-label">${this.t('gameUI.time')}:</span>
               <span class="stat-value" id="timeRemaining">${this.timeLimit}s</span>
             </div>
             <div class="stat">
-              <span class="stat-label">Mistakes:</span>
+              <span class="stat-label">${this.t('gameUI.mistakes')}:</span>
               <span class="stat-value" id="mistakeCount">0</span>
             </div>
           </div>
@@ -267,6 +267,8 @@ export class CardMatchGame extends BaseGame {
         aspect-ratio: 3/4;
         perspective: 1000px;
         cursor: pointer;
+        min-width: 60px;
+        min-height: 80px;
       }
 
       .card-inner {
@@ -323,18 +325,80 @@ export class CardMatchGame extends BaseGame {
       }
 
       @media (max-width: 768px) {
+        .card-match-game {
+          padding: 1rem;
+        }
+
         .game-stats {
-          flex-direction: column;
+          flex-direction: row;
           gap: 1rem;
+          flex-wrap: wrap;
+        }
+
+        .stat {
+          flex: 1;
+          min-width: 100px;
+        }
+
+        .stat-label {
+          font-size: 0.75rem;
+        }
+
+        .stat-value {
+          font-size: 1.25rem;
         }
 
         .cards-container {
           gap: 0.5rem;
+          margin-top: 1rem;
+        }
+
+        /* Force 3 columns on mobile for larger, easier-to-tap cards */
+        .cards-container {
+          grid-template-columns: repeat(3, 1fr) !important;
+        }
+
+        .card {
+          min-width: 70px;
+          min-height: 94px;
+          /* Ensure touch targets are at least 44x44px */
+          touch-action: manipulation;
         }
 
         .card-front,
         .card-back {
-          font-size: 1.75rem;
+          font-size: 2rem;
+        }
+      }
+
+      /* Extra small devices (phones in portrait) */
+      @media (max-width: 480px) {
+        .card-match-game {
+          padding: 0.5rem;
+        }
+
+        .cards-container {
+          gap: 0.4rem;
+          margin-top: 0.75rem;
+        }
+
+        .card {
+          min-width: 80px;
+          min-height: 107px;
+        }
+
+        .card-front,
+        .card-back {
+          font-size: 2.5rem;
+          border-width: 2px;
+        }
+
+        .stat-label {
+          font-size: 0.7rem;
+        }
+
+        .stat-value {
+          font-size: 1.1rem;
         }
       }
     `;

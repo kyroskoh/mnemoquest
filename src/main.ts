@@ -47,6 +47,9 @@ class MnemoQuest {
     // Set up settings
     this.setupSettings();
     
+    // Set up secret developer mode
+    this.setupSecretCode();
+    
     // Update dashboard
     this.uiManager.updateDashboard();
   }
@@ -95,6 +98,9 @@ class MnemoQuest {
     const languageSelect = document.getElementById('languageSelect') as HTMLSelectElement;
     const applyLanguageBtn = document.getElementById('applyLanguageBtn');
     const resetBtn = document.getElementById('resetProgressBtn');
+    const exportBtn = document.getElementById('exportDataBtn');
+    const importBtn = document.getElementById('importDataBtn');
+    const importFileInput = document.getElementById('importFileInput') as HTMLInputElement;
 
     // Store pending language selection
     let pendingLanguage: SupportedLanguage | null = null;
@@ -195,6 +201,52 @@ class MnemoQuest {
       }
     });
 
+    // Export data
+    exportBtn?.addEventListener('click', () => {
+      try {
+        this.storageManager.downloadExport(true); // Encrypted
+        this.showNotification('✅ Progress exported successfully!', 'success');
+      } catch (error) {
+        console.error('Export error:', error);
+        this.showNotification('❌ Failed to export progress', 'error');
+      }
+    });
+
+    // Import data
+    importBtn?.addEventListener('click', () => {
+      importFileInput?.click();
+    });
+
+    importFileInput?.addEventListener('change', (e) => {
+      const file = (e.target as HTMLInputElement).files?.[0];
+      if (!file) return;
+
+      const reader = new FileReader();
+      reader.onload = (event) => {
+        try {
+          const data = event.target?.result as string;
+          const isEncrypted = file.name.endsWith('.mqsave');
+          const result = this.storageManager.importData(data, isEncrypted);
+          
+          if (result.success) {
+            this.showNotification(`✅ ${result.message}`, 'success');
+            this.uiManager.updateDashboard();
+            // Reload the page to ensure all UI is updated
+            setTimeout(() => location.reload(), 1500);
+          } else {
+            this.showNotification(`❌ ${result.message}`, 'error');
+          }
+        } catch (error) {
+          console.error('Import error:', error);
+          this.showNotification('❌ Invalid backup file', 'error');
+        }
+      };
+      reader.readAsText(file);
+      
+      // Reset input so same file can be selected again
+      (e.target as HTMLInputElement).value = '';
+    });
+
     resetBtn?.addEventListener('click', () => {
       const confirmMsg = this.translationManager.t('settings.resetConfirm');
       const successMsg = this.translationManager.t('settings.resetSuccess');
@@ -203,6 +255,201 @@ class MnemoQuest {
         this.storageManager.resetProgress();
         this.uiManager.updateDashboard();
         alert(successMsg);
+      }
+    });
+  }
+
+  /**
+   * Show notification toast message
+   */
+  private showNotification(message: string, type: 'success' | 'error' = 'success'): void {
+    const notification = document.createElement('div');
+    notification.className = `notification notification-${type}`;
+    notification.textContent = message;
+    notification.style.cssText = `
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      padding: 1rem 1.5rem;
+      background: ${type === 'success' ? '#10b981' : '#ef4444'};
+      color: white;
+      border-radius: var(--radius-md);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      z-index: 10000;
+      animation: slideIn 0.3s ease-out;
+      font-weight: 600;
+    `;
+    
+    document.body.appendChild(notification);
+    
+    setTimeout(() => {
+      notification.style.animation = 'slideOut 0.3s ease-out';
+      setTimeout(() => notification.remove(), 300);
+    }, 3000);
+  }
+
+  /**
+   * Setup secret code listener for developer mode
+   */
+  private setupSecretCode(): void {
+    const SECRET_CODE = 'showdev';
+    let keyBuffer = '';
+    let devMode = localStorage.getItem('mnemo_dev_mode') === 'true';
+
+    // Apply developer mode UI if already enabled
+    if (devMode) {
+      this.enableDeveloperMode();
+    }
+
+    // Listen for secret code
+    document.addEventListener('keypress', (e) => {
+      keyBuffer += e.key.toLowerCase();
+      
+      // Keep only last 7 characters
+      if (keyBuffer.length > SECRET_CODE.length) {
+        keyBuffer = keyBuffer.slice(-SECRET_CODE.length);
+      }
+
+      // Check if secret code matches
+      if (keyBuffer === SECRET_CODE) {
+        if (!devMode) {
+          devMode = true;
+          localStorage.setItem('mnemo_dev_mode', 'true');
+          this.enableDeveloperMode();
+          this.showNotification('🔧 Developer Mode Enabled!', 'success');
+          console.log('%c🔓 Developer Mode Activated!', 'color: #10b981; font-weight: bold; font-size: 16px;');
+        }
+        keyBuffer = ''; // Reset buffer
+      }
+    });
+  }
+
+  /**
+   * Enable developer mode UI elements
+   */
+  private enableDeveloperMode(): void {
+    // Create developer controls section if not exists
+    const settingsView = document.getElementById('settingsView');
+    if (!settingsView) return;
+
+    // Check if already exists
+    if (document.getElementById('devModeSection')) return;
+
+    const devSection = document.createElement('div');
+    devSection.id = 'devModeSection';
+    devSection.innerHTML = `
+      <h3 style="margin-top: 2rem; margin-bottom: 1rem; color: #10b981;">🔧 Developer Mode</h3>
+      <div class="setting-item">
+        <button class="secondary-btn" id="devExportConsoleBtn">📋 Export to Console</button>
+        <p style="font-size: 0.75rem; color: var(--text-secondary); margin-top: 0.5rem;">Export unencrypted data to browser console</p>
+      </div>
+      <div class="setting-item">
+        <button class="secondary-btn" id="devDownloadJsonBtn">📄 Download JSON</button>
+        <p style="font-size: 0.75rem; color: var(--text-secondary); margin-top: 0.5rem;">Download unencrypted JSON file</p>
+      </div>
+      <div class="setting-item">
+        <button class="secondary-btn" id="devImportJsonBtn">📥 Import JSON</button>
+        <input type="file" id="devImportFileInput" accept=".json" style="display: none;">
+        <p style="font-size: 0.75rem; color: var(--text-secondary); margin-top: 0.5rem;">Import unencrypted JSON data</p>
+      </div>
+      <div class="setting-item">
+        <button class="secondary-btn" id="devMaxLevelBtn">⚡ Set Max Level</button>
+        <p style="font-size: 0.75rem; color: var(--text-secondary); margin-top: 0.5rem;">Instantly reach level 100 with all badges</p>
+      </div>
+      <div class="setting-item">
+        <button class="danger-btn" id="devDisableBtn">🔒 Disable Developer Mode</button>
+      </div>
+    `;
+
+    // Insert before the danger zone section
+    const dangerZone = settingsView.querySelector('h3[style*="color: #ef4444"]');
+    if (dangerZone) {
+      dangerZone.parentElement?.insertBefore(devSection, dangerZone);
+    } else {
+      const settingsContainer = settingsView.querySelector('.settings-container');
+      settingsContainer?.appendChild(devSection);
+    }
+
+    // Setup event listeners
+    this.setupDeveloperControls();
+  }
+
+  /**
+   * Setup developer control event listeners
+   */
+  private setupDeveloperControls(): void {
+    const devExportConsoleBtn = document.getElementById('devExportConsoleBtn');
+    const devDownloadJsonBtn = document.getElementById('devDownloadJsonBtn');
+    const devImportJsonBtn = document.getElementById('devImportJsonBtn');
+    const devImportFileInput = document.getElementById('devImportFileInput') as HTMLInputElement;
+    const devMaxLevelBtn = document.getElementById('devMaxLevelBtn');
+    const devDisableBtn = document.getElementById('devDisableBtn');
+
+    // Export to console
+    devExportConsoleBtn?.addEventListener('click', () => {
+      window.mnemoDevExport();
+      this.showNotification('✅ Data exported to console', 'success');
+    });
+
+    // Download JSON
+    devDownloadJsonBtn?.addEventListener('click', () => {
+      window.mnemoDevDownload();
+      this.showNotification('✅ JSON file downloaded', 'success');
+    });
+
+    // Import JSON
+    devImportJsonBtn?.addEventListener('click', () => {
+      devImportFileInput?.click();
+    });
+
+    devImportFileInput?.addEventListener('change', (e) => {
+      const file = (e.target as HTMLInputElement).files?.[0];
+      if (!file) return;
+
+      const reader = new FileReader();
+      reader.onload = (event) => {
+        try {
+          const data = event.target?.result as string;
+          const result = window.mnemoDevImport(data);
+          
+          if (result.success) {
+            this.showNotification(`✅ ${result.message}`, 'success');
+          } else {
+            this.showNotification(`❌ ${result.message}`, 'error');
+          }
+        } catch (error) {
+          console.error('Import error:', error);
+          this.showNotification('❌ Invalid JSON file', 'error');
+        }
+      };
+      reader.readAsText(file);
+      
+      (e.target as HTMLInputElement).value = '';
+    });
+
+    // Set max level
+    devMaxLevelBtn?.addEventListener('click', () => {
+      if (confirm('Set player to max level (100) with all badges and 100,000 XP?')) {
+        const progress = this.storageManager.loadProgress();
+        progress.totalXP = 100000;
+        progress.level = 100;
+        progress.gamesPlayed = 500;
+        progress.dailyStreak = 365;
+        progress.badges = ['first_game', 'ten_games', 'fifty_games', 'century', 'streak_3', 'streak_7', 'streak_30', 'level_5', 'level_10', 'accurate', 'perfectionist'];
+        
+        this.storageManager.saveProgress(progress);
+        this.uiManager.updateDashboard();
+        this.showNotification('⚡ Max level unlocked!', 'success');
+      }
+    });
+
+    // Disable developer mode
+    devDisableBtn?.addEventListener('click', () => {
+      if (confirm('Disable developer mode? (Type "showdev" again to re-enable)')) {
+        localStorage.removeItem('mnemo_dev_mode');
+        document.getElementById('devModeSection')?.remove();
+        this.showNotification('🔒 Developer mode disabled', 'success');
+        console.log('%c🔒 Developer Mode Deactivated', 'color: #ef4444; font-weight: bold;');
       }
     });
   }
@@ -347,6 +594,47 @@ class MnemoQuest {
   }
 }
 
-// Initialize the app
-new MnemoQuest();
+// Initialize app
+const app = new MnemoQuest();
+
+// Expose developer functions to window object for console access
+declare global {
+  interface Window {
+    mnemoDevExport: () => string;
+    mnemoDevImport: (data: string) => { success: boolean; message: string };
+    mnemoDevDownload: () => void;
+  }
+}
+
+// Developer tools (accessible via browser console)
+window.mnemoDevExport = () => {
+  console.log('%c🔧 Developer Export', 'color: #10b981; font-weight: bold; font-size: 14px;');
+  console.log('%cThis exports UNENCRYPTED data for debugging.', 'color: #f59e0b;');
+  console.log('%cUsers cannot access this function easily.', 'color: #f59e0b;');
+  return (app as any).storageManager.devExportData();
+};
+
+window.mnemoDevImport = (data: string) => {
+  console.log('%c🔧 Developer Import', 'color: #10b981; font-weight: bold; font-size: 14px;');
+  console.log('%cImporting UNENCRYPTED data...', 'color: #f59e0b;');
+  const result = (app as any).storageManager.devImportData(data);
+  if (result.success) {
+    console.log('%c✅ Import successful! Reloading page...', 'color: #10b981;');
+    setTimeout(() => location.reload(), 1000);
+  }
+  return result;
+};
+
+window.mnemoDevDownload = () => {
+  console.log('%c🔧 Developer Download', 'color: #10b981; font-weight: bold; font-size: 14px;');
+  console.log('%cDownloading UNENCRYPTED JSON file...', 'color: #f59e0b;');
+  (app as any).storageManager.downloadExport(false);
+};
+
+console.log('%c🧠 MnemoQuest Developer Tools', 'color: #0d9488; font-weight: bold; font-size: 16px;');
+console.log('%cAvailable commands:', 'color: #0d9488; font-weight: bold;');
+console.log('%c  window.mnemoDevExport()', 'color: #10b981;', '- Export unencrypted data to console');
+console.log('%c  window.mnemoDevImport(data)', 'color: #10b981;', '- Import unencrypted JSON data');
+console.log('%c  window.mnemoDevDownload()', 'color: #10b981;', '- Download unencrypted JSON file');
+console.log('%c⚠️  These functions are for developers only!', 'color: #f59e0b; font-weight: bold;');
 

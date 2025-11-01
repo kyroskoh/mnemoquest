@@ -313,5 +313,144 @@ export class StorageManager {
     const progress = this.loadProgress();
     return progress.gameStats[gameType]?.currentDifficulty || 1;
   }
+
+  // ========== EXPORT/IMPORT FUNCTIONALITY ==========
+
+  /**
+   * Simple XOR encryption for user data obfuscation
+   * Not cryptographically secure, but prevents casual tampering
+   */
+  private encrypt(data: string): string {
+    const key = 'MnemoQuest2025SecretKey'; // Simple obfuscation key
+    let encrypted = '';
+    for (let i = 0; i < data.length; i++) {
+      encrypted += String.fromCharCode(data.charCodeAt(i) ^ key.charCodeAt(i % key.length));
+    }
+    // Base64 encode to make it transportable
+    return btoa(encrypted);
+  }
+
+  /**
+   * Decrypt XOR encrypted data
+   */
+  private decrypt(encryptedData: string): string {
+    try {
+      const key = 'MnemoQuest2025SecretKey';
+      const decoded = atob(encryptedData);
+      let decrypted = '';
+      for (let i = 0; i < decoded.length; i++) {
+        decrypted += String.fromCharCode(decoded.charCodeAt(i) ^ key.charCodeAt(i % key.length));
+      }
+      return decrypted;
+    } catch (e) {
+      throw new Error('Invalid encrypted data');
+    }
+  }
+
+  /**
+   * Export user data (encrypted for users, includes progress and settings)
+   */
+  exportData(encrypted: boolean = true): string {
+    const data = {
+      version: '1.0',
+      timestamp: new Date().toISOString(),
+      progress: this.loadProgress(),
+      settings: this.getSettings()
+    };
+
+    const jsonData = JSON.stringify(data, null, 2);
+    
+    if (encrypted) {
+      return this.encrypt(jsonData);
+    }
+    
+    return jsonData;
+  }
+
+  /**
+   * Import user data (supports both encrypted and unencrypted)
+   */
+  importData(data: string, isEncrypted: boolean = true): { success: boolean; message: string } {
+    try {
+      let jsonData: string;
+      
+      if (isEncrypted) {
+        jsonData = this.decrypt(data);
+      } else {
+        jsonData = data;
+      }
+
+      const imported = JSON.parse(jsonData);
+
+      // Validate data structure
+      if (!imported.version || !imported.progress || !imported.settings) {
+        return { success: false, message: 'Invalid data format' };
+      }
+
+      // Validate progress data
+      if (typeof imported.progress.totalXP !== 'number' || 
+          typeof imported.progress.level !== 'number' ||
+          !Array.isArray(imported.progress.badges)) {
+        return { success: false, message: 'Invalid progress data' };
+      }
+
+      // Import the data
+      this.saveProgress(imported.progress);
+      localStorage.setItem(this.SETTINGS_KEY, JSON.stringify(imported.settings));
+
+      return { 
+        success: true, 
+        message: `Successfully imported data from ${new Date(imported.timestamp).toLocaleDateString()}` 
+      };
+    } catch (error) {
+      console.error('Import error:', error);
+      return { 
+        success: false, 
+        message: error instanceof Error ? error.message : 'Failed to import data' 
+      };
+    }
+  }
+
+  /**
+   * Developer function: Export unencrypted data
+   * Accessible via browser console: window.mnemoDevExport()
+   */
+  devExportData(): string {
+    const data = this.exportData(false);
+    console.log('=== UNENCRYPTED EXPORT ===');
+    console.log(data);
+    console.log('========================');
+    return data;
+  }
+
+  /**
+   * Developer function: Import unencrypted data
+   * Accessible via browser console: window.mnemoDevImport(data)
+   */
+  devImportData(data: string): { success: boolean; message: string } {
+    console.log('=== DEVELOPER IMPORT ===');
+    const result = this.importData(data, false);
+    console.log(result);
+    console.log('=======================');
+    return result;
+  }
+
+  /**
+   * Download export as a file
+   */
+  downloadExport(encrypted: boolean = true): void {
+    const data = this.exportData(encrypted);
+    const filename = `mnemoquest-backup-${new Date().toISOString().split('T')[0]}.${encrypted ? 'mqsave' : 'json'}`;
+    
+    const blob = new Blob([data], { type: encrypted ? 'application/octet-stream' : 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  }
 }
 
