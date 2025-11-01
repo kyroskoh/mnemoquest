@@ -41,7 +41,27 @@ const de: Translation = {
     skip: 'Tutorial überspringen',
     back: 'Zurück',
     next: 'Weiter',
-    startPlaying: 'Spielen!'
+    startPlaying: 'Spielen!',
+    howToPlay: 'Wie man spielt',
+    tips: 'Tipps',
+    memoryGrid: {
+      welcome: 'Willkommen bei Gedächtnis-Raster!',
+      intro: 'Testen Sie Ihr räumliches Gedächtnis, indem Sie sich merken, wo Symbole auf einem Raster erscheinen.',
+      steps: '1. Beobachten Sie sorgfältig, wie Symbole im Raster erscheinen\n2. Merken Sie sich ihre Positionen\n3. Wenn das Raster gelöscht wird, klicken Sie auf die Zellen mit Symbolen\n4. Absolvieren Sie 5 Runden, um das Spiel zu beenden',
+      tips: '• Das Raster wird nur wenige Sekunden lang angezeigt - konzentrieren Sie sich!\n• Je besser Sie werden, desto schwieriger wird es\n• Versuchen Sie, Muster zu visualisieren oder mentale Assoziationen zu erstellen'
+    },
+    sequenceSparks: {
+      welcome: 'Willkommen bei Sequenz-Funken!',
+      intro: 'Trainieren Sie Ihr Arbeitsgedächtnis, indem Sie Sequenzen blinkender Lichter wiederholen.',
+      steps: '1. Beobachten Sie, wie die farbigen Tasten nacheinander aufleuchten\n2. Warten Sie, bis die Sequenz beendet ist\n3. Klicken Sie die Tasten in derselben Reihenfolge\n4. Die Sequenz wird mit jeder Runde länger',
+      tips: '• Konzentrieren Sie sich auf eine Taste nach der anderen\n• Versuchen Sie, die Farben laut auszusprechen, um das Gedächtnis zu stärken\n• Erstellen Sie einen Rhythmus oder ein Muster in Ihrem Kopf'
+    },
+    cardMatch: {
+      welcome: 'Willkommen bei Karten-Paare!',
+      intro: 'Fordern Sie Ihr visuelles Gedächtnis heraus, indem Sie Kartenpaare finden, bevor die Zeit abläuft.',
+      steps: '1. Klicken Sie auf Karten, um sie umzudrehen\n2. Versuchen Sie, übereinstimmende Paare zu finden\n3. Merken Sie sich, wo jedes Symbol ist\n4. Finden Sie alle Paare, bevor die Zeit abläuft',
+      tips: '• Beginnen Sie damit, Karten systematisch umzudrehen\n• Achten Sie auf die Positionen der Symbole\n• Arbeiten Sie schnell, aber genau, um Zeit zu sparen'
+    }
   },
   
   gameUI: {

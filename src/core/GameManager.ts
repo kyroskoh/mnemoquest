@@ -2,6 +2,7 @@ import { StorageManager } from './StorageManager';
 import { UIManager } from './UIManager';
 import { DifficultyManager } from './DifficultyManager';
 import { TutorialManager } from './TutorialManager';
+import { TranslationManager } from './TranslationManager';
 import { BaseGame } from '../games/BaseGame';
 import { MemoryGridGame } from '../games/MemoryGridGame';
 import { SequenceSparksGame } from '../games/SequenceSparksGame';
@@ -16,11 +17,11 @@ export class GameManager {
   private currentGameType: string = '';
   private startTime: number = 0;
 
-  constructor(storageManager: StorageManager, uiManager: UIManager) {
+  constructor(storageManager: StorageManager, uiManager: UIManager, translationManager: TranslationManager) {
     this.storageManager = storageManager;
     this.uiManager = uiManager;
     this.difficultyManager = new DifficultyManager(storageManager);
-    this.tutorialManager = new TutorialManager(storageManager);
+    this.tutorialManager = new TutorialManager(storageManager, translationManager);
 
     // Listen for play again events
     window.addEventListener('playAgain', ((event: CustomEvent) => {

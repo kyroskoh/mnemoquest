@@ -41,7 +41,27 @@ const en: Translation = {
     skip: 'Skip Tutorial',
     back: 'Back',
     next: 'Next',
-    startPlaying: 'Start Playing!'
+    startPlaying: 'Start Playing!',
+    howToPlay: 'How to Play',
+    tips: 'Tips',
+    memoryGrid: {
+      welcome: 'Welcome to Memory Grid!',
+      intro: 'Test your spatial memory by remembering where symbols appear on a grid.',
+      steps: '1. Watch carefully as symbols appear on the grid\n2. Memorize their positions\n3. When the grid clears, click on the cells that had symbols\n4. Complete 5 rounds to finish the game',
+      tips: '• The grid will only show for a few seconds - focus!\n• As you improve, the difficulty will increase\n• Try to visualize patterns or create mental associations'
+    },
+    sequenceSparks: {
+      welcome: 'Welcome to Sequence Sparks!',
+      intro: 'Train your working memory by repeating sequences of flashing lights.',
+      steps: '1. Watch the colored buttons light up in sequence\n2. Wait for the sequence to finish\n3. Click the buttons in the same order\n4. The sequence gets longer each round',
+      tips: '• Focus on one button at a time\n• Try saying colors out loud to reinforce memory\n• Create a rhythm or pattern in your mind'
+    },
+    cardMatch: {
+      welcome: 'Welcome to Card Match!',
+      intro: 'Challenge your visual memory by matching pairs of cards before time runs out.',
+      steps: '1. Click on cards to flip them over\n2. Try to find matching pairs\n3. Remember where each symbol is located\n4. Match all pairs before the timer expires',
+      tips: '• Start by flipping cards systematically\n• Pay attention to symbol locations\n• Work quickly but accurately to save time'
+    }
   },
   
   gameUI: {

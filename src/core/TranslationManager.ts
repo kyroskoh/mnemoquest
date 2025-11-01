@@ -46,6 +46,26 @@ export interface Translation {
     back: string;
     next: string;
     startPlaying: string;
+    howToPlay: string;
+    tips: string;
+    memoryGrid: {
+      welcome: string;
+      intro: string;
+      steps: string;
+      tips: string;
+    };
+    sequenceSparks: {
+      welcome: string;
+      intro: string;
+      steps: string;
+      tips: string;
+    };
+    cardMatch: {
+      welcome: string;
+      intro: string;
+      steps: string;
+      tips: string;
+    };
   };
   
   // Game UI

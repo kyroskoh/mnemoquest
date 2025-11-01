@@ -41,7 +41,27 @@ const pt: Translation = {
     skip: 'Pular Tutorial',
     back: 'Voltar',
     next: 'Próximo',
-    startPlaying: 'Começar a Jogar!'
+    startPlaying: 'Começar a Jogar!',
+    howToPlay: 'Como Jogar',
+    tips: 'Dicas',
+    memoryGrid: {
+      welcome: 'Bem-vindo à Grade de Memória!',
+      intro: 'Teste sua memória espacial lembrando onde os símbolos aparecem em uma grade.',
+      steps: '1. Observe cuidadosamente os símbolos aparecendo na grade\n2. Memorize suas posições\n3. Quando a grade limpar, clique nas células que tinham símbolos\n4. Complete 5 rodadas para terminar o jogo',
+      tips: '• A grade será exibida apenas por alguns segundos - concentre-se!\n• À medida que você melhora, a dificuldade aumentará\n• Tente visualizar padrões ou criar associações mentais'
+    },
+    sequenceSparks: {
+      welcome: 'Bem-vindo às Faíscas de Sequência!',
+      intro: 'Treine sua memória de trabalho repetindo sequências de luzes piscantes.',
+      steps: '1. Observe os botões coloridos acenderem em sequência\n2. Aguarde o término da sequência\n3. Clique nos botões na mesma ordem\n4. A sequência fica mais longa a cada rodada',
+      tips: '• Concentre-se em um botão de cada vez\n• Tente dizer as cores em voz alta para reforçar a memória\n• Crie um ritmo ou padrão em sua mente'
+    },
+    cardMatch: {
+      welcome: 'Bem-vindo à Combinação de Cartas!',
+      intro: 'Desafie sua memória visual combinando pares de cartas antes que o tempo acabe.',
+      steps: '1. Clique nas cartas para virá-las\n2. Tente encontrar pares correspondentes\n3. Lembre-se onde cada símbolo está localizado\n4. Combine todos os pares antes que o tempo expire',
+      tips: '• Comece virando as cartas sistematicamente\n• Preste atenção às localizações dos símbolos\n• Trabalhe rapidamente, mas com precisão para economizar tempo'
+    }
   },
   
   gameUI: {

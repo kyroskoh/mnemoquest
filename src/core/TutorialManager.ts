@@ -1,4 +1,5 @@
 import { StorageManager } from './StorageManager';
+import { TranslationManager } from './TranslationManager';
 
 interface TutorialStep {
   title: string;
@@ -9,8 +10,10 @@ interface TutorialStep {
 export class TutorialManager {
   private readonly TUTORIAL_KEY = 'mnemoquest_tutorials_completed';
   private currentOverlay: HTMLElement | null = null;
+  private translationManager: TranslationManager;
 
-  constructor(_storageManager: StorageManager) {
+  constructor(_storageManager: StorageManager, translationManager: TranslationManager) {
+    this.translationManager = translationManager;
     this.addTutorialStyles();
   }
 
@@ -32,52 +35,54 @@ export class TutorialManager {
   }
 
   private getTutorialSteps(gameType: string): TutorialStep[] {
+    const t = (key: string) => this.translationManager.t(key);
+    
     switch (gameType) {
       case 'memory-grid':
         return [
           {
-            title: '🎯 Welcome to Memory Grid!',
-            description: 'Test your spatial memory by remembering where symbols appear on a grid.'
+            title: `🎯 ${t('tutorial.memoryGrid.welcome')}`,
+            description: t('tutorial.memoryGrid.intro')
           },
           {
-            title: 'How to Play',
-            description: '1. Watch carefully as symbols appear on the grid\n2. Memorize their positions\n3. When the grid clears, click on the cells that had symbols\n4. Complete 5 rounds to finish the game'
+            title: t('tutorial.howToPlay'),
+            description: t('tutorial.memoryGrid.steps')
           },
           {
-            title: 'Tips',
-            description: '• The grid will only show for a few seconds - focus!\n• As you improve, the difficulty will increase\n• Try to visualize patterns or create mental associations'
+            title: t('tutorial.tips'),
+            description: t('tutorial.memoryGrid.tips')
           }
         ];
 
       case 'sequence-sparks':
         return [
           {
-            title: '✨ Welcome to Sequence Sparks!',
-            description: 'Train your working memory by repeating sequences of flashing lights.'
+            title: `✨ ${t('tutorial.sequenceSparks.welcome')}`,
+            description: t('tutorial.sequenceSparks.intro')
           },
           {
-            title: 'How to Play',
-            description: '1. Watch the colored buttons light up in sequence\n2. Wait for the sequence to finish\n3. Click the buttons in the same order\n4. The sequence gets longer each round'
+            title: t('tutorial.howToPlay'),
+            description: t('tutorial.sequenceSparks.steps')
           },
           {
-            title: 'Tips',
-            description: '• Focus on one button at a time\n• Try saying colors out loud to reinforce memory\n• Create a rhythm or pattern in your mind'
+            title: t('tutorial.tips'),
+            description: t('tutorial.sequenceSparks.tips')
           }
         ];
 
       case 'card-match':
         return [
           {
-            title: '🎴 Welcome to Card Match!',
-            description: 'Challenge your visual memory by matching pairs of cards before time runs out.'
+            title: `🎴 ${t('tutorial.cardMatch.welcome')}`,
+            description: t('tutorial.cardMatch.intro')
           },
           {
-            title: 'How to Play',
-            description: '1. Click on cards to flip them over\n2. Try to find matching pairs\n3. Remember where each symbol is located\n4. Match all pairs before the timer expires'
+            title: t('tutorial.howToPlay'),
+            description: t('tutorial.cardMatch.steps')
           },
           {
-            title: 'Tips',
-            description: '• Start by flipping cards systematically\n• Pay attention to symbol locations\n• Work quickly but accurately to save time'
+            title: t('tutorial.tips'),
+            description: t('tutorial.cardMatch.tips')
           }
         ];
 
@@ -103,13 +108,15 @@ export class TutorialManager {
         this.currentOverlay.remove();
       }
 
+      const t = (key: string) => this.translationManager.t(key);
+      
       this.currentOverlay = document.createElement('div');
       this.currentOverlay.className = 'tutorial-overlay';
       this.currentOverlay.innerHTML = `
         <div class="tutorial-content">
           <div class="tutorial-header">
             <h2>${step.title}</h2>
-            <button class="tutorial-skip" id="tutorialSkip">Skip Tutorial</button>
+            <button class="tutorial-skip" id="tutorialSkip">${t('tutorial.skip')}</button>
           </div>
           <div class="tutorial-body">
             <p>${step.description.replace(/\n/g, '<br>')}</p>
@@ -119,9 +126,9 @@ export class TutorialManager {
               ${steps.map((_, i) => `<div class="progress-dot ${i === currentStep ? 'active' : i < currentStep ? 'complete' : ''}"></div>`).join('')}
             </div>
             <div class="tutorial-buttons">
-              ${currentStep > 0 ? '<button class="tutorial-btn secondary" id="tutorialBack">Back</button>' : ''}
+              ${currentStep > 0 ? `<button class="tutorial-btn secondary" id="tutorialBack">${t('tutorial.back')}</button>` : ''}
               <button class="tutorial-btn primary" id="tutorialNext">
-                ${currentStep === steps.length - 1 ? 'Start Playing!' : 'Next'}
+                ${currentStep === steps.length - 1 ? t('tutorial.startPlaying') : t('tutorial.next')}
               </button>
             </div>
           </div>

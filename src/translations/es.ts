@@ -41,7 +41,27 @@ const es: Translation = {
     skip: 'Saltar Tutorial',
     back: 'Atrás',
     next: 'Siguiente',
-    startPlaying: '¡Comenzar a Jugar!'
+    startPlaying: '¡Comenzar a Jugar!',
+    howToPlay: 'Cómo Jugar',
+    tips: 'Consejos',
+    memoryGrid: {
+      welcome: '¡Bienvenido a Grid de Memoria!',
+      intro: 'Prueba tu memoria espacial recordando dónde aparecen los símbolos en una cuadrícula.',
+      steps: '1. Observa cuidadosamente cómo aparecen los símbolos en la cuadrícula\n2. Memoriza sus posiciones\n3. Cuando la cuadrícula se borre, haz clic en las celdas que tenían símbolos\n4. Completa 5 rondas para terminar el juego',
+      tips: '• La cuadrícula solo se mostrará durante unos segundos - ¡concéntrate!\n• A medida que mejores, la dificultad aumentará\n• Intenta visualizar patrones o crear asociaciones mentales'
+    },
+    sequenceSparks: {
+      welcome: '¡Bienvenido a Chispas de Secuencia!',
+      intro: 'Entrena tu memoria de trabajo repitiendo secuencias de luces parpadeantes.',
+      steps: '1. Observa cómo se iluminan los botones de colores en secuencia\n2. Espera a que la secuencia termine\n3. Haz clic en los botones en el mismo orden\n4. La secuencia se hace más larga cada ronda',
+      tips: '• Concéntrate en un botón a la vez\n• Intenta decir los colores en voz alta para reforzar la memoria\n• Crea un ritmo o patrón en tu mente'
+    },
+    cardMatch: {
+      welcome: '¡Bienvenido a Empareja Cartas!',
+      intro: 'Desafía tu memoria visual emparejando pares de cartas antes de que se acabe el tiempo.',
+      steps: '1. Haz clic en las cartas para voltearlas\n2. Intenta encontrar pares coincidentes\n3. Recuerda dónde está ubicado cada símbolo\n4. Empareja todos los pares antes de que expire el temporizador',
+      tips: '• Comienza volteando cartas sistemáticamente\n• Presta atención a las ubicaciones de los símbolos\n• Trabaja rápido pero con precisión para ahorrar tiempo'
+    }
   },
   
   gameUI: {

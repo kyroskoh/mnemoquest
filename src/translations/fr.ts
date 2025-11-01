@@ -41,7 +41,27 @@ const fr: Translation = {
     skip: 'Passer le Tutoriel',
     back: 'Retour',
     next: 'Suivant',
-    startPlaying: 'Commencer à Jouer !'
+    startPlaying: 'Commencer à Jouer !',
+    howToPlay: 'Comment Jouer',
+    tips: 'Conseils',
+    memoryGrid: {
+      welcome: 'Bienvenue dans la Grille de Mémoire !',
+      intro: 'Testez votre mémoire spatiale en vous souvenant où les symboles apparaissent sur une grille.',
+      steps: '1. Observez attentivement les symboles apparaître sur la grille\n2. Mémorisez leurs positions\n3. Lorsque la grille se vide, cliquez sur les cellules qui avaient des symboles\n4. Complétez 5 rounds pour finir le jeu',
+      tips: '• La grille ne s\'affichera que quelques secondes - concentrez-vous !\n• Au fur et à mesure que vous progressez, la difficulté augmentera\n• Essayez de visualiser des motifs ou de créer des associations mentales'
+    },
+    sequenceSparks: {
+      welcome: 'Bienvenue dans Étincelles de Séquence !',
+      intro: 'Entraînez votre mémoire de travail en répétant des séquences de lumières clignotantes.',
+      steps: '1. Regardez les boutons colorés s\'allumer en séquence\n2. Attendez que la séquence se termine\n3. Cliquez sur les boutons dans le même ordre\n4. La séquence s\'allonge à chaque round',
+      tips: '• Concentrez-vous sur un bouton à la fois\n• Essayez de dire les couleurs à voix haute pour renforcer la mémoire\n• Créez un rythme ou un motif dans votre esprit'
+    },
+    cardMatch: {
+      welcome: 'Bienvenue dans Cartes Assorties !',
+      intro: 'Défiez votre mémoire visuelle en assortissant des paires de cartes avant la fin du temps.',
+      steps: '1. Cliquez sur les cartes pour les retourner\n2. Essayez de trouver des paires correspondantes\n3. Mémorisez où chaque symbole est situé\n4. Assortissez toutes les paires avant l\'expiration du chronomètre',
+      tips: '• Commencez par retourner les cartes systématiquement\n• Faites attention aux emplacements des symboles\n• Travaillez rapidement mais avec précision pour gagner du temps'
+    }
   },
   
   gameUI: {
