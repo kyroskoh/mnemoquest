@@ -2,7 +2,7 @@
 
 This document outlines planned mini-games for future phases of MnemoQuest development.
 
-**Current Status**: Phase 1 & 2 Complete (3 games)  
+**Current Status**: Phase 1, 2 & 4 Complete (7 games)  
 **Document Version**: 1.0  
 **Last Updated**: November 2025  
 🎮 **[Play Current Version →](https://kyroskoh.github.io/mnemoquest/)**
@@ -13,7 +13,11 @@ This document outlines planned mini-games for future phases of MnemoQuest develo
 
 ✅ **Memory Grid** - Spatial recall  
 ✅ **Sequence Sparks** - Working memory  
-✅ **Card Match** - Visual memory
+✅ **Card Match** - Visual memory  
+✅ **Number Recall** - Numerical memory  
+✅ **Flash Count** - Rapid attention  
+✅ **Word Trail** - Verbal memory  
+✅ **Pattern Path** - Spatial sequencing
 
 ---
 
