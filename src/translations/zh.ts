@@ -138,6 +138,53 @@ const zh: Translation = {
     cancel: '取消',
     yes: '是',
     no: '否'
+  },
+  
+  badges: {
+    firstSteps: {
+      name: '第一步',
+      description: '完成你的第一个游戏'
+    },
+    dedicated: {
+      name: '专注者',
+      description: '玩10个游戏'
+    },
+    committed: {
+      name: '坚持者',
+      description: '玩50个游戏'
+    },
+    centurion: {
+      name: '百夫长',
+      description: '玩100个游戏'
+    },
+    streak3: {
+      name: '3天连胜',
+      description: '连续玩3天'
+    },
+    streak7: {
+      name: '周战士',
+      description: '连续玩7天'
+    },
+    streak30: {
+      name: '月度大师',
+      description: '连续玩30天'
+    },
+    level5: {
+      name: '5级',
+      description: '达到5级'
+    },
+    level10: {
+      name: '10级',
+      description: '达到10级'
+    },
+    sharpMind: {
+      name: '敏锐头脑',
+      description: '80%平均准确度（10+游戏）'
+    },
+    perfectionist: {
+      name: '完美主义者',
+      description: '95%平均准确度（20+游戏）'
+    }
   }
 };
 

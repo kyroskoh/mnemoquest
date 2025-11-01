@@ -138,6 +138,53 @@ const pt: Translation = {
     cancel: 'Cancelar',
     yes: 'Sim',
     no: 'Não'
+  },
+  
+  badges: {
+    firstSteps: {
+      name: 'Primeiros Passos',
+      description: 'Complete seu primeiro jogo'
+    },
+    dedicated: {
+      name: 'Dedicado',
+      description: 'Jogue 10 jogos'
+    },
+    committed: {
+      name: 'Comprometido',
+      description: 'Jogue 50 jogos'
+    },
+    centurion: {
+      name: 'Centurião',
+      description: 'Jogue 100 jogos'
+    },
+    streak3: {
+      name: 'Sequência de 3 Dias',
+      description: 'Jogue 3 dias seguidos'
+    },
+    streak7: {
+      name: 'Guerreiro Semanal',
+      description: 'Jogue 7 dias seguidos'
+    },
+    streak30: {
+      name: 'Mestre Mensal',
+      description: 'Jogue 30 dias seguidos'
+    },
+    level5: {
+      name: 'Nível 5',
+      description: 'Alcance o nível 5'
+    },
+    level10: {
+      name: 'Nível 10',
+      description: 'Alcance o nível 10'
+    },
+    sharpMind: {
+      name: 'Mente Afiada',
+      description: '80% de precisão média (10+ jogos)'
+    },
+    perfectionist: {
+      name: 'Perfeccionista',
+      description: '95% de precisão média (20+ jogos)'
+    }
   }
 };
 

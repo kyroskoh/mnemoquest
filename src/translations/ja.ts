@@ -138,6 +138,53 @@ const ja: Translation = {
     cancel: 'キャンセル',
     yes: 'はい',
     no: 'いいえ'
+  },
+  
+  badges: {
+    firstSteps: {
+      name: '最初の一歩',
+      description: '最初のゲームをクリア'
+    },
+    dedicated: {
+      name: '熱心',
+      description: '10ゲームをプレイ'
+    },
+    committed: {
+      name: '献身的',
+      description: '50ゲームをプレイ'
+    },
+    centurion: {
+      name: 'センチュリオン',
+      description: '100ゲームをプレイ'
+    },
+    streak3: {
+      name: '3日連続',
+      description: '3日連続でプレイ'
+    },
+    streak7: {
+      name: 'ウィークウォリアー',
+      description: '7日連続でプレイ'
+    },
+    streak30: {
+      name: 'マンスリーマスター',
+      description: '30日連続でプレイ'
+    },
+    level5: {
+      name: 'レベル5',
+      description: 'レベル5に到達'
+    },
+    level10: {
+      name: 'レベル10',
+      description: 'レベル10に到達'
+    },
+    sharpMind: {
+      name: 'シャープマインド',
+      description: '平均80%の正確性（10+ゲーム）'
+    },
+    perfectionist: {
+      name: '完璧主義者',
+      description: '平均95%の正確性（20+ゲーム）'
+    }
   }
 };
 

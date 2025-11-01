@@ -138,6 +138,53 @@ const ko: Translation = {
     cancel: '취소',
     yes: '예',
     no: '아니오'
+  },
+  
+  badges: {
+    firstSteps: {
+      name: '첫 걸음',
+      description: '첫 게임 완료'
+    },
+    dedicated: {
+      name: '헌신적',
+      description: '10개 게임 플레이'
+    },
+    committed: {
+      name: '전념',
+      description: '50개 게임 플레이'
+    },
+    centurion: {
+      name: '센츄리온',
+      description: '100개 게임 플레이'
+    },
+    streak3: {
+      name: '3일 연속',
+      description: '3일 연속 플레이'
+    },
+    streak7: {
+      name: '주간 전사',
+      description: '7일 연속 플레이'
+    },
+    streak30: {
+      name: '월간 마스터',
+      description: '30일 연속 플레이'
+    },
+    level5: {
+      name: '레벨 5',
+      description: '레벨 5 도달'
+    },
+    level10: {
+      name: '레벨 10',
+      description: '레벨 10 도달'
+    },
+    sharpMind: {
+      name: '예리한 마음',
+      description: '평균 80% 정확도 (10+ 게임)'
+    },
+    perfectionist: {
+      name: '완벽주의자',
+      description: '평균 95% 정확도 (20+ 게임)'
+    }
   }
 };
 
