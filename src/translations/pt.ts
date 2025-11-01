@@ -22,17 +22,24 @@ const pt: Translation = {
     memoryGrid: {
       name: 'Grade de Memória',
       description: 'Lembre-se das posições dos símbolos em uma grade',
-      skill: 'Memória Espacial'
+      skill: 'Memória Espacial',
+      instructions: 'Memorize as posições dos símbolos destacados...',
+      recall: 'Clique nas células que tinham símbolos!'
     },
     sequenceSparks: {
       name: 'Faíscas de Sequência',
       description: 'Memorize e repita sequências de luz',
-      skill: 'Memória de Trabalho'
+      skill: 'Memória de Trabalho',
+      instructions: 'Observe a sequência e repita...',
+      watch: 'Observe a sequência...',
+      repeat: 'Agora repita a sequência!',
+      wrong: 'Ops! Sequência errada. Tente a próxima!'
     },
     cardMatch: {
       name: 'Combinação de Cartas',
       description: 'Encontre pares correspondentes sob pressão de tempo',
-      skill: 'Memória Visual'
+      skill: 'Memória Visual',
+      instructions: 'Encontre todos os pares antes que o tempo acabe!'
     },
     playNow: 'Jogar Agora'
   },
@@ -72,20 +79,29 @@ const pt: Translation = {
     score: 'Pontuação',
     accuracy: 'Precisão',
     mistakes: 'Erros',
-    pairsFound: 'Pares Encontrados'
+    pairsFound: 'Pares Encontrados',
+    ready: 'Estou pronto!'
   },
   
   results: {
     gameComplete: 'Jogo Completo! 🎉',
+    score: 'Pontuação',
+    accuracy: 'Precisão',
+    time: 'Tempo',
     xpGained: 'XP Ganho',
+    level: 'Nível',
     playAgain: 'Jogar Novamente',
     backToDashboard: 'Voltar ao Painel'
   },
   
   progress: {
     title: 'Seu Progresso',
-    accuracyTrend: 'Tendência de Precisão (Jogos Recentes)',
-    gamesByType: 'Jogos por Tipo',
+    yourProgress: 'Seu Progresso',
+    recentGames: 'Jogos Recentes',
+    accuracyLabel: 'Precisão %',
+    accuracyTrend: 'Tendência de Precisão Recente',
+    gamesPlayedLabel: 'Jogos Jogados',
+    gamesByType: 'Jogos Jogados por Tipo',
     achievements: 'Conquistas'
   },
   

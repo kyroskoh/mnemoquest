@@ -24,12 +24,22 @@ export class MemoryGridGame extends BaseGame {
     this.container.innerHTML = `
       <div class="memory-grid-game">
         <div class="game-instructions">
-          <h3>Round <span id="roundNumber">1</span>/${this.maxRounds}</h3>
-          <p id="instructionText">Memorize the positions of the highlighted symbols...</p>
+          <h3>${this.t('gameUI.round')} <span id="roundNumber">1</span>/${this.maxRounds}</h3>
+          <p id="instructionText">${this.t('games.memoryGrid.instructions')}</p>
+          <div class="game-stats">
+            <div class="stat-item">
+              <span class="stat-label">${this.t('gameUI.accuracy')}:</span>
+              <span class="stat-value" id="accuracyDisplay">100%</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-label">${this.t('gameUI.mistakes')}:</span>
+              <span class="stat-value" id="mistakesDisplay">0</span>
+            </div>
+          </div>
         </div>
         <div class="grid-container" id="gridContainer"></div>
         <div class="game-controls" id="gameControls">
-          <button class="game-btn" id="readyBtn" style="display: none;">I'm Ready!</button>
+          <button class="game-btn" id="readyBtn" style="display: none.">${this.t('gameUI.ready')}</button>
         </div>
       </div>
     `;
@@ -86,7 +96,12 @@ export class MemoryGridGame extends BaseGame {
     const container = document.getElementById('gridContainer');
     if (!container) return;
 
-    container.style.gridTemplateColumns = `repeat(${this.gridSize}, 1fr)`;
+    // Set grid template columns only if not already set or if it changed
+    const expectedTemplate = `repeat(${this.gridSize}, 1fr)`;
+    if (container.style.gridTemplateColumns !== expectedTemplate) {
+      container.style.gridTemplateColumns = expectedTemplate;
+    }
+    
     container.innerHTML = '';
 
     this.cells.forEach((cell, index) => {
@@ -112,7 +127,7 @@ export class MemoryGridGame extends BaseGame {
     const instructionEl = document.getElementById('instructionText');
     
     if (instructionEl) {
-      instructionEl.textContent = 'Memorize the positions of the symbols...';
+      instructionEl.textContent = this.t('games.memoryGrid.instructions');
     }
 
     this.renderGrid();
@@ -130,7 +145,7 @@ export class MemoryGridGame extends BaseGame {
     const instructionEl = document.getElementById('instructionText');
     
     if (instructionEl) {
-      instructionEl.textContent = 'Click on the cells that had symbols!';
+      instructionEl.textContent = this.t('games.memoryGrid.recall');
     }
 
     this.renderGrid();
@@ -159,6 +174,9 @@ export class MemoryGridGame extends BaseGame {
       this.mistakes++;
     }
 
+    // Update stats display
+    this.updateStatsDisplay();
+
     // Check if all symbols found
     const clickedSymbols = document.querySelectorAll('.grid-cell.correct').length;
     if (clickedSymbols === this.symbolPositions.length) {
@@ -166,6 +184,19 @@ export class MemoryGridGame extends BaseGame {
         this.nextRound();
       }, 1000);
     }
+  }
+
+  private updateStatsDisplay(): void {
+    const totalClicks = this.correctAttempts + this.mistakes;
+    const accuracy = totalClicks > 0 
+      ? Math.round((this.correctAttempts / totalClicks) * 100)
+      : 100;
+    
+    const accuracyEl = document.getElementById('accuracyDisplay');
+    const mistakesEl = document.getElementById('mistakesDisplay');
+    
+    if (accuracyEl) accuracyEl.textContent = `${accuracy}%`;
+    if (mistakesEl) mistakesEl.textContent = this.mistakes.toString();
   }
 
   private nextRound(): void {
@@ -213,6 +244,34 @@ export class MemoryGridGame extends BaseGame {
       .game-instructions p {
         font-size: 1.125rem;
         color: var(--text-secondary);
+      }
+
+      .game-stats {
+        display: flex;
+        gap: 2rem;
+        justify-content: center;
+        margin-top: 1rem;
+        padding: 1rem;
+        background: var(--bg-secondary);
+        border-radius: var(--radius-lg);
+      }
+
+      .stat-item {
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+      }
+
+      .stat-label {
+        font-size: 0.875rem;
+        color: var(--text-secondary);
+        font-weight: 500;
+      }
+
+      .stat-value {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--primary);
       }
 
       .grid-container {

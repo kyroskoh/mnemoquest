@@ -22,17 +22,24 @@ const ja: Translation = {
     memoryGrid: {
       name: 'メモリーグリッド',
       description: 'グリッド内のシンボルの位置を記憶する',
-      skill: '空間記憶'
+      skill: '空間記憶',
+      instructions: 'ハイライトされたシンボルの位置を記憶してください...',
+      recall: 'シンボルがあったセルをクリックしてください！'
     },
     sequenceSparks: {
       name: 'シーケンススパーク',
       description: '光の順序を記憶して繰り返す',
-      skill: 'ワーキングメモリー'
+      skill: 'ワーキングメモリー',
+      instructions: 'シーケンスを見て繰り返してください...',
+      watch: 'シーケンスを見てください...',
+      repeat: 'では、シーケンスを繰り返してください！',
+      wrong: 'おっと！間違ったシーケンスです。次に挑戦してください！'
     },
     cardMatch: {
       name: 'カードマッチ',
       description: '時間制限内にペアを見つける',
-      skill: '視覚記憶'
+      skill: '視覚記憶',
+      instructions: '時間切れになる前にすべてのペアを見つけてください！'
     },
     playNow: '今すぐプレイ'
   },
@@ -72,20 +79,29 @@ const ja: Translation = {
     score: 'スコア',
     accuracy: '正確度',
     mistakes: 'ミス',
-    pairsFound: '見つけたペア'
+    pairsFound: '見つけたペア',
+    ready: '準備完了！'
   },
   
   results: {
     gameComplete: 'ゲーム完了！🎉',
+    score: 'スコア',
+    accuracy: '正確度',
+    time: '時間',
     xpGained: '獲得経験値',
+    level: 'レベル',
     playAgain: 'もう一度プレイ',
     backToDashboard: 'ダッシュボードに戻る'
   },
   
   progress: {
     title: 'あなたの進捗',
-    accuracyTrend: '正確度トレンド（最近のゲーム）',
-    gamesByType: 'タイプ別ゲーム',
+    yourProgress: 'あなたの進捗',
+    recentGames: '最近のゲーム',
+    accuracyLabel: '正確度 %',
+    accuracyTrend: '最近の正確度の推移',
+    gamesPlayedLabel: 'プレイしたゲーム',
+    gamesByType: 'タイプ別プレイしたゲーム',
     achievements: '実績'
   },
   

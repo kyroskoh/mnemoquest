@@ -22,17 +22,24 @@ const ko: Translation = {
     memoryGrid: {
       name: '메모리 그리드',
       description: '그리드에서 기호의 위치를 기억하세요',
-      skill: '공간 기억'
+      skill: '공간 기억',
+      instructions: '강조 표시된 기호의 위치를 기억하세요...',
+      recall: '기호가 있던 셀을 클릭하세요!'
     },
     sequenceSparks: {
       name: '시퀀스 스파크',
       description: '빛의 순서를 기억하고 반복하세요',
-      skill: '작업 기억'
+      skill: '작업 기억',
+      instructions: '시퀀스를 보고 반복하세요...',
+      watch: '시퀀스를 보세요...',
+      repeat: '이제 시퀀스를 반복하세요!',
+      wrong: '앗! 잘못된 시퀀스입니다. 다음 것을 시도하세요!'
     },
     cardMatch: {
       name: '카드 매치',
       description: '시간 제한 내에 짝을 찾으세요',
-      skill: '시각 기억'
+      skill: '시각 기억',
+      instructions: '시간이 다 되기 전에 모든 쌍을 찾으세요!'
     },
     playNow: '지금 플레이'
   },
@@ -72,20 +79,29 @@ const ko: Translation = {
     score: '점수',
     accuracy: '정확도',
     mistakes: '실수',
-    pairsFound: '찾은 쌍'
+    pairsFound: '찾은 쌍',
+    ready: '준비 완료!'
   },
   
   results: {
     gameComplete: '게임 완료! 🎉',
+    score: '점수',
+    accuracy: '정확도',
+    time: '시간',
     xpGained: '획득 경험치',
+    level: '레벨',
     playAgain: '다시 플레이',
     backToDashboard: '대시보드로 돌아가기'
   },
   
   progress: {
-    title: '진행 상황',
-    accuracyTrend: '정확도 추세 (최근 게임)',
-    gamesByType: '유형별 게임',
+    title: '당신의 진행 상황',
+    yourProgress: '당신의 진행 상황',
+    recentGames: '최근 게임',
+    accuracyLabel: '정확도 %',
+    accuracyTrend: '최근 정확도 추이',
+    gamesPlayedLabel: '플레이한 게임',
+    gamesByType: '유형별 플레이한 게임',
     achievements: '업적'
   },
   

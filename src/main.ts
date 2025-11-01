@@ -16,7 +16,7 @@ class MnemoQuest {
     this.storageManager = new StorageManager();
     this.soundManager = new SoundManager(this.storageManager.getSettings().soundEnabled);
     this.translationManager = new TranslationManager();
-    this.uiManager = new UIManager(this.storageManager);
+    this.uiManager = new UIManager(this.storageManager, this.translationManager);
     this.gameManager = new GameManager(this.storageManager, this.uiManager, this.translationManager);
     
     this.init();

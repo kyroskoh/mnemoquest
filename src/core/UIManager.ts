@@ -1,4 +1,5 @@
 import { StorageManager } from './StorageManager';
+import { TranslationManager } from './TranslationManager';
 import { Chart, registerables } from 'chart.js';
 
 // Register Chart.js components
@@ -6,11 +7,21 @@ Chart.register(...registerables);
 
 export class UIManager {
   private storageManager: StorageManager;
+  private translationManager: TranslationManager | null = null;
   private accuracyChart: Chart | null = null;
   private performanceChart: Chart | null = null;
 
-  constructor(storageManager: StorageManager) {
+  constructor(storageManager: StorageManager, translationManager?: TranslationManager) {
     this.storageManager = storageManager;
+    this.translationManager = translationManager || null;
+  }
+  
+  setTranslationManager(translationManager: TranslationManager): void {
+    this.translationManager = translationManager;
+  }
+  
+  private t(key: string): string {
+    return this.translationManager?.t(key) || key;
   }
 
   showView(viewName: string): void {
@@ -73,7 +84,7 @@ export class UIManager {
       data: {
         labels,
         datasets: [{
-          label: 'Accuracy %',
+          label: this.t('progress.accuracyLabel'),
           data,
           borderColor: '#0d9488',
           backgroundColor: 'rgba(13, 148, 136, 0.1)',
@@ -87,7 +98,7 @@ export class UIManager {
         plugins: {
           title: {
             display: true,
-            text: 'Recent Accuracy Trend',
+            text: this.t('progress.accuracyTrend'),
             font: {
               size: 16,
               weight: 'bold'
@@ -151,7 +162,7 @@ export class UIManager {
         plugins: {
           title: {
             display: true,
-            text: 'Games Played by Type',
+            text: this.t('progress.gamesByType'),
             font: {
               size: 16,
               weight: 'bold'

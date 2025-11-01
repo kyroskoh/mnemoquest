@@ -22,17 +22,24 @@ const zh: Translation = {
     memoryGrid: {
       name: '记忆网格',
       description: '回忆网格中符号的位置',
-      skill: '空间记忆'
+      skill: '空间记忆',
+      instructions: '记住高亮符号的位置...',
+      recall: '点击有符号的单元格！'
     },
     sequenceSparks: {
       name: '序列火花',
       description: '记住并重复光序列',
-      skill: '工作记忆'
+      skill: '工作记忆',
+      instructions: '观察序列并重复它...',
+      watch: '观察序列...',
+      repeat: '现在重复序列！',
+      wrong: '哎呀！顺序错误。试试下一个！'
     },
     cardMatch: {
       name: '配对卡牌',
       description: '在时间压力下配对',
-      skill: '视觉记忆'
+      skill: '视觉记忆',
+      instructions: '在时间用完之前找到所有配对！'
     },
     playNow: '立即游戏'
   },
@@ -72,20 +79,29 @@ const zh: Translation = {
     score: '分数',
     accuracy: '准确率',
     mistakes: '错误',
-    pairsFound: '找到配对'
+    pairsFound: '找到配对',
+    ready: '我准备好了！'
   },
   
   results: {
     gameComplete: '游戏完成！🎉',
+    score: '分数',
+    accuracy: '准确率',
+    time: '时间',
     xpGained: '获得经验值',
+    level: '等级',
     playAgain: '再玩一次',
     backToDashboard: '返回主页'
   },
   
   progress: {
-    title: '您的进度',
+    title: '你的进度',
+    yourProgress: '你的进度',
+    recentGames: '最近游戏',
+    accuracyLabel: '准确率 %',
     accuracyTrend: '最近准确率趋势',
-    gamesByType: '按类型划分的游戏',
+    gamesPlayedLabel: '已玩游戏',
+    gamesByType: '按类型分类的已玩游戏',
     achievements: '成就'
   },
   

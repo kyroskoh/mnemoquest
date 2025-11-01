@@ -22,17 +22,24 @@ const fr: Translation = {
     memoryGrid: {
       name: 'Grille de Mémoire',
       description: 'Rappelez-vous les positions des symboles dans une grille',
-      skill: 'Rappel Spatial'
+      skill: 'Rappel Spatial',
+      instructions: 'Mémorisez les positions des symboles en surbrillance...',
+      recall: 'Cliquez sur les cellules qui avaient des symboles !'
     },
     sequenceSparks: {
       name: 'Étincelles de Séquence',
       description: 'Mémorisez et répétez des séquences lumineuses',
-      skill: 'Mémoire de Travail'
+      skill: 'Mémoire de Travail',
+      instructions: 'Regardez la séquence et répétez-la...',
+      watch: 'Regardez la séquence...',
+      repeat: 'Maintenant répétez la séquence !',
+      wrong: 'Oups ! Mauvaise séquence. Essayez la suivante !'
     },
     cardMatch: {
       name: 'Association de Cartes',
       description: 'Associez des paires sous pression temporelle',
-      skill: 'Mémoire Visuelle'
+      skill: 'Mémoire Visuelle',
+      instructions: 'Trouvez toutes les paires avant la fin du temps !'
     },
     playNow: 'Jouer Maintenant'
   },
@@ -72,19 +79,28 @@ const fr: Translation = {
     score: 'Score',
     accuracy: 'Précision',
     mistakes: 'Erreurs',
-    pairsFound: 'Paires Trouvées'
+    pairsFound: 'Paires Trouvées',
+    ready: 'Je suis prêt !'
   },
   
   results: {
     gameComplete: 'Jeu Terminé ! 🎉',
+    score: 'Score',
+    accuracy: 'Précision',
+    time: 'Temps',
     xpGained: 'XP Gagné',
+    level: 'Niveau',
     playAgain: 'Rejouer',
     backToDashboard: 'Retour au Tableau de Bord'
   },
   
   progress: {
-    title: 'Vos Progrès',
+    title: 'Votre Progrès',
+    yourProgress: 'Votre Progrès',
+    recentGames: 'Jeux Récents',
+    accuracyLabel: 'Précision %',
     accuracyTrend: 'Tendance de Précision Récente',
+    gamesPlayedLabel: 'Jeux Joués',
     gamesByType: 'Jeux Joués par Type',
     achievements: 'Réalisations'
   },

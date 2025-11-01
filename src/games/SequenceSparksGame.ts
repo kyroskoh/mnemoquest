@@ -20,8 +20,8 @@ export class SequenceSparksGame extends BaseGame {
     this.container.innerHTML = `
       <div class="sequence-game">
         <div class="game-instructions">
-          <h3>Round <span id="roundNumber">1</span>/${this.maxRounds}</h3>
-          <p id="instructionText">Watch the sequence...</p>
+          <h3>${this.t('gameUI.round')} <span id="roundNumber">1</span>/${this.maxRounds}</h3>
+          <p id="instructionText">${this.t('games.sequenceSparks.instructions')}</p>
         </div>
         <div class="sequence-buttons" id="sequenceButtons"></div>
         <div class="sequence-progress" id="sequenceProgress"></div>

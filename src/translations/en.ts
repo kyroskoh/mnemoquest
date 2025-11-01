@@ -22,17 +22,24 @@ const en: Translation = {
     memoryGrid: {
       name: 'Memory Grid',
       description: 'Recall positions of symbols in a grid',
-      skill: 'Spatial Recall'
+      skill: 'Spatial Recall',
+      instructions: 'Memorize the positions of the highlighted symbols...',
+      recall: 'Click on the cells that had symbols!'
     },
     sequenceSparks: {
       name: 'Sequence Sparks',
       description: 'Remember and repeat light sequences',
-      skill: 'Working Memory'
+      skill: 'Working Memory',
+      instructions: 'Watch the sequence and repeat it...',
+      watch: 'Watch the sequence...',
+      repeat: 'Now repeat the sequence!',
+      wrong: 'Oops! Wrong sequence. Try the next one!'
     },
     cardMatch: {
       name: 'Card Match',
       description: 'Match pairs under time pressure',
-      skill: 'Visual Memory'
+      skill: 'Visual Memory',
+      instructions: 'Find all matching pairs before time runs out!'
     },
     playNow: 'Play Now'
   },
@@ -72,19 +79,28 @@ const en: Translation = {
     score: 'Score',
     accuracy: 'Accuracy',
     mistakes: 'Mistakes',
-    pairsFound: 'Pairs Found'
+    pairsFound: 'Pairs Found',
+    ready: 'I\'m Ready!'
   },
   
   results: {
     gameComplete: 'Game Complete! 🎉',
+    score: 'Score',
+    accuracy: 'Accuracy',
+    time: 'Time',
     xpGained: 'XP Gained',
+    level: 'Level',
     playAgain: 'Play Again',
     backToDashboard: 'Back to Dashboard'
   },
   
   progress: {
     title: 'Your Progress',
+    yourProgress: 'Your Progress',
+    recentGames: 'Recent Games',
+    accuracyLabel: 'Accuracy %',
     accuracyTrend: 'Recent Accuracy Trend',
+    gamesPlayedLabel: 'Games Played',
     gamesByType: 'Games Played by Type',
     achievements: 'Achievements'
   },
@@ -122,6 +138,53 @@ const en: Translation = {
     cancel: 'Cancel',
     yes: 'Yes',
     no: 'No'
+  },
+  
+  badges: {
+    firstSteps: {
+      name: 'First Steps',
+      description: 'Complete your first game'
+    },
+    dedicated: {
+      name: 'Dedicated',
+      description: 'Play 10 games'
+    },
+    committed: {
+      name: 'Committed',
+      description: 'Play 50 games'
+    },
+    centurion: {
+      name: 'Centurion',
+      description: 'Play 100 games'
+    },
+    streak3: {
+      name: '3-Day Streak',
+      description: 'Play 3 days in a row'
+    },
+    streak7: {
+      name: 'Week Warrior',
+      description: 'Play 7 days in a row'
+    },
+    streak30: {
+      name: 'Monthly Master',
+      description: 'Play 30 days in a row'
+    },
+    level5: {
+      name: 'Level 5',
+      description: 'Reach level 5'
+    },
+    level10: {
+      name: 'Level 10',
+      description: 'Reach level 10'
+    },
+    sharpMind: {
+      name: 'Sharp Mind',
+      description: '80% avg accuracy (10+ games)'
+    },
+    perfectionist: {
+      name: 'Perfectionist',
+      description: '95% avg accuracy (20+ games)'
+    }
   }
 };
 

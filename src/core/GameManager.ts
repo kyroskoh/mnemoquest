@@ -13,6 +13,7 @@ export class GameManager {
   private uiManager: UIManager;
   private difficultyManager: DifficultyManager;
   private tutorialManager: TutorialManager;
+  private translationManager: TranslationManager;
   private currentGame: BaseGame | null = null;
   private currentGameType: string = '';
   private startTime: number = 0;
@@ -20,6 +21,7 @@ export class GameManager {
   constructor(storageManager: StorageManager, uiManager: UIManager, translationManager: TranslationManager) {
     this.storageManager = storageManager;
     this.uiManager = uiManager;
+    this.translationManager = translationManager;
     this.difficultyManager = new DifficultyManager(storageManager);
     this.tutorialManager = new TutorialManager(storageManager, translationManager);
 
@@ -55,13 +57,13 @@ export class GameManager {
     // Create appropriate game
     switch (gameType) {
       case 'memory-grid':
-        this.currentGame = new MemoryGridGame(container, difficulty, this.onGameComplete.bind(this));
+        this.currentGame = new MemoryGridGame(container, difficulty, this.onGameComplete.bind(this), this.translationManager);
         break;
       case 'sequence-sparks':
-        this.currentGame = new SequenceSparksGame(container, difficulty, this.onGameComplete.bind(this));
+        this.currentGame = new SequenceSparksGame(container, difficulty, this.onGameComplete.bind(this), this.translationManager);
         break;
       case 'card-match':
-        this.currentGame = new CardMatchGame(container, difficulty, this.onGameComplete.bind(this));
+        this.currentGame = new CardMatchGame(container, difficulty, this.onGameComplete.bind(this), this.translationManager);
         break;
       default:
         console.error('Unknown game type:', gameType);
@@ -79,29 +81,42 @@ export class GameManager {
     const titleEl = document.getElementById('currentGameTitle');
     const levelEl = document.getElementById('currentLevel');
 
-    const titles: Record<string, string> = {
-      'memory-grid': 'Memory Grid',
-      'sequence-sparks': 'Sequence Sparks',
-      'card-match': 'Card Match'
+    const t = (key: string) => this.translationManager.t(key);
+    
+    const titleKeys: Record<string, string> = {
+      'memory-grid': 'games.memoryGrid.name',
+      'sequence-sparks': 'games.sequenceSparks.name',
+      'card-match': 'games.cardMatch.name'
     };
 
-    if (titleEl) titleEl.textContent = titles[gameType] || gameType;
-    if (levelEl) levelEl.textContent = `Level ${Math.floor(difficulty)}`;
+    if (titleEl) {
+      const titleKey = titleKeys[gameType];
+      titleEl.textContent = titleKey ? t(titleKey) : gameType;
+    }
+    if (levelEl) {
+      levelEl.textContent = `${t('gameUI.level')} ${Math.floor(difficulty)}`;
+    }
   }
 
   private startTimer(): void {
     const timerEl = document.getElementById('gameTimer');
     if (!timerEl) return;
 
+    let animationId: number;
+    
     const updateTimer = () => {
-      if (!this.currentGame) return;
+      // Stop timer if game is no longer active
+      if (!this.currentGame) {
+        if (animationId) cancelAnimationFrame(animationId);
+        return;
+      }
 
       const elapsed = Math.floor((Date.now() - this.startTime) / 1000);
       const minutes = Math.floor(elapsed / 60);
       const seconds = elapsed % 60;
       timerEl.textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
 
-      requestAnimationFrame(updateTimer);
+      animationId = requestAnimationFrame(updateTimer);
     };
 
     updateTimer();

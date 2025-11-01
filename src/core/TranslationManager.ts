@@ -26,16 +26,23 @@ export interface Translation {
       name: string;
       description: string;
       skill: string;
+      instructions: string;
+      recall: string;
     };
     sequenceSparks: {
       name: string;
       description: string;
       skill: string;
+      instructions: string;
+      watch: string;
+      repeat: string;
+      wrong: string;
     };
     cardMatch: {
       name: string;
       description: string;
       skill: string;
+      instructions: string;
     };
     playNow: string;
   };
@@ -78,12 +85,17 @@ export interface Translation {
     accuracy: string;
     mistakes: string;
     pairsFound: string;
+    ready: string;
   };
   
   // Results
   results: {
     gameComplete: string;
+    score: string;
+    accuracy: string;
+    time: string;
     xpGained: string;
+    level: string;
     playAgain: string;
     backToDashboard: string;
   };
@@ -91,7 +103,11 @@ export interface Translation {
   // Progress
   progress: {
     title: string;
+    yourProgress: string;
+    recentGames: string;
+    accuracyLabel: string;
     accuracyTrend: string;
+    gamesPlayedLabel: string;
     gamesByType: string;
     achievements: string;
   };
@@ -132,6 +148,21 @@ export interface Translation {
     cancel: string;
     yes: string;
     no: string;
+  };
+  
+  // Badges
+  badges: {
+    firstSteps: { name: string; description: string; };
+    dedicated: { name: string; description: string; };
+    committed: { name: string; description: string; };
+    centurion: { name: string; description: string; };
+    streak3: { name: string; description: string; };
+    streak7: { name: string; description: string; };
+    streak30: { name: string; description: string; };
+    level5: { name: string; description: string; };
+    level10: { name: string; description: string; };
+    sharpMind: { name: string; description: string; };
+    perfectionist: { name: string; description: string; };
   };
 }
 

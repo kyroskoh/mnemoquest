@@ -22,17 +22,24 @@ const de: Translation = {
     memoryGrid: {
       name: 'Gedächtnis-Raster',
       description: 'Erinnern Sie sich an die Positionen von Symbolen in einem Raster',
-      skill: 'Räumliches Gedächtnis'
+      skill: 'Räumliches Gedächtnis',
+      instructions: 'Merken Sie sich die Positionen der markierten Symbole...',
+      recall: 'Klicken Sie auf die Zellen, die Symbole hatten!'
     },
     sequenceSparks: {
       name: 'Sequenz-Funken',
       description: 'Merken und wiederholen Sie Lichtsequenzen',
-      skill: 'Arbeitsgedächtnis'
+      skill: 'Arbeitsgedächtnis',
+      instructions: 'Beobachten Sie die Sequenz und wiederholen Sie sie...',
+      watch: 'Beobachten Sie die Sequenz...',
+      repeat: 'Jetzt wiederholen Sie die Sequenz!',
+      wrong: 'Ups! Falsche Sequenz. Versuchen Sie die nächste!'
     },
     cardMatch: {
       name: 'Karten-Paare',
       description: 'Finden Sie passende Paare unter Zeitdruck',
-      skill: 'Visuelles Gedächtnis'
+      skill: 'Visuelles Gedächtnis',
+      instructions: 'Finden Sie alle Paare bevor die Zeit abläuft!'
     },
     playNow: 'Jetzt spielen'
   },
@@ -72,20 +79,29 @@ const de: Translation = {
     score: 'Punkte',
     accuracy: 'Genauigkeit',
     mistakes: 'Fehler',
-    pairsFound: 'Paare gefunden'
+    pairsFound: 'Paare gefunden',
+    ready: 'Ich bin bereit!'
   },
   
   results: {
     gameComplete: 'Spiel beendet! 🎉',
+    score: 'Punkte',
+    accuracy: 'Genauigkeit',
+    time: 'Zeit',
     xpGained: 'EP erhalten',
+    level: 'Level',
     playAgain: 'Nochmal spielen',
     backToDashboard: 'Zum Dashboard'
   },
   
   progress: {
     title: 'Ihr Fortschritt',
-    accuracyTrend: 'Genauigkeitstrend (letzte Spiele)',
-    gamesByType: 'Spiele nach Typ',
+    yourProgress: 'Ihr Fortschritt',
+    recentGames: 'Neueste Spiele',
+    accuracyLabel: 'Genauigkeit %',
+    accuracyTrend: 'Neuester Genauigkeitstrend',
+    gamesPlayedLabel: 'Gespielte Spiele',
+    gamesByType: 'Gespielte Spiele nach Typ',
     achievements: 'Erfolge'
   },
   

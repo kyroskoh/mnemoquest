@@ -1,3 +1,5 @@
+import { TranslationManager } from '../core/TranslationManager';
+
 export interface GameResult {
   score: number;
   accuracy: number;
@@ -9,14 +11,20 @@ export abstract class BaseGame {
   protected container: HTMLElement;
   protected difficulty: number;
   protected onComplete: (result: GameResult) => void;
+  protected translationManager: TranslationManager;
   protected totalAttempts: number = 0;
   protected correctAttempts: number = 0;
   protected mistakes: number = 0;
 
-  constructor(container: HTMLElement, difficulty: number, onComplete: (result: GameResult) => void) {
+  constructor(container: HTMLElement, difficulty: number, onComplete: (result: GameResult) => void, translationManager: TranslationManager) {
     this.container = container;
     this.difficulty = difficulty;
     this.onComplete = onComplete;
+    this.translationManager = translationManager;
+  }
+  
+  protected t(key: string): string {
+    return this.translationManager.t(key);
   }
 
   abstract start(): void;
