@@ -41,6 +41,66 @@ const en: Translation = {
       skill: 'Visual Memory',
       instructions: 'Find all matching pairs before time runs out!'
     },
+    numberRecall: {
+      name: 'Number Recall',
+      description: 'Remember sequences of numbers',
+      skill: 'Numerical Memory',
+      instructions: 'Watch the numbers carefully...',
+      enterNumbers: 'Enter the numbers',
+      submit: 'Submit',
+      typeForward: 'Type the numbers in order',
+      typeReverse: 'Type the numbers in REVERSE order',
+      enterSomething: 'Please enter the numbers',
+      perfect: 'Perfect!',
+      correct: 'Correct',
+      incorrect: 'Incorrect',
+      correctWas: 'Correct answer was',
+      reverseMode: '🔄 REVERSE MODE'
+    },
+    flashCount: {
+      name: 'Flash Count',
+      description: 'Count objects that flash on screen',
+      skill: 'Rapid Attention',
+      instructions: 'Objects will flash briefly. Count the specific type asked!',
+      question: 'How many {color} {shape}s were there?',
+      shapes: {
+        circle: 'circle',
+        square: 'square',
+        triangle: 'triangle',
+        star: 'star'
+      },
+      colors: {
+        red: 'red',
+        blue: 'blue',
+        green: 'green',
+        yellow: 'yellow',
+        purple: 'purple',
+        orange: 'orange'
+      }
+    },
+    wordTrail: {
+      name: 'Word Trail',
+      description: 'Remember words in sequence',
+      skill: 'Verbal Memory',
+      instructions: 'Memorize these words in order...',
+      recall: 'Now type the words in order!',
+      typeWords: 'Type each word in the correct order',
+      wordPlaceholder: 'Word {num}',
+      submit: 'Submit',
+      results: 'Results',
+      correctWords: 'Correct Words',
+      correctOrder: 'Correct Order & Position'
+    },
+    patternPath: {
+      name: 'Pattern Path',
+      description: 'Remember and trace paths on a grid',
+      skill: 'Spatial Sequencing',
+      instructions: 'Watch the path and remember it...',
+      watch: 'Watch the path carefully...',
+      recall: 'Now trace the same path!',
+      clear: 'Clear',
+      submit: 'Submit'
+    },
     playNow: 'Play Now'
   },
   
@@ -68,6 +128,30 @@ const en: Translation = {
       intro: 'Challenge your visual memory by matching pairs of cards before time runs out.',
       steps: '1. Click on cards to flip them over\n2. Try to find matching pairs\n3. Remember where each symbol is located\n4. Match all pairs before the timer expires',
       tips: '• Start by flipping cards systematically\n• Pay attention to symbol locations\n• Work quickly but accurately to save time'
+    },
+    numberRecall: {
+      welcome: 'Welcome to Number Recall!',
+      intro: 'Train your numerical memory by remembering sequences of digits.',
+      steps: '1. Watch as numbers appear one by one\n2. Memorize the sequence\n3. Type the numbers in order (or reverse order for harder levels)\n4. Submit your answer',
+      tips: '• Try chunking numbers into groups (like phone numbers)\n• Create patterns or associations\n• In reverse mode, visualize the sequence backwards'
+    },
+    flashCount: {
+      welcome: 'Welcome to Flash Count!',
+      intro: 'Test your visual attention by counting objects that flash briefly on screen.',
+      steps: '1. Objects will flash for a brief moment\n2. Count specific types (color + shape)\n3. Select the correct count from options\n4. Work through 5 rounds',
+      tips: '• Focus on the target type before objects appear\n• Practice subitizing (instantly recognizing small quantities)\n• Don\'t try to count everything - just what\'s asked'
+    },
+    wordTrail: {
+      welcome: 'Welcome to Word Trail!',
+      intro: 'Challenge your verbal memory by remembering words in sequence.',
+      steps: '1. Watch as words appear one at a time\n2. Memorize them in order\n3. Type each word in the correct position\n4. Submit when done',
+      tips: '• Create a story connecting the words\n• Use the first letter of each word to make an acronym\n• Visualize vivid images for each word'
+    },
+    patternPath: {
+      welcome: 'Welcome to Pattern Path!',
+      intro: 'Train your spatial memory by remembering and tracing paths on a grid.',
+      steps: '1. Watch as a path is drawn on the grid\n2. Memorize the sequence of cells\n3. Recreate the path by clicking cells in order\n4. Cells must be adjacent (no diagonals)',
+      tips: '• Pay attention to the direction indicators\n• Break long paths into smaller chunks\n• Use landmarks or patterns to remember turns'
     }
   },
   

@@ -7,6 +7,10 @@ import { BaseGame } from '../games/BaseGame';
 import { MemoryGridGame } from '../games/MemoryGridGame';
 import { SequenceSparksGame } from '../games/SequenceSparksGame';
 import { CardMatchGame } from '../games/CardMatchGame';
+import { NumberRecallGame } from '../games/NumberRecallGame';
+import { FlashCountGame } from '../games/FlashCountGame';
+import { WordTrailGame } from '../games/WordTrailGame';
+import { PatternPathGame } from '../games/PatternPathGame';
 
 export class GameManager {
   private storageManager: StorageManager;
@@ -71,6 +75,18 @@ export class GameManager {
       case 'card-match':
         this.currentGame = new CardMatchGame(container, difficulty, this.onGameComplete.bind(this), this.translationManager);
         break;
+      case 'number-recall':
+        this.currentGame = new NumberRecallGame(container, difficulty, this.onGameComplete.bind(this), this.translationManager);
+        break;
+      case 'flash-count':
+        this.currentGame = new FlashCountGame(container, difficulty, this.onGameComplete.bind(this), this.translationManager);
+        break;
+      case 'word-trail':
+        this.currentGame = new WordTrailGame(container, difficulty, this.onGameComplete.bind(this), this.translationManager);
+        break;
+      case 'pattern-path':
+        this.currentGame = new PatternPathGame(container, difficulty, this.onGameComplete.bind(this), this.translationManager);
+        break;
       default:
         console.error('Unknown game type:', gameType);
         return;
@@ -92,7 +108,11 @@ export class GameManager {
     const titleKeys: Record<string, string> = {
       'memory-grid': 'games.memoryGrid.name',
       'sequence-sparks': 'games.sequenceSparks.name',
-      'card-match': 'games.cardMatch.name'
+      'card-match': 'games.cardMatch.name',
+      'number-recall': 'games.numberRecall.name',
+      'flash-count': 'games.flashCount.name',
+      'word-trail': 'games.wordTrail.name',
+      'pattern-path': 'games.patternPath.name'
     };
 
     if (titleEl) {

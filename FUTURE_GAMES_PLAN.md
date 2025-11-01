@@ -19,16 +19,16 @@ This document outlines planned mini-games for future phases of MnemoQuest develo
 
 ## 🗓️ Implementation Roadmap
 
-### Phase 4: Core Expansion (Q1 2026)
+### Phase 4: Core Expansion (Q4 2025)
 **Goal**: Add 4 new games from PRD + high-value additions
 
-### Phase 5: Specialized Training (Q2 2026)
+### Phase 5: Specialized Training (Q1 2026)
 **Goal**: Advanced cognitive training games
 
-### Phase 6: Real-World Applications (Q3 2026)
+### Phase 6: Real-World Applications (Q2 2026)
 **Goal**: Practical memory skills
 
-### Phase 7: Multi-Sensory (Q4 2026)
+### Phase 7: Multi-Sensory (Q3 2026)
 **Goal**: Audio and mixed-modality games
 
 ---
