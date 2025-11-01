@@ -75,6 +75,7 @@ const fr: Translation = {
     colorBlindMode: '🎨 Mode Daltonien',
     animations: '✨ Animations',
     language: '🌍 Langue',
+    applyLanguage: 'Appliquer la Langue',
     resetProgress: 'Réinitialiser Tous les Progrès',
     resetConfirm: 'Êtes-vous sûr de vouloir réinitialiser tous les progrès ? Cette action est irréversible.',
     resetSuccess: 'Progrès réinitialisé avec succès !'

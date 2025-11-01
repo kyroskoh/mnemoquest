@@ -25,9 +25,15 @@ class MnemoQuest {
   private async init(): Promise<void> {
     console.log('🧠 MnemoQuest initialized!');
     
-    // Load saved language
-    const savedLang = this.storageManager.getSettings().language as SupportedLanguage;
-    await this.translationManager.setLanguage(savedLang || 'en');
+    // Load saved language and wait for translations to load
+    const savedLang = this.storageManager.getSettings().language as SupportedLanguage || 'en';
+    await this.translationManager.setLanguage(savedLang);
+    
+    // Wait a bit for DOM to be ready
+    await new Promise(resolve => setTimeout(resolve, 50));
+    
+    // Apply translations first (before other setup)
+    this.applyTranslations();
     
     // Load saved progress
     this.loadProgress();
@@ -43,9 +49,6 @@ class MnemoQuest {
     
     // Update dashboard
     this.uiManager.updateDashboard();
-    
-    // Apply translations
-    this.applyTranslations();
   }
 
   private loadProgress(): void {
@@ -90,7 +93,11 @@ class MnemoQuest {
     const colorBlindMode = document.getElementById('colorBlindMode') as HTMLInputElement;
     const animationsToggle = document.getElementById('animationsToggle') as HTMLInputElement;
     const languageSelect = document.getElementById('languageSelect') as HTMLSelectElement;
+    const applyLanguageBtn = document.getElementById('applyLanguageBtn');
     const resetBtn = document.getElementById('resetProgressBtn');
+
+    // Store pending language selection
+    let pendingLanguage: SupportedLanguage | null = null;
 
     // Load settings
     const settings = this.storageManager.getSettings();
@@ -125,12 +132,67 @@ class MnemoQuest {
       document.body.classList.toggle('no-animations', !(e.target as HTMLInputElement).checked);
     });
 
-    languageSelect?.addEventListener('change', async (e) => {
+    // Store selected language (don't apply yet)
+    languageSelect?.addEventListener('change', (e) => {
       const lang = (e.target as HTMLSelectElement).value as SupportedLanguage;
-      await this.translationManager.setLanguage(lang);
-      this.storageManager.updateSettings({ language: lang });
-      this.applyTranslations();
-      this.uiManager.updateDashboard();
+      const currentLang = this.translationManager.getCurrentLanguage();
+      
+      if (lang !== currentLang) {
+        pendingLanguage = lang;
+        // Highlight the apply button
+        if (applyLanguageBtn) {
+          applyLanguageBtn.style.animation = 'pulse 1s ease-in-out';
+          setTimeout(() => {
+            if (applyLanguageBtn) applyLanguageBtn.style.animation = '';
+          }, 1000);
+        }
+      } else {
+        pendingLanguage = null;
+      }
+    });
+
+    // Apply language when button is clicked
+    applyLanguageBtn?.addEventListener('click', async () => {
+      if (!pendingLanguage) {
+        console.log('No language change pending');
+        return;
+      }
+
+      console.log(`🌍 Applying language change to: ${pendingLanguage}`);
+      
+      // Disable button during loading
+      if (applyLanguageBtn) {
+        (applyLanguageBtn as HTMLButtonElement).disabled = true;
+        applyLanguageBtn.textContent = 'Loading...';
+      }
+      
+      try {
+        // Set the new language and wait for it to load
+        await this.translationManager.setLanguage(pendingLanguage);
+        
+        // Save the preference
+        this.storageManager.updateSettings({ language: pendingLanguage });
+        
+        // Wait a bit more to ensure translations are loaded
+        await new Promise(resolve => setTimeout(resolve, 200));
+        
+        // Re-apply translations to entire UI
+        this.applyTranslations();
+        
+        // Update dashboard with translated text
+        this.uiManager.updateDashboard();
+        
+        console.log('✅ Language changed successfully');
+        pendingLanguage = null;
+      } catch (error) {
+        console.error('Failed to apply language:', error);
+      } finally {
+        // Re-enable button
+        if (applyLanguageBtn) {
+          (applyLanguageBtn as HTMLButtonElement).disabled = false;
+          applyLanguageBtn.textContent = this.translationManager.t('settings.applyLanguage');
+        }
+      }
     });
 
     resetBtn?.addEventListener('click', () => {
@@ -148,6 +210,8 @@ class MnemoQuest {
   private applyTranslations(): void {
     const t = (key: string) => this.translationManager.t(key);
 
+    console.log('🌍 Applying translations...');
+
     // Navigation
     const homeBtn = document.getElementById('homeBtn');
     const progressBtn = document.getElementById('progressBtn');
@@ -160,8 +224,11 @@ class MnemoQuest {
     if (aboutBtn) aboutBtn.textContent = t('nav.about');
 
     // Dashboard
-    document.querySelector('.hero h2')!.textContent = t('dashboard.welcome');
-    document.querySelector('.hero p')!.textContent = t('dashboard.subtitle');
+    const heroTitle = document.querySelector('.hero h2');
+    const heroSubtitle = document.querySelector('.hero p');
+    
+    if (heroTitle) heroTitle.textContent = t('dashboard.welcome');
+    if (heroSubtitle) heroSubtitle.textContent = t('dashboard.subtitle');
 
     // Stats labels
     const statLabels = document.querySelectorAll('.stat-content p');
@@ -171,7 +238,8 @@ class MnemoQuest {
     if (statLabels[3]) statLabels[3].textContent = t('dashboard.gamesPlayed');
 
     // Game cards
-    document.querySelector('.game-modules h2')!.textContent = t('dashboard.chooseChallenge');
+    const gameModulesTitle = document.querySelector('.game-modules h2');
+    if (gameModulesTitle) gameModulesTitle.textContent = t('dashboard.chooseChallenge');
     
     const gameCards = document.querySelectorAll('.game-card');
     if (gameCards[0]) {
@@ -203,16 +271,49 @@ class MnemoQuest {
 
     // Settings view
     const settingsTitle = document.querySelector('#settingsView h2');
-    if (settingsTitle) settingsTitle.textContent = t('settings.title');
+    if (settingsTitle) {
+      const translatedTitle = t('settings.title');
+      console.log(`Settings title: "${translatedTitle}"`);
+      settingsTitle.textContent = translatedTitle;
+    }
 
     const settingLabels = document.querySelectorAll('.setting-item label span');
-    if (settingLabels[0]) settingLabels[0].textContent = t('settings.soundEffects');
-    if (settingLabels[1]) settingLabels[1].textContent = t('settings.colorBlindMode');
-    if (settingLabels[2]) settingLabels[2].textContent = t('settings.animations');
-    if (settingLabels[3]) settingLabels[3].textContent = t('settings.language');
+    console.log(`Found ${settingLabels.length} setting labels`);
+    
+    if (settingLabels[0]) {
+      const translated = t('settings.soundEffects');
+      console.log(`Sound Effects: "${translated}"`);
+      settingLabels[0].textContent = translated;
+    }
+    if (settingLabels[1]) {
+      const translated = t('settings.colorBlindMode');
+      console.log(`Color-Blind Mode: "${translated}"`);
+      settingLabels[1].textContent = translated;
+    }
+    if (settingLabels[2]) {
+      const translated = t('settings.animations');
+      console.log(`Animations: "${translated}"`);
+      settingLabels[2].textContent = translated;
+    }
+    if (settingLabels[3]) {
+      const translated = t('settings.language');
+      console.log(`Language: "${translated}"`);
+      settingLabels[3].textContent = translated;
+    }
+
+    const applyLanguageBtn = document.getElementById('applyLanguageBtn');
+    if (applyLanguageBtn) {
+      const translated = t('settings.applyLanguage');
+      console.log(`Apply language button: "${translated}"`);
+      applyLanguageBtn.textContent = translated;
+    }
 
     const resetBtn = document.getElementById('resetProgressBtn');
-    if (resetBtn) resetBtn.textContent = t('settings.resetProgress');
+    if (resetBtn) {
+      const translated = t('settings.resetProgress');
+      console.log(`Reset button: "${translated}"`);
+      resetBtn.textContent = translated;
+    }
 
     // About view
     const aboutTitle = document.querySelector('#aboutView h2');
@@ -236,6 +337,8 @@ class MnemoQuest {
       if (listItems[2]) listItems[2].textContent = t('about.benefit3');
       if (listItems[3]) listItems[3].textContent = t('about.benefit4');
     }
+    
+    console.log('✅ Translations applied successfully');
   }
 
   private async startGame(gameType: string): Promise<void> {

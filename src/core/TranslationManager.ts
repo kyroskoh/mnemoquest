@@ -83,6 +83,7 @@ export interface Translation {
     colorBlindMode: string;
     animations: string;
     language: string;
+    applyLanguage: string;
     resetProgress: string;
     resetConfirm: string;
     resetSuccess: string;
@@ -120,39 +121,80 @@ export class TranslationManager {
   private fallbackLanguage: SupportedLanguage = 'en';
 
   constructor() {
-    this.loadTranslations();
+    // Load English immediately (synchronously)
+    this.loadEnglish();
   }
 
-  private async loadTranslations(): Promise<void> {
-    // Dynamically import translation files
-    try {
-      const en = (await import('../translations/en.js')).default;
-      this.translations.set('en', en);
-      
-      // Other languages will be loaded on demand
-    } catch (error) {
-      console.error('Failed to load translations:', error);
-    }
+  private loadEnglish(): void {
+    // Import English immediately since it's the default
+    import('../translations/en').then(module => {
+      this.translations.set('en', module.default);
+      console.log('✅ English translations loaded');
+    }).catch(error => {
+      console.error('Failed to load English translations:', error);
+    });
   }
 
   async setLanguage(language: SupportedLanguage): Promise<void> {
+    // Load language if not already loaded
     if (!this.translations.has(language)) {
       await this.loadLanguageFile(language);
     }
+    
+    // Wait a bit to ensure translations are fully loaded
+    await new Promise(resolve => setTimeout(resolve, 100));
     
     this.currentLanguage = language;
     document.documentElement.lang = language;
     
     // Store preference
     localStorage.setItem('mnemoquest_language', language);
+    
+    console.log(`✅ Language set to: ${language}`);
   }
 
   private async loadLanguageFile(language: SupportedLanguage): Promise<void> {
     try {
-      const translation = (await import(`../translations/${language}.js`)).default;
+      console.log(`Loading translation file for: ${language}`);
+      
+      let translation: Translation;
+      
+      // Use explicit imports instead of template literals for Vite compatibility
+      switch (language) {
+        case 'en':
+          translation = (await import('../translations/en')).default;
+          break;
+        case 'es':
+          translation = (await import('../translations/es')).default;
+          break;
+        case 'zh':
+          translation = (await import('../translations/zh')).default;
+          break;
+        case 'fr':
+          translation = (await import('../translations/fr')).default;
+          break;
+        case 'de':
+          translation = (await import('../translations/de')).default;
+          break;
+        case 'ja':
+          translation = (await import('../translations/ja')).default;
+          break;
+        case 'ko':
+          translation = (await import('../translations/ko')).default;
+          break;
+        case 'pt':
+          translation = (await import('../translations/pt')).default;
+          break;
+        default:
+          throw new Error(`Unsupported language: ${language}`);
+      }
+      
       this.translations.set(language, translation);
+      console.log(`✅ Successfully loaded ${language} translations`);
+      console.log(`Available languages:`, Array.from(this.translations.keys()));
     } catch (error) {
-      console.warn(`Failed to load ${language} translations, using fallback`);
+      console.error(`Failed to load ${language} translations:`, error);
+      console.warn(`Using fallback language`);
     }
   }
 
@@ -178,6 +220,7 @@ export class TranslationManager {
                        this.translations.get(this.fallbackLanguage);
     
     if (!translation) {
+      console.warn(`No translation found for language: ${this.currentLanguage}, available:`, Array.from(this.translations.keys()));
       return key;
     }
 
@@ -188,7 +231,7 @@ export class TranslationManager {
     for (const k of keys) {
       value = value?.[k];
       if (value === undefined) {
-        console.warn(`Translation key not found: ${key}`);
+        console.warn(`Translation key not found: ${key} for language: ${this.currentLanguage}`);
         return key;
       }
     }

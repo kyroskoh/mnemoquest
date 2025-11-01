@@ -75,6 +75,7 @@ const zh: Translation = {
     colorBlindMode: '🎨 色盲模式',
     animations: '✨ 动画',
     language: '🌍 语言',
+    applyLanguage: '应用语言',
     resetProgress: '重置所有进度',
     resetConfirm: '您确定要重置所有进度吗？此操作无法撤消。',
     resetSuccess: '进度已成功重置！'

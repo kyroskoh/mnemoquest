@@ -75,6 +75,7 @@ const en: Translation = {
     colorBlindMode: '🎨 Color-Blind Mode',
     animations: '✨ Animations',
     language: '🌍 Language',
+    applyLanguage: 'Apply Language',
     resetProgress: 'Reset All Progress',
     resetConfirm: 'Are you sure you want to reset all progress? This cannot be undone.',
     resetSuccess: 'Progress reset successfully!'

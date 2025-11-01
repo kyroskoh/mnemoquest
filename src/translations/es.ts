@@ -75,6 +75,7 @@ const es: Translation = {
     colorBlindMode: '🎨 Modo para Daltónicos',
     animations: '✨ Animaciones',
     language: '🌍 Idioma',
+    applyLanguage: 'Aplicar Idioma',
     resetProgress: 'Restablecer Todo el Progreso',
     resetConfirm: '¿Estás seguro de que quieres restablecer todo el progreso? Esto no se puede deshacer.',
     resetSuccess: '¡Progreso restablecido exitosamente!'
