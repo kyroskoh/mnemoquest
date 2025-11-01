@@ -33,7 +33,22 @@ export class FlashCountGame extends BaseGame {
   start(): void {
     // Calculate difficulty
     this.objectCount = Math.min(20, Math.max(3, Math.floor(3 + this.difficulty * 1.7)));
-    this.displayTime = Math.max(150, 500 - (this.difficulty * 35));
+    
+    // Flash display time - longer for easier levels, shorter for harder
+    // Easy (0-5): 3000-2000ms
+    // Medium (5-10): 2000-1000ms  
+    // Hard (10-15): 1000-500ms
+    // Very Hard (15+): 500-300ms
+    if (this.difficulty <= 5) {
+      this.displayTime = Math.max(2000, 3000 - (this.difficulty * 200));
+    } else if (this.difficulty <= 10) {
+      this.displayTime = Math.max(1000, 2000 - ((this.difficulty - 5) * 200));
+    } else if (this.difficulty <= 15) {
+      this.displayTime = Math.max(500, 1000 - ((this.difficulty - 10) * 100));
+    } else {
+      this.displayTime = Math.max(300, 500 - ((this.difficulty - 15) * 20));
+    }
+    
     this.categories = Math.min(4, Math.max(1, Math.floor(1 + this.difficulty * 0.3)));
     
     this.initializeGame();

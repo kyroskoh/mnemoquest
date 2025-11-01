@@ -65,11 +65,44 @@ class MnemoQuest {
     const settingsBtn = document.getElementById('settingsBtn');
     const aboutBtn = document.getElementById('aboutBtn');
     const backBtn = document.getElementById('backBtn');
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+    const mobileOverlay = document.getElementById('mobileOverlay');
 
-    homeBtn?.addEventListener('click', () => this.uiManager.showView('dashboard'));
-    progressBtn?.addEventListener('click', () => this.uiManager.showView('progress'));
-    settingsBtn?.addEventListener('click', () => this.uiManager.showView('settings'));
-    aboutBtn?.addEventListener('click', () => this.uiManager.showView('about'));
+    // Mobile menu toggle
+    navToggle?.addEventListener('click', (e) => {
+      e.stopPropagation();
+      navToggle.classList.toggle('active');
+      navLinks?.classList.toggle('active');
+      mobileOverlay?.classList.toggle('active');
+    });
+
+    // Close mobile menu when a nav button is clicked
+    const closeMenu = () => {
+      navToggle?.classList.remove('active');
+      navLinks?.classList.remove('active');
+      mobileOverlay?.classList.remove('active');
+    };
+
+    // Close menu when clicking on overlay
+    mobileOverlay?.addEventListener('click', closeMenu);
+
+    homeBtn?.addEventListener('click', () => {
+      this.uiManager.showView('dashboard');
+      closeMenu();
+    });
+    progressBtn?.addEventListener('click', () => {
+      this.uiManager.showView('progress');
+      closeMenu();
+    });
+    settingsBtn?.addEventListener('click', () => {
+      this.uiManager.showView('settings');
+      closeMenu();
+    });
+    aboutBtn?.addEventListener('click', () => {
+      this.uiManager.showView('about');
+      closeMenu();
+    });
     backBtn?.addEventListener('click', () => {
       this.gameManager.exitGame();
       this.uiManager.showView('dashboard');
@@ -506,6 +539,30 @@ class MnemoQuest {
       gameCards[2].querySelector('p')!.textContent = t('games.cardMatch.description');
       gameCards[2].querySelector('.skill-tag')!.textContent = t('games.cardMatch.skill');
       gameCards[2].querySelector('.play-btn')!.textContent = t('games.playNow');
+    }
+    if (gameCards[3]) {
+      gameCards[3].querySelector('h3')!.textContent = t('games.numberRecall.name');
+      gameCards[3].querySelector('p')!.textContent = t('games.numberRecall.description');
+      gameCards[3].querySelector('.skill-tag')!.textContent = t('games.numberRecall.skill');
+      gameCards[3].querySelector('.play-btn')!.textContent = t('games.playNow');
+    }
+    if (gameCards[4]) {
+      gameCards[4].querySelector('h3')!.textContent = t('games.flashCount.name');
+      gameCards[4].querySelector('p')!.textContent = t('games.flashCount.description');
+      gameCards[4].querySelector('.skill-tag')!.textContent = t('games.flashCount.skill');
+      gameCards[4].querySelector('.play-btn')!.textContent = t('games.playNow');
+    }
+    if (gameCards[5]) {
+      gameCards[5].querySelector('h3')!.textContent = t('games.wordTrail.name');
+      gameCards[5].querySelector('p')!.textContent = t('games.wordTrail.description');
+      gameCards[5].querySelector('.skill-tag')!.textContent = t('games.wordTrail.skill');
+      gameCards[5].querySelector('.play-btn')!.textContent = t('games.playNow');
+    }
+    if (gameCards[6]) {
+      gameCards[6].querySelector('h3')!.textContent = t('games.patternPath.name');
+      gameCards[6].querySelector('p')!.textContent = t('games.patternPath.description');
+      gameCards[6].querySelector('.skill-tag')!.textContent = t('games.patternPath.skill');
+      gameCards[6].querySelector('.play-btn')!.textContent = t('games.playNow');
     }
 
     // Game view
