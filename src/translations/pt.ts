@@ -41,6 +41,66 @@ const pt: Translation = {
       skill: 'Memória Visual',
       instructions: 'Encontre todos os pares antes que o tempo acabe!'
     },
+    numberRecall: {
+      name: 'Recordar Números',
+      description: 'Memorize sequências de números',
+      skill: 'Memória Numérica',
+      instructions: 'Observe os números com atenção...',
+      enterNumbers: 'Digite os números',
+      submit: 'Enviar',
+      typeForward: 'Digite os números em ordem',
+      typeReverse: 'Digite os números em ordem INVERSA',
+      enterSomething: 'Por favor digite os números',
+      perfect: 'Perfeito!',
+      correct: 'Correto',
+      incorrect: 'Incorreto',
+      correctWas: 'A resposta correta era',
+      reverseMode: '🔄 MODO INVERSO'
+    },
+    flashCount: {
+      name: 'Contagem Rápida',
+      description: 'Conte objetos que aparecem na tela',
+      skill: 'Atenção Rápida',
+      instructions: 'Objetos vão aparecer brevemente. Conte o tipo específico!',
+      question: 'Quantos {shape}s {color}s havia?',
+      shapes: {
+        circle: 'círculo',
+        square: 'quadrado',
+        triangle: 'triângulo',
+        star: 'estrela'
+      },
+      colors: {
+        red: 'vermelho',
+        blue: 'azul',
+        green: 'verde',
+        yellow: 'amarelo',
+        purple: 'roxo',
+        orange: 'laranja'
+      }
+    },
+    wordTrail: {
+      name: 'Trilha de Palavras',
+      description: 'Memorize palavras em sequência',
+      skill: 'Memória Verbal',
+      instructions: 'Memorize estas palavras em ordem...',
+      recall: 'Agora digite as palavras em ordem!',
+      typeWords: 'Digite cada palavra na ordem correta',
+      wordPlaceholder: 'Palavra {num}',
+      submit: 'Enviar',
+      results: 'Resultados',
+      correctWords: 'Palavras Corretas',
+      correctOrder: 'Ordem e Posição Corretas'
+    },
+    patternPath: {
+      name: 'Caminho de Padrões',
+      description: 'Memorize e trace caminhos em uma grade',
+      skill: 'Sequenciamento Espacial',
+      instructions: 'Observe o caminho e memorize-o...',
+      watch: 'Observe o caminho com atenção...',
+      recall: 'Agora trace o mesmo caminho!',
+      clear: 'Limpar',
+      submit: 'Enviar'
+    },
     playNow: 'Jogar Agora'
   },
   
@@ -68,6 +128,30 @@ const pt: Translation = {
       intro: 'Desafie sua memória visual combinando pares de cartas antes que o tempo acabe.',
       steps: '1. Clique nas cartas para virá-las\n2. Tente encontrar pares correspondentes\n3. Lembre-se onde cada símbolo está localizado\n4. Combine todos os pares antes que o tempo expire',
       tips: '• Comece virando as cartas sistematicamente\n• Preste atenção às localizações dos símbolos\n• Trabalhe rapidamente, mas com precisão para economizar tempo'
+    },
+    numberRecall: {
+      welcome: 'Bem-vindo a Recordar Números!',
+      intro: 'Treine sua memória numérica memorizando sequências de dígitos.',
+      steps: '1. Observe os números aparecerem um por um\n2. Memorize a sequência\n3. Digite os números em ordem (ou em ordem inversa para níveis mais difíceis)\n4. Envie sua resposta',
+      tips: '• Tente agrupar números em grupos (como números de telefone)\n• Crie padrões ou associações\n• No modo inverso, visualize a sequência de trás para frente'
+    },
+    flashCount: {
+      welcome: 'Bem-vindo à Contagem Rápida!',
+      intro: 'Teste sua atenção visual contando objetos que aparecem brevemente na tela.',
+      steps: '1. Objetos vão aparecer por um breve momento\n2. Conte tipos específicos (cor + forma)\n3. Selecione a contagem correta das opções\n4. Complete 5 rodadas',
+      tips: '• Concentre-se no tipo alvo antes dos objetos aparecerem\n• Pratique subitização (reconhecimento instantâneo de quantidades pequenas)\n• Não tente contar tudo - apenas o que é pedido'
+    },
+    wordTrail: {
+      welcome: 'Bem-vindo à Trilha de Palavras!',
+      intro: 'Desafie sua memória verbal memorizando palavras em sequência.',
+      steps: '1. Observe as palavras aparecerem uma por vez\n2. Memorize-as em ordem\n3. Digite cada palavra na posição correta\n4. Envie quando terminar',
+      tips: '• Crie uma história conectando as palavras\n• Use a primeira letra de cada palavra para fazer um acrônimo\n• Visualize imagens vívidas para cada palavra'
+    },
+    patternPath: {
+      welcome: 'Bem-vindo ao Caminho de Padrões!',
+      intro: 'Treine sua memória espacial memorizando e traçando caminhos em uma grade.',
+      steps: '1. Observe um caminho sendo desenhado na grade\n2. Memorize a sequência de células\n3. Recrie o caminho clicando nas células em ordem\n4. Células devem ser adjacentes (sem diagonais)',
+      tips: '• Preste atenção aos indicadores de direção\n• Divida caminhos longos em segmentos menores\n• Use pontos de referência ou padrões para lembrar das curvas'
     }
   },
   

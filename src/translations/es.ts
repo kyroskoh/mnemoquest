@@ -41,6 +41,66 @@ const es: Translation = {
       skill: 'Memoria Visual',
       instructions: '¡Encuentra todos los pares antes de que se acabe el tiempo!'
     },
+    numberRecall: {
+      name: 'Recordar Números',
+      description: 'Recuerda secuencias de números',
+      skill: 'Memoria Numérica',
+      instructions: 'Observa los números con atención...',
+      enterNumbers: 'Ingresa los números',
+      submit: 'Enviar',
+      typeForward: 'Escribe los números en orden',
+      typeReverse: 'Escribe los números en orden INVERSO',
+      enterSomething: 'Por favor ingresa los números',
+      perfect: '¡Perfecto!',
+      correct: 'Correcto',
+      incorrect: 'Incorrecto',
+      correctWas: 'La respuesta correcta era',
+      reverseMode: '🔄 MODO INVERSO'
+    },
+    flashCount: {
+      name: 'Conteo Rápido',
+      description: 'Cuenta objetos que aparecen en pantalla',
+      skill: 'Atención Rápida',
+      instructions: '¡Los objetos aparecerán brevemente. Cuenta el tipo específico solicitado!',
+      question: '¿Cuántos {shape}s {color}s había?',
+      shapes: {
+        circle: 'círculo',
+        square: 'cuadrado',
+        triangle: 'triángulo',
+        star: 'estrella'
+      },
+      colors: {
+        red: 'rojo',
+        blue: 'azul',
+        green: 'verde',
+        yellow: 'amarillo',
+        purple: 'morado',
+        orange: 'naranja'
+      }
+    },
+    wordTrail: {
+      name: 'Rastro de Palabras',
+      description: 'Recuerda palabras en secuencia',
+      skill: 'Memoria Verbal',
+      instructions: 'Memoriza estas palabras en orden...',
+      recall: '¡Ahora escribe las palabras en orden!',
+      typeWords: 'Escribe cada palabra en el orden correcto',
+      wordPlaceholder: 'Palabra {num}',
+      submit: 'Enviar',
+      results: 'Resultados',
+      correctWords: 'Palabras Correctas',
+      correctOrder: 'Orden y Posición Correctos'
+    },
+    patternPath: {
+      name: 'Camino de Patrones',
+      description: 'Recuerda y traza caminos en una cuadrícula',
+      skill: 'Secuencia Espacial',
+      instructions: 'Observa el camino y recuérdalo...',
+      watch: 'Observa el camino cuidadosamente...',
+      recall: '¡Ahora traza el mismo camino!',
+      clear: 'Limpiar',
+      submit: 'Enviar'
+    },
     playNow: 'Jugar Ahora'
   },
   
@@ -68,6 +128,30 @@ const es: Translation = {
       intro: 'Desafía tu memoria visual emparejando pares de cartas antes de que se acabe el tiempo.',
       steps: '1. Haz clic en las cartas para voltearlas\n2. Intenta encontrar pares coincidentes\n3. Recuerda dónde está ubicado cada símbolo\n4. Empareja todos los pares antes de que expire el temporizador',
       tips: '• Comienza volteando cartas sistemáticamente\n• Presta atención a las ubicaciones de los símbolos\n• Trabaja rápido pero con precisión para ahorrar tiempo'
+    },
+    numberRecall: {
+      welcome: '¡Bienvenido a Recordar Números!',
+      intro: 'Entrena tu memoria numérica recordando secuencias de dígitos.',
+      steps: '1. Observa mientras aparecen números uno por uno\n2. Memoriza la secuencia\n3. Escribe los números en orden (o en orden inverso para niveles más difíciles)\n4. Envía tu respuesta',
+      tips: '• Intenta agrupar números en grupos (como números de teléfono)\n• Crea patrones o asociaciones\n• En modo inverso, visualiza la secuencia al revés'
+    },
+    flashCount: {
+      welcome: '¡Bienvenido a Conteo Rápido!',
+      intro: 'Prueba tu atención visual contando objetos que aparecen brevemente en pantalla.',
+      steps: '1. Los objetos aparecerán por un breve momento\n2. Cuenta tipos específicos (color + forma)\n3. Selecciona el conteo correcto de las opciones\n4. Completa 5 rondas',
+      tips: '• Concéntrate en el tipo objetivo antes de que aparezcan los objetos\n• Practica subitización (reconocer instantáneamente cantidades pequeñas)\n• No intentes contar todo - solo lo que se pide'
+    },
+    wordTrail: {
+      welcome: '¡Bienvenido a Rastro de Palabras!',
+      intro: 'Desafía tu memoria verbal recordando palabras en secuencia.',
+      steps: '1. Observa mientras aparecen palabras una a la vez\n2. Memorízalas en orden\n3. Escribe cada palabra en la posición correcta\n4. Envía cuando termines',
+      tips: '• Crea una historia que conecte las palabras\n• Usa la primera letra de cada palabra para hacer un acrónimo\n• Visualiza imágenes vívidas para cada palabra'
+    },
+    patternPath: {
+      welcome: '¡Bienvenido a Camino de Patrones!',
+      intro: 'Entrena tu memoria espacial recordando y trazando caminos en una cuadrícula.',
+      steps: '1. Observa mientras se dibuja un camino en la cuadrícula\n2. Memoriza la secuencia de celdas\n3. Recrea el camino haciendo clic en las celdas en orden\n4. Las celdas deben ser adyacentes (sin diagonales)',
+      tips: '• Presta atención a los indicadores de dirección\n• Divide caminos largos en fragmentos más pequeños\n• Usa puntos de referencia o patrones para recordar los giros'
     }
   },
   

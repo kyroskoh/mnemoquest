@@ -41,6 +41,66 @@ const fr: Translation = {
       skill: 'Mémoire Visuelle',
       instructions: 'Trouvez toutes les paires avant la fin du temps !'
     },
+    numberRecall: {
+      name: 'Rappel des Nombres',
+      description: 'Mémorisez des séquences de nombres',
+      skill: 'Mémoire Numérique',
+      instructions: 'Regardez attentivement les nombres...',
+      enterNumbers: 'Entrez les nombres',
+      submit: 'Soumettre',
+      typeForward: 'Tapez les nombres dans l\'ordre',
+      typeReverse: 'Tapez les nombres dans l\'ordre INVERSE',
+      enterSomething: 'Veuillez entrer les nombres',
+      perfect: 'Parfait !',
+      correct: 'Correct',
+      incorrect: 'Incorrect',
+      correctWas: 'La bonne réponse était',
+      reverseMode: '🔄 MODE INVERSE'
+    },
+    flashCount: {
+      name: 'Comptage Éclair',
+      description: 'Comptez les objets qui apparaissent à l\'écran',
+      skill: 'Attention Rapide',
+      instructions: 'Les objets apparaîtront brièvement. Comptez le type spécifique demandé !',
+      question: 'Combien de {shape}s {color}s y avait-il ?',
+      shapes: {
+        circle: 'cercle',
+        square: 'carré',
+        triangle: 'triangle',
+        star: 'étoile'
+      },
+      colors: {
+        red: 'rouge',
+        blue: 'bleu',
+        green: 'vert',
+        yellow: 'jaune',
+        purple: 'violet',
+        orange: 'orange'
+      }
+    },
+    wordTrail: {
+      name: 'Piste de Mots',
+      description: 'Mémorisez des mots en séquence',
+      skill: 'Mémoire Verbale',
+      instructions: 'Mémorisez ces mots dans l\'ordre...',
+      recall: 'Maintenant tapez les mots dans l\'ordre !',
+      typeWords: 'Tapez chaque mot dans le bon ordre',
+      wordPlaceholder: 'Mot {num}',
+      submit: 'Soumettre',
+      results: 'Résultats',
+      correctWords: 'Mots Corrects',
+      correctOrder: 'Ordre et Position Corrects'
+    },
+    patternPath: {
+      name: 'Chemin de Motifs',
+      description: 'Mémorisez et tracez des chemins sur une grille',
+      skill: 'Séquençage Spatial',
+      instructions: 'Regardez le chemin et mémorisez-le...',
+      watch: 'Regardez attentivement le chemin...',
+      recall: 'Maintenant tracez le même chemin !',
+      clear: 'Effacer',
+      submit: 'Soumettre'
+    },
     playNow: 'Jouer Maintenant'
   },
   
@@ -68,6 +128,30 @@ const fr: Translation = {
       intro: 'Défiez votre mémoire visuelle en assortissant des paires de cartes avant la fin du temps.',
       steps: '1. Cliquez sur les cartes pour les retourner\n2. Essayez de trouver des paires correspondantes\n3. Mémorisez où chaque symbole est situé\n4. Assortissez toutes les paires avant l\'expiration du chronomètre',
       tips: '• Commencez par retourner les cartes systématiquement\n• Faites attention aux emplacements des symboles\n• Travaillez rapidement mais avec précision pour gagner du temps'
+    },
+    numberRecall: {
+      welcome: 'Bienvenue au Rappel des Nombres !',
+      intro: 'Entraînez votre mémoire numérique en mémorisant des séquences de chiffres.',
+      steps: '1. Regardez les nombres apparaître un par un\n2. Mémorisez la séquence\n3. Tapez les nombres dans l\'ordre (ou dans l\'ordre inverse pour les niveaux plus difficiles)\n4. Soumettez votre réponse',
+      tips: '• Essayez de regrouper les nombres (comme les numéros de téléphone)\n• Créez des motifs ou des associations\n• En mode inverse, visualisez la séquence à l\'envers'
+    },
+    flashCount: {
+      welcome: 'Bienvenue au Comptage Éclair !',
+      intro: 'Testez votre attention visuelle en comptant des objets qui apparaissent brièvement à l\'écran.',
+      steps: '1. Les objets apparaîtront pour un bref moment\n2. Comptez les types spécifiques (couleur + forme)\n3. Sélectionnez le bon compte parmi les options\n4. Complétez 5 tours',
+      tips: '• Concentrez-vous sur le type cible avant l\'apparition des objets\n• Pratiquez la subitisation (reconnaissance instantanée de petites quantités)\n• N\'essayez pas de tout compter - seulement ce qui est demandé'
+    },
+    wordTrail: {
+      welcome: 'Bienvenue à la Piste de Mots !',
+      intro: 'Défiez votre mémoire verbale en mémorisant des mots en séquence.',
+      steps: '1. Regardez les mots apparaître un par un\n2. Mémorisez-les dans l\'ordre\n3. Tapez chaque mot à la bonne position\n4. Soumettez quand vous avez terminé',
+      tips: '• Créez une histoire reliant les mots\n• Utilisez la première lettre de chaque mot pour faire un acronyme\n• Visualisez des images vives pour chaque mot'
+    },
+    patternPath: {
+      welcome: 'Bienvenue au Chemin de Motifs !',
+      intro: 'Entraînez votre mémoire spatiale en mémorisant et traçant des chemins sur une grille.',
+      steps: '1. Regardez le chemin être dessiné sur la grille\n2. Mémorisez la séquence de cellules\n3. Recréez le chemin en cliquant sur les cellules dans l\'ordre\n4. Les cellules doivent être adjacentes (pas de diagonales)',
+      tips: '• Faites attention aux indicateurs de direction\n• Divisez les longs chemins en petits segments\n• Utilisez des points de repère ou des motifs pour mémoriser les virages'
     }
   },
   

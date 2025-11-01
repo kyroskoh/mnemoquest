@@ -41,6 +41,66 @@ const zh: Translation = {
       skill: '视觉记忆',
       instructions: '在时间用完之前找到所有配对！'
     },
+    numberRecall: {
+      name: '数字记忆',
+      description: '记住数字序列',
+      skill: '数字记忆',
+      instructions: '仔细观察这些数字...',
+      enterNumbers: '输入数字',
+      submit: '提交',
+      typeForward: '按顺序输入数字',
+      typeReverse: '按逆序输入数字',
+      enterSomething: '请输入数字',
+      perfect: '完美！',
+      correct: '正确',
+      incorrect: '错误',
+      correctWas: '正确答案是',
+      reverseMode: '🔄 逆序模式'
+    },
+    flashCount: {
+      name: '闪现计数',
+      description: '计算闪现在屏幕上的物体',
+      skill: '快速注意力',
+      instructions: '物体会快速闪现，数出指定类型的数量！',
+      question: '有多少个{color}色{shape}？',
+      shapes: {
+        circle: '圆形',
+        square: '方形',
+        triangle: '三角形',
+        star: '星形'
+      },
+      colors: {
+        red: '红',
+        blue: '蓝',
+        green: '绿',
+        yellow: '黄',
+        purple: '紫',
+        orange: '橙'
+      }
+    },
+    wordTrail: {
+      name: '单词轨迹',
+      description: '按顺序记住单词',
+      skill: '语言记忆',
+      instructions: '按顺序记住这些单词...',
+      recall: '现在按顺序输入这些单词！',
+      typeWords: '按正确顺序输入每个单词',
+      wordPlaceholder: '单词 {num}',
+      submit: '提交',
+      results: '结果',
+      correctWords: '正确单词数',
+      correctOrder: '正确顺序和位置'
+    },
+    patternPath: {
+      name: '模式路径',
+      description: '记住并在网格上追踪路径',
+      skill: '空间顺序',
+      instructions: '观察路径并记住它...',
+      watch: '仔细观察路径...',
+      recall: '现在追踪相同的路径！',
+      clear: '清除',
+      submit: '提交'
+    },
     playNow: '立即游戏'
   },
   
@@ -68,6 +128,30 @@ const zh: Translation = {
       intro: '在时间用完之前配对卡牌，挑战您的视觉记忆。',
       steps: '1. 点击卡牌翻转它们\n2. 尝试找到匹配的对\n3. 记住每个符号的位置\n4. 在计时器到期前匹配所有对',
       tips: '• 从系统地翻转卡牌开始\n• 注意符号位置\n• 快速但准确地工作以节省时间'
+    },
+    numberRecall: {
+      welcome: '欢迎来到数字记忆！',
+      intro: '通过记住数字序列来训练您的数字记忆。',
+      steps: '1. 观察数字逐个出现\n2. 记住序列\n3. 按顺序输入数字（较难的关卡需按逆序输入）\n4. 提交您的答案',
+      tips: '• 尝试将数字分组（如电话号码）\n• 创建模式或联想\n• 在逆序模式中，将序列倒着可视化'
+    },
+    flashCount: {
+      welcome: '欢迎来到闪现计数！',
+      intro: '通过计算屏幕上快速闪现的物体来测试您的视觉注意力。',
+      steps: '1. 物体会快速闪现\n2. 计算特定类型（颜色+形状）\n3. 从选项中选择正确的数量\n4. 完成5轮',
+      tips: '• 在物体出现前专注于目标类型\n• 练习快速识别（即时识别小数量）\n• 不要尝试计算所有内容 - 只计算要求的'
+    },
+    wordTrail: {
+      welcome: '欢迎来到单词轨迹！',
+      intro: '通过按顺序记住单词来挑战您的语言记忆。',
+      steps: '1. 观察单词逐个出现\n2. 按顺序记住它们\n3. 在正确位置输入每个单词\n4. 完成后提交',
+      tips: '• 创建一个连接单词的故事\n• 使用每个单词的首字母组成缩写\n• 为每个单词想象生动的图像'
+    },
+    patternPath: {
+      welcome: '欢迎来到模式路径！',
+      intro: '通过记住并在网格上追踪路径来训练您的空间记忆。',
+      steps: '1. 观察路径在网格上绘制\n2. 记住单元格序列\n3. 按顺序点击单元格重现路径\n4. 单元格必须相邻（不能对角）',
+      tips: '• 注意方向指示器\n• 将长路径分成小段\n• 使用地标或模式来记住转弯'
     }
   },
   
