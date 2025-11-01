@@ -57,8 +57,34 @@ export class CardMatchGame extends BaseGame {
   }
 
   private generateCards(): void {
-    const symbols = ['🎯', '⭐', '💎', '🎨', '🔥', '✨', '🎭', '🎪', '🎸', '🎮', '🎲', '🎰'];
-    const selectedSymbols = symbols.slice(0, this.totalPairs);
+    // Expanded emoji library with multiple categories
+    const allSymbols = [
+      // Animals
+      '🐶', '🐱', '🐭', '🐹', '🐰', '🦊', '🐻', '🐼', '🐨', '🐯', '🦁', '🐮',
+      '🐷', '🐸', '🐵', '🐔', '🐧', '🐦', '🐤', '🦆', '🦅', '🦉', '🦇', '🐺',
+      '🐗', '🐴', '🦄', '🐝', '🐛', '🦋', '🐌', '🐞', '🐢', '🐙', '🦑', '🦀',
+      // Nature & Plants
+      '🌸', '🌺', '🌻', '🌷', '🌹', '🌼', '🌵', '🌲', '🌳', '🍀', '🍁', '🍂',
+      '🍃', '🌾', '🌿', '☘️', '🌴', '🌱', '🌊', '🔥', '⚡', '⭐', '✨', '🌙',
+      '☀️', '🌈', '☁️', '⛅', '🌤️', '🌪️', '❄️', '☃️', '⛄',
+      // Food
+      '🍎', '🍐', '🍊', '🍋', '🍌', '🍉', '🍇', '🍓', '🍈', '🍒', '🍑', '🥭',
+      '🍍', '🥥', '🥝', '🍅', '🥑', '🍆', '🥔', '🥕', '🌽', '🌶️', '🥒', '🥬',
+      '🍕', '🍔', '🍟', '🌭', '🍿', '🧂', '🍩', '🍪', '🎂', '🍰', '🧁', '🍦',
+      // Objects
+      '⚽', '🏀', '🏈', '⚾', '🥎', '🎾', '🏐', '🏉', '🥏', '🎱', '🪀', '🏓',
+      '🏸', '🏒', '🏑', '🥍', '🏏', '🪃', '🥅', '⛳', '🪁', '🏹', '🎣', '🤿',
+      '🎯', '🎨', '🎭', '🎪', '🎸', '🎹', '🎺', '🎻', '🥁', '🎲', '🎮', '🎰',
+      '🧩', '🎪', '🎢', '🎡', '🎠', '🎨', '🖼️', '🎭', '🎬', '🎤', '🎧', '🎼',
+      // Symbols
+      '💎', '💍', '👑', '🏆', '🥇', '🥈', '🥉', '🏅', '🎖️', '🏵️', '🎗️', '🎫',
+      '🎟️', '🎁', '🎀', '🎊', '🎉', '🎈', '🎆', '🎇', '🧨', '✨', '🎃', '🎄',
+      '🎋', '🎍', '🎑', '🧧', '🎏', '🔮', '🪄', '🧿', '🎐', '💝', '💖', '💗'
+    ];
+
+    // Shuffle the entire pool and select random symbols
+    const shuffled = [...allSymbols].sort(() => Math.random() - 0.5);
+    const selectedSymbols = shuffled.slice(0, this.totalPairs);
 
     this.cards = [];
     let id = 0;
@@ -197,14 +223,16 @@ export class CardMatchGame extends BaseGame {
       clearInterval(this.timerInterval);
     }
 
-    // If won, use actual attempts, otherwise give partial credit
+    // totalAttempts is already tracked correctly (each card flip = 1 attempt)
+    // correctAttempts is already tracked correctly (each successful match = 1)
+    // mistakes is already tracked correctly (each wrong match = 1)
+    
+    // If time ran out, give partial credit
     if (!won) {
-      // Give credit for pairs found
-      this.correctAttempts = this.pairsFound;
-      this.totalAttempts = this.totalPairs;
-    } else {
-      this.totalAttempts = this.totalPairs;
-      this.correctAttempts = this.pairsFound;
+      // Player didn't finish, but we have accurate stats already
+      // totalAttempts = actual flips made
+      // correctAttempts = pairs found
+      // This will naturally give a lower success rate
     }
 
     this.completeGame();

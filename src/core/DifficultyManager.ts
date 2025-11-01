@@ -4,8 +4,8 @@ export class DifficultyManager {
   private storageManager: StorageManager;
   private readonly MAX_DIFFICULTY = 10;
   private readonly MIN_DIFFICULTY = 1;
-  private readonly SUCCESS_MULTIPLIER = 0.5;
-  private readonly MISTAKE_DECAY = 0.3;
+  private readonly SUCCESS_MULTIPLIER = 1.5;  // Increased from 0.5 to 1.5
+  private readonly MISTAKE_DECAY = 0.2;        // Reduced from 0.3 to 0.2
 
   constructor(storageManager: StorageManager) {
     this.storageManager = storageManager;
