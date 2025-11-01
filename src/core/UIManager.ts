@@ -209,17 +209,17 @@ export class UIManager {
 
   private getBadgeData(): Record<string, { icon: string; name: string; description: string }> {
     return {
-      first_game: { icon: '🎮', name: 'First Steps', description: 'Complete your first game' },
-      ten_games: { icon: '🎯', name: 'Dedicated', description: 'Play 10 games' },
-      fifty_games: { icon: '⭐', name: 'Committed', description: 'Play 50 games' },
-      century: { icon: '💯', name: 'Centurion', description: 'Play 100 games' },
-      streak_3: { icon: '🔥', name: '3-Day Streak', description: 'Play 3 days in a row' },
-      streak_7: { icon: '🔥🔥', name: 'Week Warrior', description: 'Play 7 days in a row' },
-      streak_30: { icon: '🔥🔥🔥', name: 'Monthly Master', description: 'Play 30 days in a row' },
-      level_5: { icon: '📈', name: 'Level 5', description: 'Reach level 5' },
-      level_10: { icon: '🚀', name: 'Level 10', description: 'Reach level 10' },
-      accurate: { icon: '🎓', name: 'Sharp Mind', description: '80% avg accuracy (10+ games)' },
-      perfectionist: { icon: '💎', name: 'Perfectionist', description: '95% avg accuracy (20+ games)' }
+      first_game: { icon: '🎮', name: this.t('badges.firstSteps.name'), description: this.t('badges.firstSteps.description') },
+      ten_games: { icon: '🎯', name: this.t('badges.dedicated.name'), description: this.t('badges.dedicated.description') },
+      fifty_games: { icon: '⭐', name: this.t('badges.committed.name'), description: this.t('badges.committed.description') },
+      century: { icon: '💯', name: this.t('badges.centurion.name'), description: this.t('badges.centurion.description') },
+      streak_3: { icon: '🔥', name: this.t('badges.streak3.name'), description: this.t('badges.streak3.description') },
+      streak_7: { icon: '🔥🔥', name: this.t('badges.streak7.name'), description: this.t('badges.streak7.description') },
+      streak_30: { icon: '🔥🔥🔥', name: this.t('badges.streak30.name'), description: this.t('badges.streak30.description') },
+      level_5: { icon: '📈', name: this.t('badges.level5.name'), description: this.t('badges.level5.description') },
+      level_10: { icon: '🚀', name: this.t('badges.level10.name'), description: this.t('badges.level10.description') },
+      accurate: { icon: '🎓', name: this.t('badges.sharpMind.name'), description: this.t('badges.sharpMind.description') },
+      perfectionist: { icon: '💎', name: this.t('badges.perfectionist.name'), description: this.t('badges.perfectionist.description') }
     };
   }
 
