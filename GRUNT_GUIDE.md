@@ -2,6 +2,8 @@
 
 This guide explains how to use Grunt for building and deploying MnemoQuest.
 
+🎮 **[Live Demo →](https://kyroskoh.github.io/mnemoquest/)** (Built with Grunt!)
+
 ## 📋 Table of Contents
 
 1. [What is Grunt?](#what-is-grunt)

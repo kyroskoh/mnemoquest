@@ -2,6 +2,8 @@
 
 Get MnemoQuest running in just a few minutes!
 
+🎮 **[Play Online →](https://kyroskoh.github.io/mnemoquest/)** (No installation needed!)
+
 ## 📋 Prerequisites
 
 Make sure you have:

@@ -3,7 +3,8 @@
 This document summarizes the fixes applied to resolve GitHub Actions CI/CD issues.
 
 **Date**: November 2025  
-**Status**: ✅ All Issues Resolved
+**Status**: ✅ All Issues Resolved  
+🎮 **[Live Demo →](https://kyroskoh.github.io/mnemoquest/)**
 
 ---
 

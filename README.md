@@ -2,6 +2,8 @@
 
 MnemoQuest is a browser-based cognitive training game that helps users enhance memory, focus, and recall speed through science-inspired mini-games.
 
+🎮 **[Play Now →](https://kyroskoh.github.io/mnemoquest/)**
+
 ## ✨ Features
 
 ### 🎮 Three Core Mini-Games

@@ -2,6 +2,8 @@
 
 This guide explains how to add new language translations to MnemoQuest.
 
+🎮 **[Try Different Languages →](https://kyroskoh.github.io/mnemoquest/)** (8 languages available!)
+
 ## 📋 Table of Contents
 
 1. [Overview](#overview)

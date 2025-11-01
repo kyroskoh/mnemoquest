@@ -1,5 +1,7 @@
 # 🌍 Translation Implementation Summary
 
+🎮 **[Play the game →](https://kyroskoh.github.io/mnemoquest/)** (Try all 8 languages!)
+
 ## ✅ Completed Changes
 
 ### 1. **New Translation Files Created**

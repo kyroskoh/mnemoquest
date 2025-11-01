@@ -2,6 +2,8 @@
 
 This guide explains how to deploy MnemoQuest to various platforms.
 
+🎮 **[Live Demo →](https://kyroskoh.github.io/mnemoquest/)** (Deployed on GitHub Pages)
+
 ## 📦 Build the Project
 
 Before deploying, build the production version:

@@ -4,7 +4,8 @@ This document outlines planned mini-games for future phases of MnemoQuest develo
 
 **Current Status**: Phase 1 & 2 Complete (3 games)  
 **Document Version**: 1.0  
-**Last Updated**: November 2025
+**Last Updated**: November 2025  
+🎮 **[Play Current Version →](https://kyroskoh.github.io/mnemoquest/)**
 
 ---
 

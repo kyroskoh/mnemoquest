@@ -2,6 +2,8 @@
 
 This document provides an overview of the MnemoQuest project structure and architecture.
 
+🎮 **[Live Demo →](https://kyroskoh.github.io/mnemoquest/)**
+
 ## 🏗️ Directory Structure
 
 ```
