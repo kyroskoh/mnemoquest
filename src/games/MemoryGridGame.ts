@@ -13,6 +13,7 @@ export class MemoryGridGame extends BaseGame {
   private gameState: 'showing' | 'recalling' | 'complete' = 'showing';
   private round: number = 0;
   private maxRounds: number = 5;
+  private firstInteraction: boolean = false;
 
   start(): void {
     this.gridSize = Math.min(6, Math.max(3, Math.floor(2 + this.difficulty * 0.4)));
@@ -159,6 +160,13 @@ export class MemoryGridGame extends BaseGame {
 
     // Check if already clicked
     if (cellEl.classList.contains('clicked')) return;
+
+    // Reset the game start time on first interaction to delay the timer
+    if (!this.firstInteraction) {
+      this.firstInteraction = true;
+      // Dispatch event to notify GameManager to reset start time
+      window.dispatchEvent(new CustomEvent('gameFirstInteraction'));
+    }
 
     cellEl.classList.add('clicked');
 

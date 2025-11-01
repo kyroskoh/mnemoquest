@@ -9,6 +9,7 @@ export class SequenceSparksGame extends BaseGame {
   private round: number = 0;
   private maxRounds: number = 5;
   private buttons: HTMLElement[] = [];
+  private firstInteraction: boolean = false;
 
   start(): void {
     this.sequenceLength = Math.min(12, Math.max(3, Math.floor(2 + this.difficulty)));
@@ -120,6 +121,12 @@ export class SequenceSparksGame extends BaseGame {
 
   private handleButtonClick(index: number): void {
     if (this.gameState !== 'player-turn') return;
+
+    // Reset GameManager timer on first interaction
+    if (!this.firstInteraction) {
+      this.firstInteraction = true;
+      window.dispatchEvent(new CustomEvent('gameFirstInteraction'));
+    }
 
     this.flashButton(index, 200);
     this.playerSequence.push(index);

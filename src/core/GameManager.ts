@@ -30,6 +30,11 @@ export class GameManager {
     window.addEventListener('playAgain', ((event: CustomEvent) => {
       this.startGame(event.detail.gameType);
     }) as EventListener);
+
+    // Listen for first interaction event (to reset timer start)
+    window.addEventListener('gameFirstInteraction', () => {
+      this.startTime = Date.now();
+    });
   }
 
   async startGame(gameType: string): Promise<void> {

@@ -16,6 +16,7 @@ export class CardMatchGame extends BaseGame {
   private timeLimit: number = 60;
   private timeRemaining: number = 60;
   private timerInterval: number | null = null;
+  private timerStarted: boolean = false;
 
   start(): void {
     // Calculate pairs based on difficulty (4 to 12 pairs)
@@ -26,7 +27,7 @@ export class CardMatchGame extends BaseGame {
     this.initializeGame();
     this.generateCards();
     this.renderCards();
-    this.startTimer();
+    // Timer will start on first card click
   }
 
   private initializeGame(): void {
@@ -146,6 +147,14 @@ export class CardMatchGame extends BaseGame {
 
     const card = this.cards.find(c => c.id === cardId);
     if (!card || card.flipped || card.matched) return;
+
+    // Start timer on first card click
+    if (!this.timerStarted) {
+      this.startTimer();
+      this.timerStarted = true;
+      // Also reset GameManager timer
+      window.dispatchEvent(new CustomEvent('gameFirstInteraction'));
+    }
 
     // Flip card
     card.flipped = true;
