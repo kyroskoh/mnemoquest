@@ -6,7 +6,11 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "grunt": "grunt",
+    "grunt:build": "grunt build",
+    "grunt:test": "grunt test",
+    "grunt:deploy": "grunt deploy"
   },
   "keywords": ["memory", "game", "cognitive", "training"],
   "author": {
@@ -27,7 +31,12 @@
   "devDependencies": {
     "@types/howler": "^2.2.11",
     "typescript": "^5.3.3",
-    "vite": "^5.0.10"
+    "vite": "^5.0.10",
+    "grunt": "^1.6.1",
+    "grunt-contrib-clean": "^2.0.1",
+    "grunt-shell": "^4.0.0",
+    "load-grunt-tasks": "^5.1.0",
+    "time-grunt": "^2.0.0"
   },
   "dependencies": {
     "chart.js": "^4.4.1",

@@ -57,11 +57,26 @@ npm run dev
 
 ## 🛠️ Building for Production
 
+### Using npm:
 ```bash
 npm run build
 ```
 
+### Using Grunt (recommended for CI/CD):
+```bash
+# Install Grunt CLI (one-time)
+npm install -g grunt-cli
+
+# Build
+grunt build
+
+# Or deploy-ready build
+grunt deploy
+```
+
 The production-ready files will be in the `dist` directory.
+
+See [GRUNT_GUIDE.md](GRUNT_GUIDE.md) for detailed Grunt usage.
 
 ## 📦 Tech Stack
 
