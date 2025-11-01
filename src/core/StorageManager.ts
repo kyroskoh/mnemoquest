@@ -28,6 +28,7 @@ export interface Settings {
   soundEnabled: boolean;
   colorBlindMode: boolean;
   animationsEnabled: boolean;
+  language: string;
 }
 
 export class StorageManager {
@@ -236,7 +237,8 @@ export class StorageManager {
     return {
       soundEnabled: true,
       colorBlindMode: false,
-      animationsEnabled: true
+      animationsEnabled: true,
+      language: 'en'
     };
   }
 

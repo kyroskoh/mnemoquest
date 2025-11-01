@@ -27,6 +27,7 @@ MnemoQuest is a browser-based cognitive training game that helps users enhance m
 - Responsive design (works on desktop and mobile)
 - Color-blind accessibility mode
 - Sound effects toggle
+- **Multi-language support** (English, Spanish, Chinese, French + more)
 
 ## 🚀 Getting Started
 
@@ -103,12 +104,22 @@ The production-ready files will be in the `dist` directory.
 - **Daily Streaks**: Bonus multipliers for consecutive play days
 - **Badges**: Unlock achievements for milestones
 
-## 🎨 Accessibility
+## 🎨 Accessibility & Localization
 
+### Accessibility
 - Color-blind friendly mode
 - Keyboard navigation support (coming soon)
 - Clear visual feedback
 - Adjustable animations
+
+### Languages Supported
+- 🇺🇸 English
+- 🇪🇸 Spanish (Español)
+- 🇨🇳 Chinese (中文)
+- 🇫🇷 French (Français)
+- More languages coming soon!
+
+Want to contribute a translation? See [TRANSLATION_GUIDE.md](TRANSLATION_GUIDE.md)
 
 ## 📝 License
 
