@@ -44,6 +44,66 @@ export interface Translation {
       skill: string;
       instructions: string;
     };
+    numberRecall: {
+      name: string;
+      description: string;
+      skill: string;
+      instructions: string;
+      enterNumbers: string;
+      submit: string;
+      typeForward: string;
+      typeReverse: string;
+      enterSomething: string;
+      perfect: string;
+      correct: string;
+      incorrect: string;
+      correctWas: string;
+      reverseMode: string;
+    };
+    flashCount: {
+      name: string;
+      description: string;
+      skill: string;
+      instructions: string;
+      question: string;
+      shapes: {
+        circle: string;
+        square: string;
+        triangle: string;
+        star: string;
+      };
+      colors: {
+        red: string;
+        blue: string;
+        green: string;
+        yellow: string;
+        purple: string;
+        orange: string;
+      };
+    };
+    wordTrail: {
+      name: string;
+      description: string;
+      skill: string;
+      instructions: string;
+      recall: string;
+      typeWords: string;
+      wordPlaceholder: string;
+      submit: string;
+      results: string;
+      correctWords: string;
+      correctOrder: string;
+    };
+    patternPath: {
+      name: string;
+      description: string;
+      skill: string;
+      instructions: string;
+      watch: string;
+      recall: string;
+      clear: string;
+      submit: string;
+    };
     playNow: string;
   };
   
@@ -68,6 +128,30 @@ export interface Translation {
       tips: string;
     };
     cardMatch: {
+      welcome: string;
+      intro: string;
+      steps: string;
+      tips: string;
+    };
+    numberRecall: {
+      welcome: string;
+      intro: string;
+      steps: string;
+      tips: string;
+    };
+    flashCount: {
+      welcome: string;
+      intro: string;
+      steps: string;
+      tips: string;
+    };
+    wordTrail: {
+      welcome: string;
+      intro: string;
+      steps: string;
+      tips: string;
+    };
+    patternPath: {
       welcome: string;
       intro: string;
       steps: string;
