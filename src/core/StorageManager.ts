@@ -104,8 +104,8 @@ export class StorageManager {
     progress.dailyStreak = this.calculateStreak(progress.lastPlayDate);
     progress.lastPlayDate = new Date().toISOString().split('T')[0];
     
-    // Calculate level (100 XP per level)
-    progress.level = Math.floor(progress.totalXP / 100) + 1;
+    // Calculate level with progressive XP requirements
+    progress.level = this.calculateLevel(progress.totalXP);
     
     // Check for badges
     this.checkAndAwardBadges(progress);
@@ -133,6 +133,58 @@ export class StorageManager {
       // Streak broken
       return 1;
     }
+  }
+
+  /**
+   * Calculate player level based on total XP with progressive requirements.
+   * Each level requires progressively more XP to achieve, making higher levels harder to reach.
+   * 
+   * Formula: Each level requires 10% more XP than the previous level
+   * - Level 1->2: 100 XP
+   * - Level 2->3: 110 XP  
+   * - Level 3->4: 121 XP
+   * - etc.
+   */
+  private calculateLevel(totalXP: number): number {
+    if (totalXP < 0) return 1;
+    
+    let level = 1;
+    let xpRequired = 0;
+    let xpForNextLevel = 100; // Base XP for level 2
+    
+    while (totalXP >= xpRequired + xpForNextLevel) {
+      xpRequired += xpForNextLevel;
+      level++;
+      // Each level requires 10% more XP than the previous level
+      xpForNextLevel = Math.floor(xpForNextLevel * 1.1);
+    }
+    
+    return level;
+  }
+
+  /**
+   * Get XP progress for the current level
+   * Returns: { currentLevelXP, xpForNextLevel, percentage }
+   */
+  getLevelProgress(totalXP: number): { currentLevelXP: number; xpForNextLevel: number; percentage: number } {
+    let level = 1;
+    let xpRequired = 0;
+    let xpForNextLevel = 100;
+    
+    while (totalXP >= xpRequired + xpForNextLevel) {
+      xpRequired += xpForNextLevel;
+      level++;
+      xpForNextLevel = Math.floor(xpForNextLevel * 1.1);
+    }
+    
+    const currentLevelXP = totalXP - xpRequired;
+    const percentage = (currentLevelXP / xpForNextLevel) * 100;
+    
+    return {
+      currentLevelXP,
+      xpForNextLevel,
+      percentage: Math.min(100, Math.max(0, percentage))
+    };
   }
 
   private checkAndAwardBadges(progress: GameProgress): void {

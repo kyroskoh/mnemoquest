@@ -238,38 +238,39 @@ export class UIManager {
 
     const xpGained = score;
     const progress = this.storageManager.loadProgress();
+    const levelProgress = this.storageManager.getLevelProgress(progress.totalXP);
 
     container.innerHTML = `
       <div class="result-screen">
         <h2 class="result-title">Game Complete! 🎉</h2>
         <div class="result-stats">
           <div class="result-stat">
-            <div class="result-stat-label">Score</div>
+            <div class="result-stat-label">${this.t('results.score')}</div>
             <div class="result-stat-value">${score}</div>
           </div>
           <div class="result-stat">
-            <div class="result-stat-label">Accuracy</div>
+            <div class="result-stat-label">${this.t('results.accuracy')}</div>
             <div class="result-stat-value">${accuracy}%</div>
           </div>
           <div class="result-stat">
-            <div class="result-stat-label">Time</div>
+            <div class="result-stat-label">${this.t('results.time')}</div>
             <div class="result-stat-value">${time}s</div>
           </div>
           <div class="result-stat">
-            <div class="result-stat-label">XP Gained</div>
+            <div class="result-stat-label">${this.t('results.xpGained')}</div>
             <div class="result-stat-value">+${xpGained}</div>
           </div>
         </div>
         <div class="result-progress">
-          <div class="result-level">Level ${progress.level}</div>
+          <div class="result-level">${this.t('results.level')} ${progress.level}</div>
           <div class="result-xp-bar">
-            <div class="result-xp-fill" style="width: ${(progress.totalXP % 100)}%"></div>
+            <div class="result-xp-fill" style="width: ${levelProgress.percentage}%"></div>
           </div>
-          <div class="result-xp-text">${progress.totalXP % 100}/100 XP</div>
+          <div class="result-xp-text">${levelProgress.currentLevelXP}/${levelProgress.xpForNextLevel} XP</div>
         </div>
         <div class="result-actions">
-          <button class="result-btn primary" id="playAgainBtn">Play Again</button>
-          <button class="result-btn secondary" id="backToDashboardBtn">Back to Dashboard</button>
+          <button class="result-btn primary" id="playAgainBtn">${this.t('results.playAgain')}</button>
+          <button class="result-btn secondary" id="backToDashboardBtn">${this.t('results.backToDashboard')}</button>
         </div>
       </div>
     `;
