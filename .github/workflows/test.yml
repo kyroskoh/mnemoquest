@@ -29,14 +29,11 @@ jobs:
       - name: Install dependencies
         run: npm ci
       
-      - name: Install Grunt CLI
-        run: npm install -g grunt-cli
-      
       - name: Run Grunt CI build
-        run: grunt ci
+        run: npx grunt ci
       
       - name: Run tests
-        run: grunt test
+        run: npx grunt test
       
       - name: Check build output
         run: |
