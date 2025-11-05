@@ -305,6 +305,7 @@ const ja: Translation = {
   },
   
   badges: {
+    // === ライフタイム進行 ===
     firstSteps: {
       name: '最初の一歩',
       description: '最初のゲームをクリア'
@@ -321,6 +322,51 @@ const ja: Translation = {
       name: 'センチュリオン',
       description: '100ゲームをプレイ'
     },
+    legendary: {
+      name: 'レジェンド',
+      description: '500ゲームをプレイ'
+    },
+    xp1000: {
+      name: 'ライジングスター',
+      description: '1,000XP獲得'
+    },
+    xp5000: {
+      name: 'シャイニングブライト',
+      description: '5,000XP獲得'
+    },
+    xp10000: {
+      name: 'チャンピオン',
+      description: '10,000XP獲得'
+    },
+    level5: {
+      name: 'レベル5',
+      description: 'レベル5に到達'
+    },
+    level10: {
+      name: 'レベル10',
+      description: 'レベル10に到達'
+    },
+    level20: {
+      name: 'レベル20',
+      description: 'レベル20に到達'
+    },
+    level50: {
+      name: 'レベル50',
+      description: 'レベル50に到達'
+    },
+    versatile: {
+      name: '多才',
+      description: '5種類のゲームをプレイ'
+    },
+    memoryMaster: {
+      name: 'メモリーマスター',
+      description: '20以上の記憶ゲームをプレイ'
+    },
+    highScorer: {
+      name: 'ハイスコアラー',
+      description: '1ゲームで1000点以上獲得'
+    },
+    // === デイリー/習慣ベース ===
     streak3: {
       name: '3日連続',
       description: '3日連続でプレイ'
@@ -333,14 +379,60 @@ const ja: Translation = {
       name: 'マンスリーマスター',
       description: '30日連続でプレイ'
     },
-    level5: {
-      name: 'レベル5',
-      description: 'レベル5に到達'
+    streak100: {
+      name: '止められない',
+      description: '100日連続でプレイ'
     },
-    level10: {
-      name: 'レベル10',
-      description: 'レベル10に到達'
+    earlyBird: {
+      name: '早起き鳥',
+      description: '午前6時～10時にプレイ'
     },
+    nightOwl: {
+      name: '夜ふかしフクロウ',
+      description: '深夜0時～午前4時にプレイ'
+    },
+    weekendWarrior: {
+      name: 'ウィークエンドウォリアー',
+      description: '土曜日と日曜日の両方にプレイ'
+    },
+    // === デイリーアチーブメント ===
+    daily100xp: {
+      name: 'デイリーアーナー',
+      description: '1日で100XP獲得'
+    },
+    daily500xp: {
+      name: 'デイリーグラインダー',
+      description: '1日で500XP獲得'
+    },
+    daily1000xp: {
+      name: 'デイリーチャンピオン',
+      description: '1日で1000XP獲得'
+    },
+    daily5games: {
+      name: 'デイリープレイヤー',
+      description: '1日で5ゲームプレイ'
+    },
+    daily10games: {
+      name: 'デイリーマラソナー',
+      description: '1日で10ゲームプレイ'
+    },
+    daily20games: {
+      name: 'デイリーレジェンド',
+      description: '1日で20ゲームプレイ'
+    },
+    dailyVariety: {
+      name: 'デイリーエクスプローラー',
+      description: '今日3種類のゲームをプレイ'
+    },
+    dailyAllGames: {
+      name: 'オールラウンダー',
+      description: '今日5種類のゲームをプレイ'
+    },
+    dailyFocused: {
+      name: 'デイリースペシャリスト',
+      description: '今日同じゲームを5回プレイ'
+    },
+    // === パフォーマンスベース ===
     sharpMind: {
       name: 'シャープマインド',
       description: '平均80%の正確性（10+ゲーム）'
@@ -348,6 +440,14 @@ const ja: Translation = {
     perfectionist: {
       name: '完璧主義者',
       description: '平均95%の正確性（20+ゲーム）'
+    },
+    flawless: {
+      name: '完璧',
+      description: 'ゲームで100%の正確性を達成'
+    },
+    noMistakes: {
+      name: '完璧な連続',
+      description: '5ゲームで100%の正確性を達成'
     }
   }
 };

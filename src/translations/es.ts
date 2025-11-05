@@ -305,6 +305,7 @@ const es: Translation = {
   },
   
   badges: {
+    // === PROGRESIÓN DE POR VIDA ===
     firstSteps: {
       name: 'Primeros Pasos',
       description: 'Completa tu primer juego'
@@ -321,6 +322,51 @@ const es: Translation = {
       name: 'Centurión',
       description: 'Juega 100 juegos'
     },
+    legendary: {
+      name: 'Legendario',
+      description: 'Juega 500 juegos'
+    },
+    xp1000: {
+      name: 'Estrella Naciente',
+      description: 'Gana 1,000 XP'
+    },
+    xp5000: {
+      name: 'Brillando Fuerte',
+      description: 'Gana 5,000 XP'
+    },
+    xp10000: {
+      name: 'Campeón',
+      description: 'Gana 10,000 XP'
+    },
+    level5: {
+      name: 'Nivel 5',
+      description: 'Alcanza el nivel 5'
+    },
+    level10: {
+      name: 'Nivel 10',
+      description: 'Alcanza el nivel 10'
+    },
+    level20: {
+      name: 'Nivel 20',
+      description: 'Alcanza el nivel 20'
+    },
+    level50: {
+      name: 'Nivel 50',
+      description: 'Alcanza el nivel 50'
+    },
+    versatile: {
+      name: 'Versátil',
+      description: 'Juega 5 tipos de juegos diferentes'
+    },
+    memoryMaster: {
+      name: 'Maestro de la Memoria',
+      description: 'Juega 20+ juegos de memoria'
+    },
+    highScorer: {
+      name: 'Gran Anotador',
+      description: 'Anota 1000+ puntos en un juego'
+    },
+    // === BASADO EN HÁBITOS DIARIOS ===
     streak3: {
       name: 'Racha de 3 Días',
       description: 'Juega 3 días seguidos'
@@ -333,14 +379,60 @@ const es: Translation = {
       name: 'Maestro Mensual',
       description: 'Juega 30 días seguidos'
     },
-    level5: {
-      name: 'Nivel 5',
-      description: 'Alcanza el nivel 5'
+    streak100: {
+      name: 'Imparable',
+      description: 'Juega 100 días seguidos'
     },
-    level10: {
-      name: 'Nivel 10',
-      description: 'Alcanza el nivel 10'
+    earlyBird: {
+      name: 'Madrugador',
+      description: 'Juega entre 6-10 AM'
     },
+    nightOwl: {
+      name: 'Búho Nocturno',
+      description: 'Juega entre medianoche y 4 AM'
+    },
+    weekendWarrior: {
+      name: 'Guerrero de Fin de Semana',
+      description: 'Juega tanto sábado como domingo'
+    },
+    // === LOGROS DIARIOS ===
+    daily100xp: {
+      name: 'Ganador Diario',
+      description: 'Gana 100 XP en un día'
+    },
+    daily500xp: {
+      name: 'Trabajador Diario',
+      description: 'Gana 500 XP en un día'
+    },
+    daily1000xp: {
+      name: 'Campeón Diario',
+      description: 'Gana 1000 XP en un día'
+    },
+    daily5games: {
+      name: 'Jugador Diario',
+      description: 'Juega 5 juegos en un día'
+    },
+    daily10games: {
+      name: 'Maratonista Diario',
+      description: 'Juega 10 juegos en un día'
+    },
+    daily20games: {
+      name: 'Leyenda Diaria',
+      description: 'Juega 20 juegos en un día'
+    },
+    dailyVariety: {
+      name: 'Explorador Diario',
+      description: 'Juega 3 tipos de juegos diferentes hoy'
+    },
+    dailyAllGames: {
+      name: 'Todoterreno',
+      description: 'Juega 5 tipos de juegos diferentes hoy'
+    },
+    dailyFocused: {
+      name: 'Especialista Diario',
+      description: 'Juega el mismo juego 5 veces hoy'
+    },
+    // === BASADO EN RENDIMIENTO ===
     sharpMind: {
       name: 'Mente Aguda',
       description: '80% precisión promedio (10+ juegos)'
@@ -348,6 +440,14 @@ const es: Translation = {
     perfectionist: {
       name: 'Perfeccionista',
       description: '95% precisión promedio (20+ juegos)'
+    },
+    flawless: {
+      name: 'Impecable',
+      description: 'Obtén 100% de precisión en un juego'
+    },
+    noMistakes: {
+      name: 'Racha Perfecta',
+      description: 'Obtén 100% de precisión en 5 juegos'
     }
   }
 };

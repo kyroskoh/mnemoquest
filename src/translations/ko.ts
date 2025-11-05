@@ -305,6 +305,7 @@ const ko: Translation = {
   },
   
   badges: {
+    // === 평생 진행 ===
     firstSteps: {
       name: '첫 걸음',
       description: '첫 게임 완료'
@@ -321,6 +322,51 @@ const ko: Translation = {
       name: '센츄리온',
       description: '100개 게임 플레이'
     },
+    legendary: {
+      name: '전설',
+      description: '500개 게임 플레이'
+    },
+    xp1000: {
+      name: '떠오르는 별',
+      description: '1,000 XP 획득'
+    },
+    xp5000: {
+      name: '빛나는 별',
+      description: '5,000 XP 획득'
+    },
+    xp10000: {
+      name: '챔피언',
+      description: '10,000 XP 획득'
+    },
+    level5: {
+      name: '레벨 5',
+      description: '레벨 5 도달'
+    },
+    level10: {
+      name: '레벨 10',
+      description: '레벨 10 도달'
+    },
+    level20: {
+      name: '레벨 20',
+      description: '레벨 20 도달'
+    },
+    level50: {
+      name: '레벨 50',
+      description: '레벨 50 도달'
+    },
+    versatile: {
+      name: '다재다능',
+      description: '5가지 다른 게임 유형 플레이'
+    },
+    memoryMaster: {
+      name: '기억력 마스터',
+      description: '20개 이상의 기억 게임 플레이'
+    },
+    highScorer: {
+      name: '고득점자',
+      description: '한 게임에서 1000점 이상 획득'
+    },
+    // === 일일/습관 기반 ===
     streak3: {
       name: '3일 연속',
       description: '3일 연속 플레이'
@@ -333,14 +379,60 @@ const ko: Translation = {
       name: '월간 마스터',
       description: '30일 연속 플레이'
     },
-    level5: {
-      name: '레벨 5',
-      description: '레벨 5 도달'
+    streak100: {
+      name: '멈출 수 없는',
+      description: '100일 연속 플레이'
     },
-    level10: {
-      name: '레벨 10',
-      description: '레벨 10 도달'
+    earlyBird: {
+      name: '일찍 일어나는 새',
+      description: '오전 6시-10시에 플레이'
     },
+    nightOwl: {
+      name: '올빼미',
+      description: '자정-오전 4시에 플레이'
+    },
+    weekendWarrior: {
+      name: '주말 전사',
+      description: '토요일과 일요일 모두 플레이'
+    },
+    // === 일일 업적 ===
+    daily100xp: {
+      name: '일일 수익자',
+      description: '하루에 100 XP 획득'
+    },
+    daily500xp: {
+      name: '일일 노동자',
+      description: '하루에 500 XP 획득'
+    },
+    daily1000xp: {
+      name: '일일 챔피언',
+      description: '하루에 1000 XP 획득'
+    },
+    daily5games: {
+      name: '일일 플레이어',
+      description: '하루에 5개 게임 플레이'
+    },
+    daily10games: {
+      name: '일일 마라토너',
+      description: '하루에 10개 게임 플레이'
+    },
+    daily20games: {
+      name: '일일 전설',
+      description: '하루에 20개 게임 플레이'
+    },
+    dailyVariety: {
+      name: '일일 탐험가',
+      description: '오늘 3가지 다른 게임 유형 플레이'
+    },
+    dailyAllGames: {
+      name: '만능 플레이어',
+      description: '오늘 5가지 다른 게임 유형 플레이'
+    },
+    dailyFocused: {
+      name: '일일 전문가',
+      description: '오늘 같은 게임을 5번 플레이'
+    },
+    // === 성과 기반 ===
     sharpMind: {
       name: '예리한 마음',
       description: '평균 80% 정확도 (10+ 게임)'
@@ -348,6 +440,14 @@ const ko: Translation = {
     perfectionist: {
       name: '완벽주의자',
       description: '평균 95% 정확도 (20+ 게임)'
+    },
+    flawless: {
+      name: '완벽한',
+      description: '게임에서 100% 정확도 달성'
+    },
+    noMistakes: {
+      name: '완벽한 연속',
+      description: '5개 게임에서 100% 정확도 달성'
     }
   }
 };

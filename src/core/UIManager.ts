@@ -215,17 +215,59 @@ export class UIManager {
 
   private getBadgeData(): Record<string, { icon: string; name: string; description: string }> {
     return {
+      // === LIFETIME PROGRESSION ===
       first_game: { icon: '🎮', name: this.t('badges.firstSteps.name'), description: this.t('badges.firstSteps.description') },
       ten_games: { icon: '🎯', name: this.t('badges.dedicated.name'), description: this.t('badges.dedicated.description') },
       fifty_games: { icon: '⭐', name: this.t('badges.committed.name'), description: this.t('badges.committed.description') },
       century: { icon: '💯', name: this.t('badges.centurion.name'), description: this.t('badges.centurion.description') },
+      legendary: { icon: '👑', name: this.t('badges.legendary.name'), description: this.t('badges.legendary.description') },
+      
+      // XP Milestones
+      xp_1000: { icon: '🌟', name: this.t('badges.xp1000.name'), description: this.t('badges.xp1000.description') },
+      xp_5000: { icon: '💫', name: this.t('badges.xp5000.name'), description: this.t('badges.xp5000.description') },
+      xp_10000: { icon: '🏆', name: this.t('badges.xp10000.name'), description: this.t('badges.xp10000.description') },
+      
+      // Level Progression
+      level_5: { icon: '📈', name: this.t('badges.level5.name'), description: this.t('badges.level5.description') },
+      level_10: { icon: '🚀', name: this.t('badges.level10.name'), description: this.t('badges.level10.description') },
+      level_20: { icon: '⚡', name: this.t('badges.level20.name'), description: this.t('badges.level20.description') },
+      level_50: { icon: '💎', name: this.t('badges.level50.name'), description: this.t('badges.level50.description') },
+      
+      // Skill Mastery
+      versatile: { icon: '🎭', name: this.t('badges.versatile.name'), description: this.t('badges.versatile.description') },
+      memory_master: { icon: '🧠', name: this.t('badges.memoryMaster.name'), description: this.t('badges.memoryMaster.description') },
+      high_scorer: { icon: '🎯', name: this.t('badges.highScorer.name'), description: this.t('badges.highScorer.description') },
+      
+      // === DAILY/HABIT BASED ===
       streak_3: { icon: '🔥', name: this.t('badges.streak3.name'), description: this.t('badges.streak3.description') },
       streak_7: { icon: '🔥🔥', name: this.t('badges.streak7.name'), description: this.t('badges.streak7.description') },
       streak_30: { icon: '🔥🔥🔥', name: this.t('badges.streak30.name'), description: this.t('badges.streak30.description') },
-      level_5: { icon: '📈', name: this.t('badges.level5.name'), description: this.t('badges.level5.description') },
-      level_10: { icon: '🚀', name: this.t('badges.level10.name'), description: this.t('badges.level10.description') },
+      streak_100: { icon: '🔥🔥🔥🔥', name: this.t('badges.streak100.name'), description: this.t('badges.streak100.description') },
+      
+      early_bird: { icon: '🌅', name: this.t('badges.earlyBird.name'), description: this.t('badges.earlyBird.description') },
+      night_owl: { icon: '🦉', name: this.t('badges.nightOwl.name'), description: this.t('badges.nightOwl.description') },
+      weekend_warrior: { icon: '⚔️', name: this.t('badges.weekendWarrior.name'), description: this.t('badges.weekendWarrior.description') },
+      
+      // Daily XP achievements
+      daily_100xp: { icon: '💰', name: this.t('badges.daily100xp.name'), description: this.t('badges.daily100xp.description') },
+      daily_500xp: { icon: '💎', name: this.t('badges.daily500xp.name'), description: this.t('badges.daily500xp.description') },
+      daily_1000xp: { icon: '👑', name: this.t('badges.daily1000xp.name'), description: this.t('badges.daily1000xp.description') },
+      
+      // Daily games achievements
+      daily_5games: { icon: '🎮', name: this.t('badges.daily5games.name'), description: this.t('badges.daily5games.description') },
+      daily_10games: { icon: '🎯', name: this.t('badges.daily10games.name'), description: this.t('badges.daily10games.description') },
+      daily_20games: { icon: '🏆', name: this.t('badges.daily20games.name'), description: this.t('badges.daily20games.description') },
+      
+      // Daily variety achievements
+      daily_variety: { icon: '🎨', name: this.t('badges.dailyVariety.name'), description: this.t('badges.dailyVariety.description') },
+      daily_all_games: { icon: '🌟', name: this.t('badges.dailyAllGames.name'), description: this.t('badges.dailyAllGames.description') },
+      daily_focused: { icon: '🎯', name: this.t('badges.dailyFocused.name'), description: this.t('badges.dailyFocused.description') },
+      
+      // === PERFORMANCE BASED ===
       accurate: { icon: '🎓', name: this.t('badges.sharpMind.name'), description: this.t('badges.sharpMind.description') },
-      perfectionist: { icon: '💎', name: this.t('badges.perfectionist.name'), description: this.t('badges.perfectionist.description') }
+      perfectionist: { icon: '💎', name: this.t('badges.perfectionist.name'), description: this.t('badges.perfectionist.description') },
+      flawless: { icon: '✨', name: this.t('badges.flawless.name'), description: this.t('badges.flawless.description') },
+      no_mistakes: { icon: '🎯', name: this.t('badges.noMistakes.name'), description: this.t('badges.noMistakes.description') }
     };
   }
 

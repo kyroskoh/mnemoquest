@@ -305,6 +305,7 @@ const zh: Translation = {
   },
   
   badges: {
+    // === 终身进度 ===
     firstSteps: {
       name: '第一步',
       description: '完成你的第一个游戏'
@@ -321,6 +322,51 @@ const zh: Translation = {
       name: '百夫长',
       description: '玩100个游戏'
     },
+    legendary: {
+      name: '传奇',
+      description: '玩500个游戏'
+    },
+    xp1000: {
+      name: '冉冉新星',
+      description: '获得1,000经验'
+    },
+    xp5000: {
+      name: '闪耀之星',
+      description: '获得5,000经验'
+    },
+    xp10000: {
+      name: '冠军',
+      description: '获得10,000经验'
+    },
+    level5: {
+      name: '5级',
+      description: '达到5级'
+    },
+    level10: {
+      name: '10级',
+      description: '达到10级'
+    },
+    level20: {
+      name: '20级',
+      description: '达到20级'
+    },
+    level50: {
+      name: '50级',
+      description: '达到50级'
+    },
+    versatile: {
+      name: '多面手',
+      description: '玩5种不同的游戏类型'
+    },
+    memoryMaster: {
+      name: '记忆大师',
+      description: '玩20+记忆游戏'
+    },
+    highScorer: {
+      name: '高分王',
+      description: '单局获得1000+分'
+    },
+    // === 每日/习惯型 ===
     streak3: {
       name: '3天连胜',
       description: '连续玩3天'
@@ -333,14 +379,60 @@ const zh: Translation = {
       name: '月度大师',
       description: '连续玩30天'
     },
-    level5: {
-      name: '5级',
-      description: '达到5级'
+    streak100: {
+      name: '势不可挡',
+      description: '连续玩100天'
     },
-    level10: {
-      name: '10级',
-      description: '达到10级'
+    earlyBird: {
+      name: '早起的鸟儿',
+      description: '在早上6-10点玩游戏'
     },
+    nightOwl: {
+      name: '夜猫子',
+      description: '在午夜到凌晨4点玩游戏'
+    },
+    weekendWarrior: {
+      name: '周末战士',
+      description: '在周六和周日都玩游戏'
+    },
+    // === 每日成就 ===
+    daily100xp: {
+      name: '每日挣钱者',
+      description: '一天内获得100经验'
+    },
+    daily500xp: {
+      name: '每日苦工',
+      description: '一天内获得500经验'
+    },
+    daily1000xp: {
+      name: '每日冠军',
+      description: '一天内获得1000经验'
+    },
+    daily5games: {
+      name: '每日玩家',
+      description: '一天内玩5局游戏'
+    },
+    daily10games: {
+      name: '每日马拉松',
+      description: '一天内玩10局游戏'
+    },
+    daily20games: {
+      name: '每日传奇',
+      description: '一天内玩20局游戏'
+    },
+    dailyVariety: {
+      name: '每日探索者',
+      description: '今天玩3种不同的游戏类型'
+    },
+    dailyAllGames: {
+      name: '万事通',
+      description: '今天玩5种不同的游戏类型'
+    },
+    dailyFocused: {
+      name: '每日专家',
+      description: '今天玩同一游戏5次'
+    },
+    // === 表现型 ===
     sharpMind: {
       name: '敏锐头脑',
       description: '80%平均准确度（10+游戏）'
@@ -348,6 +440,14 @@ const zh: Translation = {
     perfectionist: {
       name: '完美主义者',
       description: '95%平均准确度（20+游戏）'
+    },
+    flawless: {
+      name: '完美无瑕',
+      description: '在一局游戏中获得100%准确度'
+    },
+    noMistakes: {
+      name: '完美连胜',
+      description: '在5局游戏中获得100%准确度'
     }
   }
 };

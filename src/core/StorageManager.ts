@@ -4,6 +4,12 @@ export interface GameProgress {
   gamesPlayed: number;
   dailyStreak: number;
   lastPlayDate: string;
+  // Daily tracking
+  dailyXP: number;
+  dailyGamesPlayed: number;
+  dailyPlayTime: number; // in minutes
+  lastDailyReset: string;
+  todayGamesPlayed: string[]; // array of game types played today
   highScores: {
     [gameType: string]: number;
   };
@@ -50,10 +56,25 @@ export class StorageManager {
 
   loadProgress(): GameProgress {
     const data = localStorage.getItem(this.PROGRESS_KEY);
-    if (data) {
-      return JSON.parse(data);
+    if (!data) {
+      return this.getDefaultProgress();
     }
-    return this.getDefaultProgress();
+    const progress = JSON.parse(data) as GameProgress;
+    
+    // Migrate existing progress to include new daily tracking fields
+    const today = new Date().toISOString().split('T')[0];
+    if (!progress.dailyXP && progress.dailyXP !== 0) {
+      progress.dailyXP = 0;
+      progress.dailyGamesPlayed = 0;
+      progress.dailyPlayTime = 0;
+      progress.lastDailyReset = today;
+      progress.todayGamesPlayed = [];
+    }
+    
+    // Check if we need to reset daily counters
+    this.checkAndResetDailyCounters(progress);
+    
+    return progress;
   }
 
   saveProgress(progress: GameProgress): void {
@@ -72,6 +93,13 @@ export class StorageManager {
     // Update total stats
     progress.gamesPlayed++;
     progress.totalXP += score;
+    
+    // Update daily stats
+    progress.dailyXP += score;
+    progress.dailyGamesPlayed++;
+    if (!progress.todayGamesPlayed.includes(gameType)) {
+      progress.todayGamesPlayed.push(gameType);
+    }
     
     // Update game-specific stats
     if (!progress.gameStats[gameType]) {
@@ -135,6 +163,23 @@ export class StorageManager {
     }
   }
 
+  private checkAndResetDailyCounters(progress: GameProgress): void {
+    const today = new Date().toISOString().split('T')[0];
+    
+    // Check if it's a new day
+    if (progress.lastDailyReset !== today) {
+      // Reset daily counters
+      progress.dailyXP = 0;
+      progress.dailyGamesPlayed = 0;
+      progress.dailyPlayTime = 0;
+      progress.todayGamesPlayed = [];
+      progress.lastDailyReset = today;
+      
+      // Save the reset progress
+      this.saveProgress(progress);
+    }
+  }
+
   /**
    * Calculate player level based on total XP with progressive requirements.
    * Each level requires progressively more XP to achieve, making higher levels harder to reach.
@@ -190,25 +235,70 @@ export class StorageManager {
   private checkAndAwardBadges(progress: GameProgress): void {
     const badges: string[] = [...progress.badges];
     
-    // First game badge
+    // === LIFETIME PROGRESSION ===
+    
+    // Games played milestones
     if (progress.gamesPlayed >= 1 && !badges.includes('first_game')) {
       badges.push('first_game');
     }
-    
-    // 10 games badge
     if (progress.gamesPlayed >= 10 && !badges.includes('ten_games')) {
       badges.push('ten_games');
     }
-    
-    // 50 games badge
     if (progress.gamesPlayed >= 50 && !badges.includes('fifty_games')) {
       badges.push('fifty_games');
     }
-    
-    // 100 games badge
     if (progress.gamesPlayed >= 100 && !badges.includes('century')) {
       badges.push('century');
     }
+    if (progress.gamesPlayed >= 500 && !badges.includes('legendary')) {
+      badges.push('legendary');
+    }
+    
+    // XP milestones
+    if (progress.totalXP >= 1000 && !badges.includes('xp_1000')) {
+      badges.push('xp_1000');
+    }
+    if (progress.totalXP >= 5000 && !badges.includes('xp_5000')) {
+      badges.push('xp_5000');
+    }
+    if (progress.totalXP >= 10000 && !badges.includes('xp_10000')) {
+      badges.push('xp_10000');
+    }
+    
+    // Level progression
+    if (progress.level >= 5 && !badges.includes('level_5')) {
+      badges.push('level_5');
+    }
+    if (progress.level >= 10 && !badges.includes('level_10')) {
+      badges.push('level_10');
+    }
+    if (progress.level >= 20 && !badges.includes('level_20')) {
+      badges.push('level_20');
+    }
+    if (progress.level >= 50 && !badges.includes('level_50')) {
+      badges.push('level_50');
+    }
+    
+    // Skill mastery badges
+    const uniqueGameTypes = new Set(progress.recentScores.map(s => s.gameType));
+    if (uniqueGameTypes.size >= 5 && !badges.includes('versatile')) {
+      badges.push('versatile');
+    }
+    
+    const memoryGames = ['memory-grid', 'card-match', 'word-trail', 'pattern-path'];
+    const memoryGameCount = Object.keys(progress.gameStats)
+      .filter(type => memoryGames.includes(type))
+      .reduce((sum, type) => sum + progress.gameStats[type].played, 0);
+    if (memoryGameCount >= 20 && !badges.includes('memory_master')) {
+      badges.push('memory_master');
+    }
+    
+    // High scorer - Get 1000+ points in any single game
+    if (progress.recentScores.some(score => score.score >= 1000) && !badges.includes('high_scorer')) {
+      badges.push('high_scorer');
+    }
+    
+    // === DAILY/HABIT BASED ===
     
     // Streak badges
     if (progress.dailyStreak >= 3 && !badges.includes('streak_3')) {
@@ -220,14 +310,36 @@ export class StorageManager {
     if (progress.dailyStreak >= 30 && !badges.includes('streak_30')) {
       badges.push('streak_30');
     }
+    if (progress.dailyStreak >= 100 && !badges.includes('streak_100')) {
+      badges.push('streak_100');
+    }
     
-    // Level badges
-    if (progress.level >= 5 && !badges.includes('level_5')) {
-      badges.push('level_5');
+    // Time-of-day badges
+    if (progress.recentScores.some(score => {
+      const hour = new Date(score.date).getHours();
+      return hour >= 6 && hour < 10; // 6 AM - 10 AM
+    }) && !badges.includes('early_bird')) {
+      badges.push('early_bird');
     }
-    if (progress.level >= 10 && !badges.includes('level_10')) {
-      badges.push('level_10');
+    
+    if (progress.recentScores.some(score => {
+      const hour = new Date(score.date).getHours();
+      return hour >= 0 && hour < 4; // Midnight - 4 AM
+    }) && !badges.includes('night_owl')) {
+      badges.push('night_owl');
     }
+    
+    // Weekend warrior - Play on both Saturday and Sunday
+    const weekendDays = new Set(
+      progress.recentScores
+        .map(score => new Date(score.date).getDay())
+        .filter(day => day === 0 || day === 6) // 0 = Sunday, 6 = Saturday
+    );
+    if (weekendDays.size === 2 && !badges.includes('weekend_warrior')) {
+      badges.push('weekend_warrior');
+    }
+    
+    // === PERFORMANCE BASED ===
     
     // Accuracy badges
     const avgAccuracy = this.calculateAverageAccuracy(progress);
@@ -236,6 +348,62 @@ export class StorageManager {
     }
     if (avgAccuracy >= 95 && progress.gamesPlayed >= 20 && !badges.includes('perfectionist')) {
       badges.push('perfectionist');
+    }
+    
+    // Flawless - Get 100% accuracy in any game
+    if (progress.recentScores.some(score => score.accuracy === 100) && !badges.includes('flawless')) {
+      badges.push('flawless');
+    }
+    
+    // No mistakes - Complete 5 games with 100% accuracy
+    const perfectGames = progress.recentScores.filter(score => score.accuracy === 100).length;
+    if (perfectGames >= 5 && !badges.includes('no_mistakes')) {
+      badges.push('no_mistakes');
+    }
+    
+    // === DAILY ACHIEVEMENTS ===
+    
+    // Daily XP milestones
+    if (progress.dailyXP >= 100 && !badges.includes('daily_100xp')) {
+      badges.push('daily_100xp');
+    }
+    if (progress.dailyXP >= 500 && !badges.includes('daily_500xp')) {
+      badges.push('daily_500xp');
+    }
+    if (progress.dailyXP >= 1000 && !badges.includes('daily_1000xp')) {
+      badges.push('daily_1000xp');
+    }
+    
+    // Daily games played
+    if (progress.dailyGamesPlayed >= 5 && !badges.includes('daily_5games')) {
+      badges.push('daily_5games');
+    }
+    if (progress.dailyGamesPlayed >= 10 && !badges.includes('daily_10games')) {
+      badges.push('daily_10games');
+    }
+    if (progress.dailyGamesPlayed >= 20 && !badges.includes('daily_20games')) {
+      badges.push('daily_20games');
+    }
+    
+    // Game variety today - Play different game types
+    if (progress.todayGamesPlayed.length >= 3 && !badges.includes('daily_variety')) {
+      badges.push('daily_variety');
+    }
+    if (progress.todayGamesPlayed.length >= 5 && !badges.includes('daily_all_games')) {
+      badges.push('daily_all_games');
+    }
+    
+    // Specific game focus - Play same game multiple times today
+    const gameTypeCounts: Record<string, number> = {};
+    progress.recentScores
+      .filter(score => new Date(score.date).toISOString().split('T')[0] === new Date().toISOString().split('T')[0])
+      .forEach(score => {
+        gameTypeCounts[score.gameType] = (gameTypeCounts[score.gameType] || 0) + 1;
+      });
+    
+    const maxGamesForOneType = Math.max(...Object.values(gameTypeCounts), 0);
+    if (maxGamesForOneType >= 5 && !badges.includes('daily_focused')) {
+      badges.push('daily_focused');
     }
     
     progress.badges = badges;
@@ -272,12 +440,18 @@ export class StorageManager {
   }
 
   private getDefaultProgress(): GameProgress {
+    const today = new Date().toISOString().split('T')[0];
     return {
       totalXP: 0,
       level: 1,
       gamesPlayed: 0,
       dailyStreak: 0,
-      lastPlayDate: new Date().toISOString().split('T')[0],
+      lastPlayDate: today,
+      dailyXP: 0,
+      dailyGamesPlayed: 0,
+      dailyPlayTime: 0,
+      lastDailyReset: today,
+      todayGamesPlayed: [],
       highScores: {},
       gameStats: {},
       badges: [],

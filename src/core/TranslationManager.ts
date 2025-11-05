@@ -316,17 +316,45 @@ export interface Translation {
   
   // Badges
   badges: {
+    // Lifetime Progression
     firstSteps: { name: string; description: string; };
     dedicated: { name: string; description: string; };
     committed: { name: string; description: string; };
     centurion: { name: string; description: string; };
+    legendary: { name: string; description: string; };
+    xp1000: { name: string; description: string; };
+    xp5000: { name: string; description: string; };
+    xp10000: { name: string; description: string; };
+    level5: { name: string; description: string; };
+    level10: { name: string; description: string; };
+    level20: { name: string; description: string; };
+    level50: { name: string; description: string; };
+    versatile: { name: string; description: string; };
+    memoryMaster: { name: string; description: string; };
+    highScorer: { name: string; description: string; };
+    // Daily/Habit Based
     streak3: { name: string; description: string; };
     streak7: { name: string; description: string; };
     streak30: { name: string; description: string; };
-    level5: { name: string; description: string; };
-    level10: { name: string; description: string; };
+    streak100: { name: string; description: string; };
+    earlyBird: { name: string; description: string; };
+    nightOwl: { name: string; description: string; };
+    weekendWarrior: { name: string; description: string; };
+    // Daily Achievements
+    daily100xp: { name: string; description: string; };
+    daily500xp: { name: string; description: string; };
+    daily1000xp: { name: string; description: string; };
+    daily5games: { name: string; description: string; };
+    daily10games: { name: string; description: string; };
+    daily20games: { name: string; description: string; };
+    dailyVariety: { name: string; description: string; };
+    dailyAllGames: { name: string; description: string; };
+    dailyFocused: { name: string; description: string; };
+    // Performance Based
     sharpMind: { name: string; description: string; };
     perfectionist: { name: string; description: string; };
+    flawless: { name: string; description: string; };
+    noMistakes: { name: string; description: string; };
   };
 }
 
