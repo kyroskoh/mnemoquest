@@ -1,11 +1,11 @@
 # 🌍 How to Add a New Language to MnemoQuest
 
-**Purpose**: This guide explains how to add a **NEW LANGUAGE** (9th, 10th, etc.) to MnemoQuest.  
-**Audience**: Translators and contributors who want to add languages like Italian, Russian, Arabic, etc.
+**Purpose**: This guide explains how to add a **NEW LANGUAGE** (10th, 11th, etc.) to MnemoQuest.  
+**Audience**: Translators and contributors who want to add languages like Russian, Arabic, Dutch, etc.
 
-> 📝 **For Developers**: If you're implementing a new game and need to translate it in the existing 8 languages, see [GAME_TRANSLATION_CHECKLIST.md](GAME_TRANSLATION_CHECKLIST.md) instead.
+> 📝 **For Developers**: If you're implementing a new game and need to translate it in the existing 9 languages, see [GAME_TRANSLATION_CHECKLIST.md](GAME_TRANSLATION_CHECKLIST.md) instead.
 
-🎮 **[Try Different Languages →](https://kyroskoh.github.io/mnemoquest/)** (8 languages available!)
+🎮 **[Try Different Languages →](https://kyroskoh.github.io/mnemoquest/)** (9 languages available!)
 
 ## 📋 Table of Contents
 
@@ -35,6 +35,7 @@ MnemoQuest uses a custom internationalization (i18n) system that:
 - 🇨🇳 Chinese (zh)
 - 🇫🇷 French (fr)
 - 🇩🇪 German (de)
+- 🇮🇹 Italian (it)
 - 🇯🇵 Japanese (ja)
 - 🇰🇷 Korean (ko)
 - 🇧🇷 Portuguese (pt)
@@ -70,7 +71,7 @@ Add your language to the supported languages type:
 
 ```typescript
 // src/core/TranslationManager.ts
-export type SupportedLanguage = 'en' | 'es' | 'zh' | 'fr' | 'de' | 'ja' | 'ko' | 'pt' | 'YOUR_CODE';
+export type SupportedLanguage = 'en' | 'es' | 'zh' | 'fr' | 'de' | 'it' | 'ja' | 'ko' | 'pt' | 'YOUR_CODE';
 ```
 
 Add to `getAvailableLanguages()` method:
@@ -518,9 +519,9 @@ npm run dev
 We welcome translations in:
 - Arabic (ar)
 - Russian (ru)
-- Italian (it)
 - Dutch (nl)
 - Hindi (hi)
+- Turkish (tr)
 - And many more!
 
 ---

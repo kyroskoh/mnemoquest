@@ -1,9 +1,9 @@
 # ✅ Game Translation Checklist for Developers
 
-**Purpose**: This checklist ensures NEW GAMES are translated in all 8 existing languages.  
+**Purpose**: This checklist ensures NEW GAMES are translated in all 9 existing languages.  
 **Audience**: Developers implementing Phase 6+ games.
 
-> 🌍 **For Translators**: If you want to add a NEW LANGUAGE (e.g., Italian, Russian) to MnemoQuest, see [ADDING_NEW_LANGUAGE.md](ADDING_NEW_LANGUAGE.md) instead.
+> 🌍 **For Translators**: If you want to add a NEW LANGUAGE (e.g., Russian, Arabic) to MnemoQuest, see [ADDING_NEW_LANGUAGE.md](ADDING_NEW_LANGUAGE.md) instead.
 
 **Version**: 1.0  
 **Last Updated**: November 2025  
@@ -78,6 +78,7 @@ src/translations/
 ├── zh.ts  (Chinese)
 ├── fr.ts  (French)
 ├── de.ts  (German)
+├── it.ts  (Italian)
 ├── ja.ts  (Japanese)
 ├── ko.ts  (Korean)
 └── pt.ts  (Portuguese)
@@ -91,6 +92,7 @@ src/data/{gameName}/
 ├── zh.ts  (Chinese)
 ├── fr.ts  (French)
 ├── de.ts  (German)
+├── it.ts  (Italian)
 ├── ja.ts  (Japanese)
 ├── ko.ts  (Korean)
 └── pt.ts  (Portuguese)
@@ -100,16 +102,17 @@ src/data/{gameName}/
 
 ## 🎯 Supported Languages
 
-MnemoQuest supports **8 languages**. All content must be translated for:
+MnemoQuest supports **9 languages**. All content must be translated for:
 
 1. **🇺🇸 English (en)** - Base language
 2. **🇪🇸 Spanish (es)** - Latin American Spanish
 3. **🇨🇳 Chinese (zh)** - Simplified Chinese
 4. **🇫🇷 French (fr)** - Standard French
 5. **🇩🇪 German (de)** - Standard German
-6. **🇯🇵 Japanese (ja)** - Polite form (です/ます)
-7. **🇰🇷 Korean (ko)** - Formal form (합니다/습니다)
-8. **🇧🇷 Portuguese (pt)** - Brazilian Portuguese
+6. **🇮🇹 Italian (it)** - Standard Italian
+7. **🇯🇵 Japanese (ja)** - Polite form (です/ます)
+8. **🇰🇷 Korean (ko)** - Formal form (합니다/습니다)
+9. **🇧🇷 Portuguese (pt)** - Brazilian Portuguese
 
 ---
 
@@ -144,6 +147,12 @@ MnemoQuest supports **8 languages**. All content must be translated for:
 - Formal "Sie" form
 - Capitalize nouns
 - Use ß where appropriate
+
+#### Italian (it):
+- Standard Italian
+- Formal "Lei" form
+- Include all accents (à, è, é, ì, ò, ù)
+- Cultural adaptation where needed
 
 #### Japanese (ja):
 - Use polite form (です/ます体)
@@ -259,12 +268,12 @@ MnemoQuest supports **8 languages**. All content must be translated for:
 
 Before marking a game as "complete", verify:
 
-- [ ] All 8 translation files have game UI keys
-- [ ] All 8 translation files have tutorial content
-- [ ] If game has content, all 8 content files exist
+- [ ] All 9 translation files have game UI keys
+- [ ] All 9 translation files have tutorial content
+- [ ] If game has content, all 9 content files exist
 - [ ] **Game card added to `applyTranslations()` in `src/main.ts`** ⚠️ **CRITICAL**
 - [ ] All translations reviewed for quality
-- [ ] Game tested in all 8 languages
+- [ ] Game tested in all 9 languages
 - [ ] No English fallbacks in non-English modes
 - [ ] All text displays correctly (no overflow)
 - [ ] Special characters display properly
@@ -326,13 +335,13 @@ When updating existing games:
 
 | Component | Languages | Status |
 |-----------|-----------|--------|
-| Core UI | 8/8 | ✅ Complete |
-| Phase 1-4 Games | 8/8 | ✅ Complete |
-| Phase 5 Games UI | 8/8 | ✅ Complete |
-| Phase 5 Games Tutorials | 8/8 | ✅ Complete |
-| Phase 5 Game Content | 8/8 | ✅ Complete |
+| Core UI | 9/9 | ✅ Complete |
+| Phase 1-4 Games | 9/9 | ✅ Complete |
+| Phase 5 Games UI | 9/9 | ✅ Complete |
+| Phase 5 Games Tutorials | 9/9 | ✅ Complete |
+| Phase 5 Game Content | 9/9 | ✅ Complete |
 
-**Total Translation Lines**: ~6,000+ across all languages
+**Total Translation Lines**: ~7,000+ across all languages
 
 ---
 
@@ -346,7 +355,7 @@ When implementing Phase 6+ games, follow this document to ensure:
 
 ---
 
-**Remember**: A game is not "complete" until it's fully translated in all 8 languages!
+**Remember**: A game is not "complete" until it's fully translated in all 9 languages!
 
 **Questions?** Refer to existing translations as templates.
 

@@ -1,12 +1,12 @@
 # 🌍 Translation Implementation Summary
 
-🎮 **[Play the game →](https://kyroskoh.github.io/mnemoquest/)** (Try all 8 languages!)
+🎮 **[Play the game →](https://kyroskoh.github.io/mnemoquest/)** (Try all 9 languages!)
 
 ## ✅ Completed Changes
 
 ### 1. **New Translation Files Created**
 
-Added support for **8 languages total**:
+Added support for **9 languages total**:
 
 | Language | Code | File | Status |
 |----------|------|------|--------|
@@ -14,10 +14,11 @@ Added support for **8 languages total**:
 | Spanish | `es` | `src/translations/es.ts` | ✅ Complete |
 | Chinese | `zh` | `src/translations/zh.ts` | ✅ Complete |
 | French | `fr` | `src/translations/fr.ts` | ✅ Complete |
-| German | `de` | `src/translations/de.ts` | ✅ **NEW** |
-| Japanese | `ja` | `src/translations/ja.ts` | ✅ **NEW** |
-| Korean | `ko` | `src/translations/ko.ts` | ✅ **NEW** |
-| Portuguese | `pt` | `src/translations/pt.ts` | ✅ **NEW** |
+| German | `de` | `src/translations/de.ts` | ✅ Complete |
+| Italian | `it` | `src/translations/it.ts` | ✅ Complete |
+| Japanese | `ja` | `src/translations/ja.ts` | ✅ Complete |
+| Korean | `ko` | `src/translations/ko.ts` | ✅ Complete |
+| Portuguese | `pt` | `src/translations/pt.ts` | ✅ Complete |
 
 ---
 
@@ -107,7 +108,7 @@ Added an **Apply button** for language changes:
 **`src/core/TranslationManager.ts`:**
 
 ```typescript
-export type SupportedLanguage = 'en' | 'es' | 'zh' | 'fr' | 'de' | 'ja' | 'ko' | 'pt';
+export type SupportedLanguage = 'en' | 'es' | 'zh' | 'fr' | 'de' | 'it' | 'ja' | 'ko' | 'pt';
 
 export interface Translation {
   // ... other sections ...
@@ -236,17 +237,17 @@ applyLanguageBtn?.addEventListener('click', async () => {
 
 | Section | Keys | Languages | Total Strings |
 |---------|------|-----------|---------------|
-| Navigation | 4 | 8 | 32 |
-| Dashboard | 7 | 8 | 56 |
-| Games | 13 | 8 | 104 |
-| Tutorial | 4 | 8 | 32 |
-| Game UI | 8 | 8 | 64 |
-| Results | 4 | 8 | 32 |
-| Progress | 4 | 8 | 32 |
-| Settings | 9 | 8 | 72 |
-| About | 10 | 8 | 80 |
-| Common | 6 | 8 | 48 |
-| **TOTAL** | **69** | **8** | **552** ✨ |
+| Navigation | 4 | 9 | 36 |
+| Dashboard | 7 | 9 | 63 |
+| Games | 13 | 9 | 117 |
+| Tutorial | 4 | 9 | 36 |
+| Game UI | 8 | 9 | 72 |
+| Results | 4 | 9 | 36 |
+| Progress | 4 | 9 | 36 |
+| Settings | 9 | 9 | 81 |
+| About | 10 | 9 | 90 |
+| Common | 6 | 9 | 54 |
+| **TOTAL** | **69** | **9** | **621** ✨ |
 
 ---
 
@@ -422,11 +423,11 @@ if (gameCards[10]) {
 
 The MnemoQuest translation system is now complete with:
 
-- **8 full language translations** 🌍
+- **9 full language translations** 🌍
 - **Apply button for controlled language changes** ✅
 - **Pulse animation for visual feedback** 💫
 - **Loading states during transitions** ⏳
-- **552 total translated strings** 📝
+- **621 total translated strings** 📝
 - **Full TypeScript type safety** 🔒
 - **Persistent language preferences** 💾
 

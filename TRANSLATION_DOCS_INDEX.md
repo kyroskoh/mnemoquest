@@ -11,8 +11,8 @@ Choose the right guide for your needs:
 **File**: [ADDING_NEW_LANGUAGE.md](ADDING_NEW_LANGUAGE.md)
 
 **Use this if you want to:**
-- Add a new language to MnemoQuest (9th, 10th, etc.)
-- Translate the app to Italian, Russian, Arabic, etc.
+- Add a new language to MnemoQuest (10th, 11th, etc.)
+- Translate the app to Russian, Arabic, Dutch, etc.
 - Contribute a new translation file
 
 **What you'll learn:**
@@ -21,7 +21,7 @@ Choose the right guide for your needs:
 - Quality guidelines for translations
 - How to submit your translation via GitHub PR
 
-**Example**: "I want to add Italian (it) support to MnemoQuest"
+**Example**: "I want to add Russian (ru) support to MnemoQuest"
 
 ---
 
@@ -32,7 +32,7 @@ Choose the right guide for your needs:
 **Use this if you're:**
 - Implementing a new game (Phase 6+)
 - Adding new features that need translation
-- Ensuring your game works in all 8 languages
+- Ensuring your game works in all 9 languages
 
 **What you'll learn:**
 - Complete translation requirements checklist
@@ -68,7 +68,7 @@ Choose the right guide for your needs:
 ```
 ❓ What do you want to do?
 
-├─ 🌐 Add a NEW LANGUAGE (Italian, Russian, etc.)
+├─ 🌐 Add a NEW LANGUAGE (Russian, Arabic, Dutch, etc.)
 │  └─ ✅ Use ADDING_NEW_LANGUAGE.md
 │
 ├─ 🎮 Implement a NEW GAME (Phase 6+)
@@ -84,9 +84,9 @@ Choose the right guide for your needs:
 
 | Component | Languages | Status |
 |-----------|-----------|--------|
-| Core UI | 8/8 | ✅ Complete |
-| Phase 1-5 Games | 8/8 | ✅ Complete |
-| Total Strings | 6,000+ | ✅ Complete |
+| Core UI | 9/9 | ✅ Complete |
+| Phase 1-5 Games | 9/9 | ✅ Complete |
+| Total Strings | 7,000+ | ✅ Complete |
 
 **Supported Languages:**
 - 🇺🇸 English (en)
@@ -94,6 +94,7 @@ Choose the right guide for your needs:
 - 🇨🇳 Chinese (zh)
 - 🇫🇷 French (fr)
 - 🇩🇪 German (de)
+- 🇮🇹 Italian (it)
 - 🇯🇵 Japanese (ja)
 - 🇰🇷 Korean (ko)
 - 🇧🇷 Portuguese (pt)
@@ -104,7 +105,7 @@ Choose the right guide for your needs:
 
 **Translators**: We welcome new language contributions! See [ADDING_NEW_LANGUAGE.md](ADDING_NEW_LANGUAGE.md)
 
-**Developers**: Always ensure new features are translated in all 8 languages. See [GAME_TRANSLATION_CHECKLIST.md](GAME_TRANSLATION_CHECKLIST.md)
+**Developers**: Always ensure new features are translated in all 9 languages. See [GAME_TRANSLATION_CHECKLIST.md](GAME_TRANSLATION_CHECKLIST.md)
 
 ---
 
