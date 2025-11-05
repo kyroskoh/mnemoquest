@@ -118,7 +118,8 @@ export interface Translation {
       example: string;
       exampleText: string;
       trial: string;
-      pressSpace: string;
+      press: string;
+      match: string;
       hits: string;
       misses: string;
     };

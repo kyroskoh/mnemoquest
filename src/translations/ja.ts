@@ -115,7 +115,8 @@ const ja: Translation = {
       example: '例',
       exampleText: '2-backの場合：A F K F（ここでスペースを押す、Fが2個前と一致）',
       trial: '試行',
-      pressSpace: '一致を見つけたらスペースキーを押してください',
+      press: '一致を見つけたらスペースキーを押すかボタンをタップしてください',
+      match: '一致！',
       hits: 'ヒット',
       misses: 'ミス'
     },

@@ -115,7 +115,8 @@ const zh: Translation = {
       example: '示例',
       exampleText: '在 2-back 中：A F K F（在这里按空格，F 与前面第 2 个匹配）',
       trial: '试验',
-      pressSpace: '看到匹配时按空格键',
+      press: '看到匹配时按空格键或点击按钮',
+      match: '匹配！',
       hits: '命中',
       misses: '错过'
     },

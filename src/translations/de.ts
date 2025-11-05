@@ -115,7 +115,8 @@ const de: Translation = {
       example: 'Beispiel',
       exampleText: 'Bei 2-back: A F K F (hier LEERTASTE drücken, F stimmt 2 Positionen zurück überein)',
       trial: 'Versuch',
-      pressSpace: 'Drücken Sie LEERTASTE bei einer Übereinstimmung',
+      press: 'Drücken Sie LEERTASTE oder tippen Sie auf den Button bei einer Übereinstimmung',
+      match: 'ÜBEREINSTIMMUNG!',
       hits: 'Treffer',
       misses: 'Fehlschläge'
     },

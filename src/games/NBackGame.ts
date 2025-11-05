@@ -72,8 +72,9 @@ export class NBackGame extends BaseGame {
           <div class="letter-display" id="letterDisplay"></div>
           
           <div class="response-prompt">
-            <p>${this.t('games.nBack.pressSpace')}</p>
+            <p>${this.t('games.nBack.press')}</p>
             <div class="keyboard-hint">SPACE</div>
+            <button class="match-btn" id="matchBtn">${this.t('games.nBack.match')}</button>
           </div>
 
           <div class="stats-display">
@@ -113,6 +114,10 @@ export class NBackGame extends BaseGame {
 
     // Add keyboard listener
     document.addEventListener('keydown', this.handleKeyPress);
+
+    // Add mobile button listener
+    const matchBtn = document.getElementById('matchBtn');
+    matchBtn?.addEventListener('click', this.handleMatchButton);
 
     // Dispatch first interaction event
     window.dispatchEvent(new CustomEvent('gameFirstInteraction'));
@@ -209,27 +214,36 @@ export class NBackGame extends BaseGame {
   private handleKeyPress = (event: KeyboardEvent): void => {
     if (event.code === 'Space' && this.isWaitingForResponse) {
       event.preventDefault();
-      
-      const currentTrial = this.trials[this.currentIndex];
-      if (currentTrial.userResponse !== null) return; // Already responded
-
-      const reactionTime = Date.now() - this.trialStartTime;
-      currentTrial.userResponse = true;
-      currentTrial.reactionTime = reactionTime;
-
-      // Check if correct
-      if (currentTrial.isMatch) {
-        // Hit: correctly identified match
-        this.correctAttempts++;
-      } else {
-        // False alarm: said match when it wasn't
-        this.mistakes++;
-      }
-
-      // Visual feedback
-      this.showFeedback(currentTrial.isMatch);
+      this.registerMatchResponse();
     }
   };
+
+  private handleMatchButton = (): void => {
+    if (this.isWaitingForResponse) {
+      this.registerMatchResponse();
+    }
+  };
+
+  private registerMatchResponse(): void {
+    const currentTrial = this.trials[this.currentIndex];
+    if (currentTrial.userResponse !== null) return; // Already responded
+
+    const reactionTime = Date.now() - this.trialStartTime;
+    currentTrial.userResponse = true;
+    currentTrial.reactionTime = reactionTime;
+
+    // Check if correct
+    if (currentTrial.isMatch) {
+      // Hit: correctly identified match
+      this.correctAttempts++;
+    } else {
+      // False alarm: said match when it wasn't
+      this.mistakes++;
+    }
+
+    // Visual feedback
+    this.showFeedback(currentTrial.isMatch);
+  }
 
   private showFeedback(wasMatch: boolean): void {
     const letterDisplay = document.getElementById('letterDisplay');
@@ -284,6 +298,9 @@ export class NBackGame extends BaseGame {
 
   destroy(): void {
     document.removeEventListener('keydown', this.handleKeyPress);
+    
+    const matchBtn = document.getElementById('matchBtn');
+    matchBtn?.removeEventListener('click', this.handleMatchButton);
     
     if (this.gameInterval) {
       clearTimeout(this.gameInterval);
@@ -398,6 +415,34 @@ export class NBackGame extends BaseGame {
         font-size: 1.2rem;
       }
 
+      .match-btn {
+        display: inline-block;
+        margin-top: 1rem;
+        padding: 1.5rem 3rem;
+        background: var(--primary);
+        color: white;
+        border: none;
+        border-radius: var(--radius-lg);
+        font-size: 1.5rem;
+        font-weight: 700;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        box-shadow: 0 4px 12px rgba(13, 148, 136, 0.3);
+      }
+
+      .match-btn:hover {
+        background: var(--primary-dark);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 16px rgba(13, 148, 136, 0.4);
+      }
+
+      .match-btn:active {
+        transform: translateY(0);
+        box-shadow: 0 2px 8px rgba(13, 148, 136, 0.3);
+      }
+
       .stats-display {
         display: flex;
         justify-content: center;
@@ -433,6 +478,23 @@ export class NBackGame extends BaseGame {
         .letter-display {
           font-size: 5rem;
           min-height: 150px;
+        }
+
+        .keyboard-hint {
+          display: none; /* Hide keyboard hint on mobile */
+        }
+
+        .match-btn {
+          display: block; /* Make button prominent on mobile */
+          width: 80%;
+          max-width: 300px;
+          margin: 1.5rem auto;
+          padding: 1.25rem 2rem;
+          font-size: 1.3rem;
+        }
+
+        .response-prompt p {
+          font-size: 0.9rem;
         }
 
         .stats-display {

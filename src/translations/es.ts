@@ -115,7 +115,8 @@ const es: Translation = {
       example: 'Ejemplo',
       exampleText: 'En 2-back: A F K F (presiona ESPACIO aquí, F coincide 2 posiciones atrás)',
       trial: 'Intento',
-      pressSpace: 'Presiona ESPACIO cuando veas una coincidencia',
+      press: 'Presiona ESPACIO o toca el botón cuando veas una coincidencia',
+      match: '¡COINCIDE!',
       hits: 'Aciertos',
       misses: 'Fallos'
     },

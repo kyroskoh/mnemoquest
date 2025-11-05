@@ -115,7 +115,8 @@ const en: Translation = {
       example: 'Example',
       exampleText: 'In 2-back: A F K F (press SPACE here, F matches 2 positions back)',
       trial: 'Trial',
-      pressSpace: 'Press SPACE when you see a match',
+      press: 'Press SPACE or tap button when you see a match',
+      match: 'MATCH!',
       hits: 'Hits',
       misses: 'Misses'
     },

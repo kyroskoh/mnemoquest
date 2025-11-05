@@ -115,7 +115,8 @@ const ko: Translation = {
       example: '예시',
       exampleText: '2-back의 경우: A F K F (여기서 스페이스, F가 2번째 앞과 일치)',
       trial: '시도',
-      pressSpace: '일치하는 것을 보면 스페이스 키를 누르세요',
+      press: '일치하는 것을 보면 스페이스 키를 누르거나 버튼을 탭하세요',
+      match: '일치!',
       hits: '히트',
       misses: '미스'
     },

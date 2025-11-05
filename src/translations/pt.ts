@@ -115,7 +115,8 @@ const pt: Translation = {
       example: 'Exemplo',
       exampleText: 'Em 2-back: A F K F (pressione ESPAÇO aqui, F corresponde 2 posições atrás)',
       trial: 'Tentativa',
-      pressSpace: 'Pressione ESPAÇO quando ver uma correspondência',
+      press: 'Pressione ESPAÇO ou toque no botão quando ver uma correspondência',
+      match: 'CORRESPONDÊNCIA!',
       hits: 'Acertos',
       misses: 'Erros'
     },
