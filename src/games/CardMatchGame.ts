@@ -18,8 +18,15 @@ export class CardMatchGame extends BaseGame {
   private timerInterval: number | null = null;
   private memorizeTime: number = 5; // Seconds to memorize cards
   private gamePhase: 'memorize' | 'play' = 'memorize';
+  private gameEnded: boolean = false;
 
   start(): void {
+    // Reset game state
+    this.gameEnded = false;
+    this.pairsFound = 0;
+    this.mistakes = 0;
+    this.flippedCards = [];
+    
     // Progressive difficulty: start with 3 pairs, add 1 pair per difficulty level
     // Difficulty 1: 3 pairs (6 cards)
     // Difficulty 2: 4 pairs (8 cards)
@@ -28,7 +35,7 @@ export class CardMatchGame extends BaseGame {
     // Difficulty 20: 22 pairs (44 cards)
     // Difficulty 30: 32 pairs (64 cards)
     // No maximum limit - scales indefinitely!
-    this.totalPairs = Math.max(3, 2 + this.difficulty);
+    this.totalPairs = Math.floor(Math.max(3, 2 + this.difficulty));
     
     // Memorization time - CHALLENGING MODE!
     // Time decreases per card as difficulty increases - true memory challenge
@@ -157,6 +164,9 @@ export class CardMatchGame extends BaseGame {
     // Start countdown timer for memorization
     this.timeRemaining = this.memorizeTime;
     this.timerInterval = window.setInterval(() => {
+      // Check if game has ended
+      if (this.gameEnded || !this.timerInterval) return;
+      
       this.timeRemaining--;
       this.updateStats();
 
@@ -185,6 +195,7 @@ export class CardMatchGame extends BaseGame {
   private startPlayPhase(): void {
     if (this.timerInterval) {
       clearInterval(this.timerInterval);
+      this.timerInterval = null;
     }
     
     this.gamePhase = 'play';
@@ -213,6 +224,9 @@ export class CardMatchGame extends BaseGame {
     this.timeRemaining = this.timeLimit;
     this.updateStats();
     this.timerInterval = window.setInterval(() => {
+      // Check if game has ended
+      if (this.gameEnded || !this.timerInterval) return;
+      
       this.timeRemaining--;
       this.updateStats();
 
@@ -275,7 +289,7 @@ export class CardMatchGame extends BaseGame {
 
   private handleCardClick(cardId: number): void {
     // Only allow clicks during play phase and if game hasn't ended
-    if (!this.canFlip || this.gamePhase !== 'play' || !this.timerInterval) return;
+    if (!this.canFlip || this.gamePhase !== 'play' || this.gameEnded || !this.timerInterval) return;
 
     const card = this.cards.find(c => c.id === cardId);
     if (!card || card.flipped || card.matched) return;
@@ -310,6 +324,7 @@ export class CardMatchGame extends BaseGame {
 
         if (this.pairsFound === this.totalPairs) {
           // All pairs found! Stop timer and end game
+          this.gameEnded = true;
           if (this.timerInterval) {
             clearInterval(this.timerInterval);
             this.timerInterval = null;
@@ -373,6 +388,9 @@ export class CardMatchGame extends BaseGame {
   }
 
   private endGame(won: boolean): void {
+    // Mark game as ended to stop all timers
+    this.gameEnded = true;
+    
     // Clear timer if it's still running
     if (this.timerInterval) {
       clearInterval(this.timerInterval);
