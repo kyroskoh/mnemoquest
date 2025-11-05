@@ -113,7 +113,7 @@ const es: Translation = {
       instruction1: 'Las letras aparecerán una a la vez. Presiona ESPACIO (o toca el botón COINCIDE) cuando la letra actual coincida con la que está {n} posiciones atrás.',
       instruction2: '¡Concéntrate y responde rápido cuando veas una coincidencia!',
       example: 'Ejemplo',
-      exampleText: 'En 2-back: A F K F (presiona ESPACIO o toca el botón aquí, F coincide 2 posiciones atrás)',
+      exampleText: 'En 2-back: A G B B (✓ presiona aquí, B coincide 2 atrás) | A B C D (✗ no presiones, D ≠ B)',
       trial: 'Intento',
       press: 'Presiona ESPACIO o toca el botón cuando veas una coincidencia',
       match: '¡COINCIDE!',
