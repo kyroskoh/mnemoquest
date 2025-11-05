@@ -564,6 +564,30 @@ class MnemoQuest {
       gameCards[6].querySelector('.skill-tag')!.textContent = t('games.patternPath.skill');
       gameCards[6].querySelector('.play-btn')!.textContent = t('games.playNow');
     }
+    if (gameCards[7]) {
+      gameCards[7].querySelector('h3')!.textContent = t('games.nBack.name');
+      gameCards[7].querySelector('p')!.textContent = t('games.nBack.description');
+      gameCards[7].querySelector('.skill-tag')!.textContent = t('games.nBack.skill');
+      gameCards[7].querySelector('.play-btn')!.textContent = t('games.playNow');
+    }
+    if (gameCards[8]) {
+      gameCards[8].querySelector('h3')!.textContent = t('games.storyRecall.name');
+      gameCards[8].querySelector('p')!.textContent = t('games.storyRecall.description');
+      gameCards[8].querySelector('.skill-tag')!.textContent = t('games.storyRecall.skill');
+      gameCards[8].querySelector('.play-btn')!.textContent = t('games.playNow');
+    }
+    if (gameCards[9]) {
+      gameCards[9].querySelector('h3')!.textContent = t('games.changeDetection.name');
+      gameCards[9].querySelector('p')!.textContent = t('games.changeDetection.description');
+      gameCards[9].querySelector('.skill-tag')!.textContent = t('games.changeDetection.skill');
+      gameCards[9].querySelector('.play-btn')!.textContent = t('games.playNow');
+    }
+    if (gameCards[10]) {
+      gameCards[10].querySelector('h3')!.textContent = t('games.colorSequence.name');
+      gameCards[10].querySelector('p')!.textContent = t('games.colorSequence.description');
+      gameCards[10].querySelector('.skill-tag')!.textContent = t('games.colorSequence.skill');
+      gameCards[10].querySelector('.play-btn')!.textContent = t('games.playNow');
+    }
 
     // Game view
     const backBtn = document.getElementById('backBtn');

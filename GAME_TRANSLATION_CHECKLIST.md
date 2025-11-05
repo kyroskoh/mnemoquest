@@ -1,4 +1,9 @@
-# 🌍 Translation Guidelines for MnemoQuest
+# ✅ Game Translation Checklist for Developers
+
+**Purpose**: This checklist ensures NEW GAMES are translated in all 8 existing languages.  
+**Audience**: Developers implementing Phase 6+ games.
+
+> 🌍 **For Translators**: If you want to add a NEW LANGUAGE (e.g., Italian, Russian) to MnemoQuest, see [ADDING_NEW_LANGUAGE.md](ADDING_NEW_LANGUAGE.md) instead.
 
 **Version**: 1.0  
 **Last Updated**: November 2025  
@@ -188,7 +193,31 @@ MnemoQuest supports **8 languages**. All content must be translated for:
    - Translate to remaining 7 languages
    - Test each language in the app
 
-3. **Use in Game Code**
+3. **Add Game Card to Main Page Translation** ⚠️ **CRITICAL**
+   ```typescript
+   // src/main.ts - applyTranslations() method
+   
+   // Find the correct index for your new game card
+   // (count from 0, in order they appear in HTML)
+   if (gameCards[X]) {  // X = index of your game card
+     gameCards[X].querySelector('h3')!.textContent = t('games.{gameName}.name');
+     gameCards[X].querySelector('p')!.textContent = t('games.{gameName}.description');
+     gameCards[X].querySelector('.skill-tag')!.textContent = t('games.{gameName}.skill');
+     gameCards[X].querySelector('.play-btn')!.textContent = t('games.playNow');
+   }
+   ```
+   
+   **Example**: For the 8th game card (index 7):
+   ```typescript
+   if (gameCards[7]) {
+     gameCards[7].querySelector('h3')!.textContent = t('games.nBack.name');
+     gameCards[7].querySelector('p')!.textContent = t('games.nBack.description');
+     gameCards[7].querySelector('.skill-tag')!.textContent = t('games.nBack.skill');
+     gameCards[7].querySelector('.play-btn')!.textContent = t('games.playNow');
+   }
+   ```
+
+4. **Use in Game Code**
    ```typescript
    this.t('games.{gameName}.name')
    this.t('tutorial.{gameName}.welcome')
@@ -233,6 +262,7 @@ Before marking a game as "complete", verify:
 - [ ] All 8 translation files have game UI keys
 - [ ] All 8 translation files have tutorial content
 - [ ] If game has content, all 8 content files exist
+- [ ] **Game card added to `applyTranslations()` in `src/main.ts`** ⚠️ **CRITICAL**
 - [ ] All translations reviewed for quality
 - [ ] Game tested in all 8 languages
 - [ ] No English fallbacks in non-English modes
@@ -244,6 +274,7 @@ Before marking a game as "complete", verify:
 ## 🚫 Common Mistakes to Avoid
 
 ### ❌ Don't:
+- **Forget to add game card to `applyTranslations()` in `src/main.ts`** (VERY COMMON!)
 - Forget tutorial translations (very common!)
 - Use machine translation without review
 - Hard-code strings in game files

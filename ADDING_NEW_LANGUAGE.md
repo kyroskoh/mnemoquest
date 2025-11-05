@@ -1,6 +1,9 @@
-# 🌍 Translation Guide for MnemoQuest
+# 🌍 How to Add a New Language to MnemoQuest
 
-This guide explains how to add new language translations to MnemoQuest.
+**Purpose**: This guide explains how to add a **NEW LANGUAGE** (9th, 10th, etc.) to MnemoQuest.  
+**Audience**: Translators and contributors who want to add languages like Italian, Russian, Arabic, etc.
+
+> 📝 **For Developers**: If you're implementing a new game and need to translate it in the existing 8 languages, see [GAME_TRANSLATION_CHECKLIST.md](GAME_TRANSLATION_CHECKLIST.md) instead.
 
 🎮 **[Try Different Languages →](https://kyroskoh.github.io/mnemoquest/)** (8 languages available!)
 
@@ -26,13 +29,11 @@ MnemoQuest uses a custom internationalization (i18n) system that:
 
 ### Current Implementation:
 
-**Supported Languages** (4 complete):
+**Supported Languages** (All complete):
 - 🇺🇸 English (en) - Default
 - 🇪🇸 Spanish (es)
 - 🇨🇳 Chinese (zh)
 - 🇫🇷 French (fr)
-
-**Partially Supported** (ready for translation):
 - 🇩🇪 German (de)
 - 🇯🇵 Japanese (ja)
 - 🇰🇷 Korean (ko)
@@ -83,7 +84,25 @@ getAvailableLanguages(): Array<{ code: SupportedLanguage; name: string; nativeNa
 }
 ```
 
-### Step 3: Test Your Translation
+### Step 3: Add to Main Page Translations ⚠️ CRITICAL
+
+Update `src/main.ts` in the `applyTranslations()` method to include translations for game cards on the dashboard:
+
+```typescript
+// src/main.ts - applyTranslations() method
+
+// If adding a new game, add its translation here:
+if (gameCards[X]) {  // X = index of your game card (0-based)
+  gameCards[X].querySelector('h3')!.textContent = t('games.yourGame.name');
+  gameCards[X].querySelector('p')!.textContent = t('games.yourGame.description');
+  gameCards[X].querySelector('.skill-tag')!.textContent = t('games.yourGame.skill');
+  gameCards[X].querySelector('.play-btn')!.textContent = t('games.playNow');
+}
+```
+
+**Important**: Without this step, your game cards will remain in English even when users switch languages!
+
+### Step 4: Test Your Translation
 
 1. Build the project:
 ```bash
@@ -98,6 +117,7 @@ npm run dev
 3. Go to Settings → Language
 4. Select your new language
 5. Navigate through all pages to verify translations
+6. **Verify game cards are translated on the dashboard!**
 
 ---
 
@@ -321,6 +341,7 @@ When testing your translation:
 
 ### Visual Check:
 - [ ] All navigation items fit in navbar
+- [ ] **Game cards on dashboard are translated** ⚠️
 - [ ] Game cards text doesn't overflow
 - [ ] Settings labels align properly
 - [ ] Long words don't break layout
@@ -330,6 +351,7 @@ When testing your translation:
 - [ ] Language selector shows correct name
 - [ ] Language persists after page refresh
 - [ ] All pages have translations
+- [ ] **Dashboard game cards show in selected language** ⚠️
 - [ ] Tutorial text is translated
 - [ ] Result screen shows translated text
 - [ ] Confirmation dialogs are translated

@@ -294,9 +294,77 @@ Repeat for: Español, Français, Deutsch, 日本語, 한국어, Português
 - `src/translations/zh.ts` (added `applyLanguage`)
 - `src/translations/fr.ts` (added `applyLanguage`)
 - `src/core/TranslationManager.ts` (updated interface, added languages)
-- `src/main.ts` (added apply button logic, pending language tracking)
+- `src/main.ts` (added apply button logic, pending language tracking, **game card translations**)
 - `src/styles/main.css` (added primary-btn styles, pulse animation)
 - `index.html` (added apply button HTML)
+
+---
+
+## 🔧 Main Page Translation (Critical!)
+
+### The Problem:
+Game cards on the dashboard have hardcoded English text in `index.html`. Even though translation keys exist, they won't appear unless explicitly applied in `src/main.ts`.
+
+### The Solution:
+In `src/main.ts`, the `applyTranslations()` method must include code to update each game card:
+
+```typescript
+private applyTranslations(): void {
+  const t = (key: string) => this.translationManager.t(key);
+  
+  // ... other translations ...
+  
+  // Game cards - MUST be updated manually!
+  const gameCards = document.querySelectorAll('.game-card');
+  
+  if (gameCards[0]) {
+    gameCards[0].querySelector('h3')!.textContent = t('games.memoryGrid.name');
+    gameCards[0].querySelector('p')!.textContent = t('games.memoryGrid.description');
+    gameCards[0].querySelector('.skill-tag')!.textContent = t('games.memoryGrid.skill');
+    gameCards[0].querySelector('.play-btn')!.textContent = t('games.playNow');
+  }
+  
+  // ... repeat for each game card (0-10 for Phase 1-5) ...
+}
+```
+
+### When Adding New Games:
+**⚠️ CRITICAL STEP**: After adding a new game card to `index.html`, you MUST add its translation code to `applyTranslations()` in `src/main.ts`. Otherwise, the game card will remain in English!
+
+**Example for Phase 5 games (indices 7-10):**
+```typescript
+// N-Back Challenge (index 7)
+if (gameCards[7]) {
+  gameCards[7].querySelector('h3')!.textContent = t('games.nBack.name');
+  gameCards[7].querySelector('p')!.textContent = t('games.nBack.description');
+  gameCards[7].querySelector('.skill-tag')!.textContent = t('games.nBack.skill');
+  gameCards[7].querySelector('.play-btn')!.textContent = t('games.playNow');
+}
+
+// Story Recall (index 8)
+if (gameCards[8]) {
+  gameCards[8].querySelector('h3')!.textContent = t('games.storyRecall.name');
+  gameCards[8].querySelector('p')!.textContent = t('games.storyRecall.description');
+  gameCards[8].querySelector('.skill-tag')!.textContent = t('games.storyRecall.skill');
+  gameCards[8].querySelector('.play-btn')!.textContent = t('games.playNow');
+}
+
+// Change Detection (index 9)
+if (gameCards[9]) {
+  gameCards[9].querySelector('h3')!.textContent = t('games.changeDetection.name');
+  gameCards[9].querySelector('p')!.textContent = t('games.changeDetection.description');
+  gameCards[9].querySelector('.skill-tag')!.textContent = t('games.changeDetection.skill');
+  gameCards[9].querySelector('.play-btn')!.textContent = t('games.playNow');
+}
+
+// Color Sequence (index 10)
+if (gameCards[10]) {
+  gameCards[10].querySelector('h3')!.textContent = t('games.colorSequence.name');
+  gameCards[10].querySelector('p')!.textContent = t('games.colorSequence.description');
+  gameCards[10].querySelector('.skill-tag')!.textContent = t('games.colorSequence.skill');
+  gameCards[10].querySelector('.play-btn')!.textContent = t('games.playNow');
+}
+```
 
 ---
 
@@ -366,7 +434,37 @@ The MnemoQuest translation system is now complete with:
 
 ---
 
-**Document Version**: 1.0  
+## ❓ Troubleshooting
+
+### Issue: Game cards remain in English even after changing language
+
+**Problem**: You added translation keys to all language files, but game cards on the dashboard still show English text.
+
+**Solution**: Update `src/main.ts` in the `applyTranslations()` method to include your new game card:
+
+```typescript
+// Find the game card index (count from 0)
+if (gameCards[X]) {  // Replace X with your game's index
+  gameCards[X].querySelector('h3')!.textContent = t('games.yourGame.name');
+  gameCards[X].querySelector('p')!.textContent = t('games.yourGame.description');
+  gameCards[X].querySelector('.skill-tag')!.textContent = t('games.yourGame.skill');
+  gameCards[X].querySelector('.play-btn')!.textContent = t('games.playNow');
+}
+```
+
+**How to find the index**: Count game cards in `index.html` starting from 0. The first game card is 0, second is 1, etc.
+
+### Issue: Some UI elements don't translate
+
+**Checklist**:
+1. ✅ Translation keys added to all 8 language files?
+2. ✅ Keys match exactly in `TranslationManager.ts` interface?
+3. ✅ `applyTranslations()` method updated to apply the translation?
+4. ✅ Browser cache cleared after changes?
+
+---
+
+**Document Version**: 2.0  
 **Last Updated**: November 2025  
-**Status**: ✅ Complete
+**Status**: ✅ Complete + Main Page Translation Guide Added
 
