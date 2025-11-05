@@ -259,7 +259,8 @@ const zh: Translation = {
     accuracyTrend: '最近准确率趋势',
     gamesPlayedLabel: '已玩游戏',
     gamesByType: '按类型分类的已玩游戏',
-    achievements: '成就'
+    achievements: '成就',
+    game: '游戏'
   },
   
   settings: {

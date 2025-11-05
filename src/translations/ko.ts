@@ -259,7 +259,8 @@ const ko: Translation = {
     accuracyTrend: '최근 정확도 추이',
     gamesPlayedLabel: '플레이한 게임',
     gamesByType: '유형별 플레이한 게임',
-    achievements: '업적'
+    achievements: '업적',
+    game: '게임'
   },
   
   settings: {

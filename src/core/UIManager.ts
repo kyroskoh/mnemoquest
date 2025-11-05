@@ -76,7 +76,7 @@ export class UIManager {
     const progress = this.storageManager.loadProgress();
     const recentScores = progress.recentScores.slice(0, 10).reverse();
 
-    const labels = recentScores.map((_, index) => `Game ${index + 1}`);
+    const labels = recentScores.map((_, index) => `${this.t('progress.game')} ${index + 1}`);
     const data = recentScores.map(score => score.accuracy);
 
     this.accuracyChart = new Chart(canvas, {
@@ -224,12 +224,22 @@ export class UIManager {
   }
 
   private formatGameType(type: string): string {
-    const names: Record<string, string> = {
-      'memory-grid': 'Memory Grid',
-      'sequence-sparks': 'Sequence Sparks',
-      'card-match': 'Card Match'
+    const translationKeys: Record<string, string> = {
+      'memory-grid': 'games.memoryGrid.name',
+      'sequence-sparks': 'games.sequenceSparks.name',
+      'card-match': 'games.cardMatch.name',
+      'number-recall': 'games.numberRecall.name',
+      'flash-count': 'games.flashCount.name',
+      'word-trail': 'games.wordTrail.name',
+      'pattern-path': 'games.patternPath.name',
+      'n-back': 'games.nBack.name',
+      'story-recall': 'games.storyRecall.name',
+      'change-detection': 'games.changeDetection.name',
+      'color-sequence': 'games.colorSequence.name'
     };
-    return names[type] || type;
+    
+    const key = translationKeys[type];
+    return key ? this.t(key) : type;
   }
 
   showResultScreen(gameType: string, score: number, accuracy: number, time: number): void {

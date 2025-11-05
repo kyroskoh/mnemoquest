@@ -259,7 +259,8 @@ const ja: Translation = {
     accuracyTrend: '最近の正確度の推移',
     gamesPlayedLabel: 'プレイしたゲーム',
     gamesByType: 'タイプ別プレイしたゲーム',
-    achievements: '実績'
+    achievements: '実績',
+    game: 'ゲーム'
   },
   
   settings: {

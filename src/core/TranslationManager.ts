@@ -267,6 +267,7 @@ export interface Translation {
     gamesPlayedLabel: string;
     gamesByType: string;
     achievements: string;
+    game: string;
   };
   
   // Settings

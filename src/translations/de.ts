@@ -259,7 +259,8 @@ const de: Translation = {
     accuracyTrend: 'Neuester Genauigkeitstrend',
     gamesPlayedLabel: 'Gespielte Spiele',
     gamesByType: 'Gespielte Spiele nach Typ',
-    achievements: 'Erfolge'
+    achievements: 'Erfolge',
+    game: 'Spiel'
   },
   
   settings: {
