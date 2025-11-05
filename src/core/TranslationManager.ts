@@ -1,4 +1,4 @@
-export type SupportedLanguage = 'en' | 'es' | 'zh' | 'fr' | 'de' | 'ja' | 'ko' | 'pt';
+export type SupportedLanguage = 'en' | 'es' | 'zh' | 'fr' | 'de' | 'ja' | 'ko' | 'pt' | 'it';
 
 export interface Translation {
   // Navigation
@@ -428,6 +428,9 @@ export class TranslationManager {
         case 'pt':
           translation = (await import('../translations/pt')).default;
           break;
+        case 'it':
+          translation = (await import('../translations/it')).default;
+          break;
         default:
           throw new Error(`Unsupported language: ${language}`);
       }
@@ -452,6 +455,7 @@ export class TranslationManager {
       { code: 'zh', name: 'Chinese', nativeName: '中文' },
       { code: 'fr', name: 'French', nativeName: 'Français' },
       { code: 'de', name: 'German', nativeName: 'Deutsch' },
+      { code: 'it', name: 'Italian', nativeName: 'Italiano' },
       { code: 'ja', name: 'Japanese', nativeName: '日本語' },
       { code: 'ko', name: 'Korean', nativeName: '한국어' },
       { code: 'pt', name: 'Portuguese', nativeName: 'Português' }
