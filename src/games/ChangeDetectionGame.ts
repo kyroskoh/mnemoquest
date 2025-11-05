@@ -285,6 +285,42 @@ export class ChangeDetectionGame extends BaseGame {
     this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
   }
 
+  private isPointInObject(clickX: number, clickY: number, obj: GameObject): boolean {
+    const dx = clickX - obj.x;
+    const dy = clickY - obj.y;
+
+    switch (obj.type) {
+      case 'circle':
+        // Distance-based detection for circles
+        const distance = Math.sqrt(dx * dx + dy * dy);
+        return distance <= obj.size / 2;
+
+      case 'square':
+        // Bounding box detection for squares
+        return Math.abs(dx) <= obj.size / 2 && Math.abs(dy) <= obj.size / 2;
+
+      case 'triangle':
+        // Point-in-triangle detection using barycentric coordinates
+        const x1 = 0, y1 = -obj.size / 2;
+        const x2 = obj.size / 2, y2 = obj.size / 2;
+        const x3 = -obj.size / 2, y3 = obj.size / 2;
+        
+        const area = Math.abs((x2 - x1) * (y3 - y1) - (x3 - x1) * (y2 - y1));
+        const s = Math.abs((x1 - x3) * (dy - y3) - (dx - x3) * (y1 - y3));
+        const t = Math.abs((dx - x1) * (y2 - y1) - (x2 - x1) * (dy - y1));
+        
+        return s + t <= area;
+
+      case 'star':
+        // Distance-based detection with slightly larger radius for star
+        const starDistance = Math.sqrt(dx * dx + dy * dy);
+        return starDistance <= obj.size / 2 * 1.2;
+
+      default:
+        return false;
+    }
+  }
+
   private handleCanvasClick = (event: MouseEvent): void => {
     if (this.gamePhase !== 'changed' || !this.currentRound || !this.canvas) return;
 
@@ -304,9 +340,8 @@ export class ChangeDetectionGame extends BaseGame {
 
     for (let i = changedObjects.length - 1; i >= 0; i--) {
       const obj = changedObjects[i];
-      const distance = Math.sqrt(Math.pow(canvasX - obj.x, 2) + Math.pow(canvasY - obj.y, 2));
       
-      if (distance <= obj.size / 2 + 10) {
+      if (this.isPointInObject(canvasX, canvasY, obj)) {
         clickedObjectId = obj.id;
         break;
       }
