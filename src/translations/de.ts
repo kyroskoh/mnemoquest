@@ -125,7 +125,8 @@ const de: Translation = {
       description: 'Merken Sie sich Details aus kurzen Geschichten',
       skill: 'Episodisches Gedächtnis',
       instructions: 'Lesen Sie die Geschichte aufmerksam und merken Sie sich die Details...',
-      question: 'Frage'
+      question: 'Frage',
+      continue: 'Weiter'
     },
     changeDetection: {
       name: 'Veränderungserkennung',

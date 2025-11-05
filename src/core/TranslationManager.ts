@@ -129,6 +129,7 @@ export interface Translation {
       skill: string;
       instructions: string;
       question: string;
+      continue: string;
     };
     changeDetection: {
       name: string;

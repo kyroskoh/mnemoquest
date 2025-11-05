@@ -125,7 +125,8 @@ const zh: Translation = {
       description: '记住短故事中的细节',
       skill: '情景记忆',
       instructions: '仔细阅读故事并记住细节...',
-      question: '问题'
+      question: '问题',
+      continue: '继续'
     },
     changeDetection: {
       name: '变化检测',

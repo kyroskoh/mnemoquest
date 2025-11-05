@@ -125,7 +125,8 @@ const ja: Translation = {
       description: '短い物語の詳細を覚える',
       skill: 'エピソード記憶',
       instructions: '物語をよく読んで詳細を覚えてください...',
-      question: '質問'
+      question: '質問',
+      continue: '続ける'
     },
     changeDetection: {
       name: '変化検出',

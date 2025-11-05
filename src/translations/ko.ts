@@ -125,7 +125,8 @@ const ko: Translation = {
       description: '짧은 이야기의 세부 사항을 기억하세요',
       skill: '일화 기억',
       instructions: '이야기를 주의 깊게 읽고 세부 사항을 기억하세요...',
-      question: '질문'
+      question: '질문',
+      continue: '계속'
     },
     changeDetection: {
       name: '변화 탐지',

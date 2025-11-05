@@ -125,7 +125,8 @@ const fr: Translation = {
       description: 'Mémorisez les détails de courtes histoires',
       skill: 'Mémoire Épisodique',
       instructions: 'Lisez l\'histoire attentivement et mémorisez les détails...',
-      question: 'Question'
+      question: 'Question',
+      continue: 'Continuer'
     },
     changeDetection: {
       name: 'Détection de Changement',

@@ -125,7 +125,8 @@ const es: Translation = {
       description: 'Recuerda detalles de historias cortas',
       skill: 'Memoria Episódica',
       instructions: 'Lee la historia con atención y recuerda los detalles...',
-      question: 'Pregunta'
+      question: 'Pregunta',
+      continue: 'Continuar'
     },
     changeDetection: {
       name: 'Detección de Cambios',

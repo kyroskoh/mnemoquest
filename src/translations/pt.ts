@@ -125,7 +125,8 @@ const pt: Translation = {
       description: 'Lembre-se de detalhes de histórias curtas',
       skill: 'Memória Episódica',
       instructions: 'Leia a história com atenção e lembre-se dos detalhes...',
-      question: 'Pergunta'
+      question: 'Pergunta',
+      continue: 'Continuar'
     },
     changeDetection: {
       name: 'Detecção de Mudanças',
