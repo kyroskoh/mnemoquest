@@ -271,6 +271,8 @@ export class StoryRecallGame extends BaseGame {
         line-height: 1.8;
         color: var(--text-primary);
         text-align: justify;
+        padding-right: 100px; /* Space for timer */
+        padding-top: 0.5rem;
       }
 
       .question-screen {
@@ -338,10 +340,13 @@ export class StoryRecallGame extends BaseGame {
 
         .story-content {
           font-size: 1.1rem;
+          padding-right: 80px; /* Adjusted for smaller timer on mobile */
         }
 
         .timer-display {
           font-size: 1.5rem;
+          min-width: 50px;
+          padding: 0.4rem 0.8rem;
         }
 
         .question-box h4 {
