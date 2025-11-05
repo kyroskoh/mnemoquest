@@ -58,6 +58,12 @@ export class UIManager {
     if (gamesPlayed) gamesPlayed.textContent = progress.gamesPlayed.toString();
   }
 
+  // Refresh all translatable elements (call when language changes)
+  refreshTranslations(): void {
+    // Refresh charts if they exist (will use new translations)
+    this.updateProgressView();
+  }
+
   private updateProgressView(): void {
     this.createAccuracyChart();
     this.createPerformanceChart();

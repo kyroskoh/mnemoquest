@@ -221,6 +221,9 @@ class MnemoQuest {
         // Update dashboard with translated text
         this.uiManager.updateDashboard();
         
+        // Refresh charts and badges with new translations
+        this.uiManager.refreshTranslations();
+        
         console.log('✅ Language changed successfully');
         pendingLanguage = null;
       } catch (error) {
