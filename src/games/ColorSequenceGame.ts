@@ -336,7 +336,7 @@ export class ColorSequenceGame extends BaseGame {
         max-width: 500px;
         margin: 0 auto 2rem;
         padding: 1.5rem;
-        background: var(--bg-card);
+        background: rgba(0, 0, 0, 0.3);
         border-radius: var(--radius-lg);
         box-shadow: 0 4px 12px var(--shadow);
       }
@@ -345,10 +345,11 @@ export class ColorSequenceGame extends BaseGame {
         aspect-ratio: 1;
         border-radius: var(--radius-md);
         cursor: pointer;
-        transition: all 0.3s ease;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
         border: 3px solid transparent;
         min-height: 80px;
+        position: relative;
       }
 
       .color-cell:hover:not(.highlighted) {
@@ -357,14 +358,36 @@ export class ColorSequenceGame extends BaseGame {
       }
 
       .color-cell.highlighted {
-        transform: scale(1.1);
-        box-shadow: 0 0 30px rgba(255, 255, 255, 0.8);
-        border-color: white;
-        filter: brightness(1.3);
+        transform: scale(1.2);
+        box-shadow: 0 0 50px rgba(255, 255, 255, 1),
+                    0 0 80px rgba(255, 255, 255, 0.8),
+                    inset 0 0 30px rgba(255, 255, 255, 0.5);
+        border: 5px solid white;
+        filter: brightness(1.8) saturate(1.5);
+        animation: pulse-glow 0.4s ease-in-out;
+        z-index: 10;
+        position: relative;
+      }
+
+      @keyframes pulse-glow {
+        0%, 100% {
+          box-shadow: 0 0 50px rgba(255, 255, 255, 1),
+                      0 0 80px rgba(255, 255, 255, 0.8),
+                      inset 0 0 30px rgba(255, 255, 255, 0.5);
+        }
+        50% {
+          box-shadow: 0 0 70px rgba(255, 255, 255, 1),
+                      0 0 120px rgba(255, 255, 255, 1),
+                      inset 0 0 50px rgba(255, 255, 255, 0.8);
+          transform: scale(1.25);
+        }
       }
 
       .color-cell.clicked {
         transform: scale(0.95);
+        filter: brightness(1.5);
+        box-shadow: 0 0 25px rgba(255, 255, 255, 0.8),
+                    inset 0 0 20px rgba(255, 255, 255, 0.4);
       }
 
       .message-display {
@@ -411,6 +434,25 @@ export class ColorSequenceGame extends BaseGame {
 
         .color-cell {
           min-height: 60px;
+        }
+
+        .color-cell.highlighted {
+          transform: scale(1.15);
+          border: 4px solid white;
+        }
+
+        @keyframes pulse-glow {
+          0%, 100% {
+            box-shadow: 0 0 40px rgba(255, 255, 255, 1),
+                        0 0 60px rgba(255, 255, 255, 0.9),
+                        inset 0 0 25px rgba(255, 255, 255, 0.6);
+          }
+          50% {
+            box-shadow: 0 0 60px rgba(255, 255, 255, 1),
+                        0 0 100px rgba(255, 255, 255, 1),
+                        inset 0 0 40px rgba(255, 255, 255, 0.9);
+            transform: scale(1.2);
+          }
         }
 
         .level-display {
