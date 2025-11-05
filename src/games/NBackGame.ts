@@ -249,7 +249,6 @@ export class NBackGame extends BaseGame {
     const hits = this.trials.filter(t => t.isMatch && t.userResponse === true).length;
     const misses = this.trials.filter(t => t.isMatch && t.userResponse !== true && t.userResponse !== null).length;
     const correctRejections = this.trials.filter(t => !t.isMatch && t.userResponse === false).length;
-    const falseAlarms = this.trials.filter(t => !t.isMatch && t.userResponse === true).length;
 
     const completed = this.trials.filter(t => t.userResponse !== null).length;
     const accuracy = completed > 0 ? ((hits + correctRejections) / completed * 100).toFixed(0) : '-';
