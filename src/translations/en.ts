@@ -113,7 +113,7 @@ const en: Translation = {
       instruction1: 'Letters will appear one at a time. Press SPACE (or tap MATCH button) when the current letter matches the one {n} positions back.',
       instruction2: 'Focus and respond quickly when you see a match!',
       example: 'Example',
-      exampleText: 'In 2-back: A G B B (✓ press here, B matches 2 back) | A B C D (✗ don\'t press, D ≠ B)',
+      exampleText: 'In 1-back: A G B B (✓ press here, B matches 1 back) | A B C D (✗ don\'t press, D ≠ C)',
       trial: 'Trial',
       press: 'Press SPACE or tap button when you see a match',
       match: 'MATCH!',

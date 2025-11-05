@@ -113,7 +113,7 @@ const zh: Translation = {
       instruction1: '字母会一个接一个地出现。当当前字母与往前数第 {n} 个字母匹配时，按空格键（或点击匹配按钮）。',
       instruction2: '集中注意力，看到匹配时快速响应！',
       example: '示例',
-      exampleText: '在 2-back 中：A G B B（✓ 按这里，B 与 2 个前匹配）| A B C D（✗ 不要按，D ≠ B）',
+      exampleText: '在 1-back 中：A G B B（✓ 按这里，B 与 1 个前匹配）| A B C D（✗ 不要按，D ≠ C）',
       trial: '试验',
       press: '看到匹配时按空格键或点击按钮',
       match: '匹配！',

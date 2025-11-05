@@ -113,7 +113,7 @@ const ko: Translation = {
       instruction1: '글자가 하나씩 나타납니다. 현재 글자가 {n}번째 앞 글자와 일치하면 스페이스 키를 누르세요 (또는 일치 버튼 탭).',
       instruction2: '집중하고 일치하는 것을 보면 빠르게 반응하세요!',
       example: '예시',
-      exampleText: '2-back의 경우: A G B B (✓ 여기서 누르기, B가 2개 전과 일치) | A B C D (✗ 누르지 않기, D ≠ B)',
+      exampleText: '1-back의 경우: A G B B (✓ 여기서 누르기, B가 1개 전과 일치) | A B C D (✗ 누르지 않기, D ≠ C)',
       trial: '시도',
       press: '일치하는 것을 보면 스페이스 키를 누르거나 버튼을 탭하세요',
       match: '일치!',

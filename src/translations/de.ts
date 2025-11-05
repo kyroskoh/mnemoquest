@@ -113,7 +113,7 @@ const de: Translation = {
       instruction1: 'Buchstaben erscheinen nacheinander. Drücken Sie LEERTASTE (oder tippen Sie auf den ÜBEREINSTIMMUNG-Button), wenn der aktuelle Buchstabe mit dem {n} Positionen zurück übereinstimmt.',
       instruction2: 'Konzentrieren Sie sich und reagieren Sie schnell, wenn Sie eine Übereinstimmung sehen!',
       example: 'Beispiel',
-      exampleText: 'Bei 2-back: A G B B (✓ hier drücken, B stimmt 2 zurück überein) | A B C D (✗ nicht drücken, D ≠ B)',
+      exampleText: 'Bei 1-back: A G B B (✓ hier drücken, B stimmt 1 zurück überein) | A B C D (✗ nicht drücken, D ≠ C)',
       trial: 'Versuch',
       press: 'Drücken Sie LEERTASTE oder tippen Sie auf den Button bei einer Übereinstimmung',
       match: 'ÜBEREINSTIMMUNG!',

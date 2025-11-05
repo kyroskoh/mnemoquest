@@ -113,7 +113,7 @@ const ja: Translation = {
       instruction1: '文字が1つずつ表示されます。現在の文字が{n}個前の文字と一致したらスペースキーを押す（または一致ボタンをタップ）してください。',
       instruction2: '集中して、一致を見つけたらすばやく反応してください！',
       example: '例',
-      exampleText: '2-backの場合：A G B B（✓ ここで押す、Bが2個前と一致）| A B C D（✗ 押さない、D ≠ B）',
+      exampleText: '1-backの場合：A G B B（✓ ここで押す、Bが1個前と一致）| A B C D（✗ 押さない、D ≠ C）',
       trial: '試行',
       press: '一致を見つけたらスペースキーを押すかボタンをタップしてください',
       match: '一致！',

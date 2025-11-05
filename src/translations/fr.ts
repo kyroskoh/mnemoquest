@@ -113,7 +113,7 @@ const fr: Translation = {
       instruction1: 'Les lettres apparaîtront une par une. Appuyez sur ESPACE (ou touchez le bouton CORRESPOND) lorsque la lettre actuelle correspond à celle {n} positions en arrière.',
       instruction2: 'Concentrez-vous et répondez rapidement quand vous voyez une correspondance !',
       example: 'Exemple',
-      exampleText: 'En 2-back : A G B B (✓ appuyez ici, B correspond 2 en arrière) | A B C D (✗ n\'appuyez pas, D ≠ B)',
+      exampleText: 'En 1-back : A G B B (✓ appuyez ici, B correspond 1 en arrière) | A B C D (✗ n\'appuyez pas, D ≠ C)',
       trial: 'Essai',
       press: 'Appuyez sur ESPACE ou touchez le bouton quand vous voyez une correspondance',
       match: 'CORRESPOND!',
