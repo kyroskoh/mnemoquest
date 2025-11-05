@@ -199,6 +199,12 @@ const fr: Translation = {
     animations: '✨ Animations',
     language: '🌍 Langue',
     applyLanguage: 'Appliquer la Langue',
+    dataManagement: '📦 Gestion des Données',
+    exportProgress: '💾 Exporter les Progrès',
+    exportProgressDesc: 'Téléchargez vos progrès et réalisations (chiffré)',
+    importProgress: '📂 Importer les Progrès',
+    importProgressDesc: 'Restaurer à partir d\'un fichier de sauvegarde',
+    dangerZone: '⚠️ Zone de Danger',
     resetProgress: 'Réinitialiser Tous les Progrès',
     resetConfirm: 'Êtes-vous sûr de vouloir réinitialiser tous les progrès ? Cette action est irréversible.',
     resetSuccess: 'Progrès réinitialisé avec succès !'

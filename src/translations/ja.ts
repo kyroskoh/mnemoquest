@@ -199,6 +199,12 @@ const ja: Translation = {
     animations: '✨ アニメーション',
     language: '🌍 言語',
     applyLanguage: '言語を適用',
+    dataManagement: '📦 データ管理',
+    exportProgress: '💾 進捗をエクスポート',
+    exportProgressDesc: '進捗と実績をダウンロード（暗号化）',
+    importProgress: '📂 進捗をインポート',
+    importProgressDesc: 'バックアップファイルから復元',
+    dangerZone: '⚠️ 危険区域',
     resetProgress: '全ての進捗をリセット',
     resetConfirm: '本当に全ての進捗をリセットしますか？この操作は元に戻せません。',
     resetSuccess: '進捗が正常にリセットされました！'

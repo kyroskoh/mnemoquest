@@ -612,6 +612,38 @@ class MnemoQuest {
       applyLanguageBtn.textContent = translated;
     }
 
+    // Data Management section
+    const dataManagementHeading = document.getElementById('dataManagementHeading');
+    if (dataManagementHeading) {
+      dataManagementHeading.textContent = t('settings.dataManagement');
+    }
+
+    const exportDataBtn = document.getElementById('exportDataBtn');
+    if (exportDataBtn) {
+      exportDataBtn.textContent = t('settings.exportProgress');
+    }
+
+    const exportDataDesc = document.getElementById('exportDataDesc');
+    if (exportDataDesc) {
+      exportDataDesc.textContent = t('settings.exportProgressDesc');
+    }
+
+    const importDataBtn = document.getElementById('importDataBtn');
+    if (importDataBtn) {
+      importDataBtn.textContent = t('settings.importProgress');
+    }
+
+    const importDataDesc = document.getElementById('importDataDesc');
+    if (importDataDesc) {
+      importDataDesc.textContent = t('settings.importProgressDesc');
+    }
+
+    // Danger Zone section
+    const dangerZoneHeading = document.getElementById('dangerZoneHeading');
+    if (dangerZoneHeading) {
+      dangerZoneHeading.textContent = t('settings.dangerZone');
+    }
+
     const resetBtn = document.getElementById('resetProgressBtn');
     if (resetBtn) {
       const translated = t('settings.resetProgress');

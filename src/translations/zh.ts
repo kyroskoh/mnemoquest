@@ -199,6 +199,12 @@ const zh: Translation = {
     animations: '✨ 动画',
     language: '🌍 语言',
     applyLanguage: '应用语言',
+    dataManagement: '📦 数据管理',
+    exportProgress: '💾 导出进度',
+    exportProgressDesc: '下载您的进度和成就（加密）',
+    importProgress: '📂 导入进度',
+    importProgressDesc: '从备份文件恢复',
+    dangerZone: '⚠️ 危险区域',
     resetProgress: '重置所有进度',
     resetConfirm: '您确定要重置所有进度吗？此操作无法撤消。',
     resetSuccess: '进度已成功重置！'

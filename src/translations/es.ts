@@ -199,6 +199,12 @@ const es: Translation = {
     animations: '✨ Animaciones',
     language: '🌍 Idioma',
     applyLanguage: 'Aplicar Idioma',
+    dataManagement: '📦 Gestión de Datos',
+    exportProgress: '💾 Exportar Progreso',
+    exportProgressDesc: 'Descarga tu progreso y logros (encriptado)',
+    importProgress: '📂 Importar Progreso',
+    importProgressDesc: 'Restaurar desde un archivo de respaldo',
+    dangerZone: '⚠️ Zona de Peligro',
     resetProgress: 'Restablecer Todo el Progreso',
     resetConfirm: '¿Estás seguro de que quieres restablecer todo el progreso? Esto no se puede deshacer.',
     resetSuccess: '¡Progreso restablecido exitosamente!'

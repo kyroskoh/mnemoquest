@@ -207,6 +207,12 @@ export interface Translation {
     animations: string;
     language: string;
     applyLanguage: string;
+    dataManagement: string;
+    exportProgress: string;
+    exportProgressDesc: string;
+    importProgress: string;
+    importProgressDesc: string;
+    dangerZone: string;
     resetProgress: string;
     resetConfirm: string;
     resetSuccess: string;

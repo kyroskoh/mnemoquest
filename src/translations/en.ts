@@ -199,6 +199,12 @@ const en: Translation = {
     animations: '✨ Animations',
     language: '🌍 Language',
     applyLanguage: 'Apply Language',
+    dataManagement: '📦 Data Management',
+    exportProgress: '💾 Export Progress',
+    exportProgressDesc: 'Download your progress and achievements (encrypted)',
+    importProgress: '📂 Import Progress',
+    importProgressDesc: 'Restore from a backup file',
+    dangerZone: '⚠️ Danger Zone',
     resetProgress: 'Reset All Progress',
     resetConfirm: 'Are you sure you want to reset all progress? This cannot be undone.',
     resetSuccess: 'Progress reset successfully!'

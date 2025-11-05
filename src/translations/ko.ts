@@ -199,6 +199,12 @@ const ko: Translation = {
     animations: '✨ 애니메이션',
     language: '🌍 언어',
     applyLanguage: '언어 적용',
+    dataManagement: '📦 데이터 관리',
+    exportProgress: '💾 진행 상황 내보내기',
+    exportProgressDesc: '진행 상황과 업적 다운로드（암호화됨）',
+    importProgress: '📂 진행 상황 가져오기',
+    importProgressDesc: '백업 파일에서 복원',
+    dangerZone: '⚠️ 위험 영역',
     resetProgress: '모든 진행 상황 초기화',
     resetConfirm: '정말로 모든 진행 상황을 초기화하시겠습니까? 이 작업은 취소할 수 없습니다.',
     resetSuccess: '진행 상황이 성공적으로 초기화되었습니다!'
