@@ -11,6 +11,10 @@ import { NumberRecallGame } from '../games/NumberRecallGame';
 import { FlashCountGame } from '../games/FlashCountGame';
 import { WordTrailGame } from '../games/WordTrailGame';
 import { PatternPathGame } from '../games/PatternPathGame';
+import { NBackGame } from '../games/NBackGame';
+import { StoryRecallGame } from '../games/StoryRecallGame';
+import { ChangeDetectionGame } from '../games/ChangeDetectionGame';
+import { ColorSequenceGame } from '../games/ColorSequenceGame';
 
 export class GameManager {
   private storageManager: StorageManager;
@@ -86,6 +90,18 @@ export class GameManager {
         break;
       case 'pattern-path':
         this.currentGame = new PatternPathGame(container, difficulty, this.onGameComplete.bind(this), this.translationManager);
+        break;
+      case 'n-back':
+        this.currentGame = new NBackGame(container, difficulty, this.onGameComplete.bind(this), this.translationManager);
+        break;
+      case 'story-recall':
+        this.currentGame = new StoryRecallGame(container, difficulty, this.onGameComplete.bind(this), this.translationManager);
+        break;
+      case 'change-detection':
+        this.currentGame = new ChangeDetectionGame(container, difficulty, this.onGameComplete.bind(this), this.translationManager);
+        break;
+      case 'color-sequence':
+        this.currentGame = new ColorSequenceGame(container, difficulty, this.onGameComplete.bind(this), this.translationManager);
         break;
       default:
         console.error('Unknown game type:', gameType);

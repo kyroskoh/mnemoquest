@@ -104,6 +104,50 @@ const de: Translation = {
       clear: 'Löschen',
       submit: 'Absenden'
     },
+    nBack: {
+      name: 'N-Back-Herausforderung',
+      description: 'Testen Sie das Arbeitsgedächtnis mit dem goldenen Standard kognitiver Aufgaben',
+      skill: 'Arbeitsgedächtnis',
+      back: 'Zurück',
+      howToPlay: 'Wie man spielt',
+      instruction1: 'Buchstaben erscheinen nacheinander. Drücken Sie LEERTASTE, wenn der aktuelle Buchstabe mit dem {n} Positionen zurück übereinstimmt.',
+      instruction2: 'Konzentrieren Sie sich und reagieren Sie schnell, wenn Sie eine Übereinstimmung sehen!',
+      example: 'Beispiel',
+      exampleText: 'Bei 2-back: A F K F (hier LEERTASTE drücken, F stimmt 2 Positionen zurück überein)',
+      trial: 'Versuch',
+      pressSpace: 'Drücken Sie LEERTASTE bei einer Übereinstimmung',
+      hits: 'Treffer',
+      misses: 'Fehlschläge'
+    },
+    storyRecall: {
+      name: 'Geschichten-Erinnerung',
+      description: 'Merken Sie sich Details aus kurzen Geschichten',
+      skill: 'Episodisches Gedächtnis',
+      instructions: 'Lesen Sie die Geschichte aufmerksam und merken Sie sich die Details...',
+      question: 'Frage'
+    },
+    changeDetection: {
+      name: 'Veränderungserkennung',
+      description: 'Erkennen Sie, was sich in einer Szene verändert hat',
+      skill: 'Visuelles Arbeitsgedächtnis',
+      instructions: 'Studieren Sie die Szene und identifizieren Sie dann, was sich verändert hat!',
+      round: 'Runde',
+      memorize: 'Merken Sie sich diese Szene...',
+      findChange: 'Was hat sich verändert? Klicken Sie darauf!'
+    },
+    colorSequence: {
+      name: 'Farb-Sequenz',
+      description: 'Merken und wiederholen Sie Farbmuster',
+      skill: 'Farbgedächtnis',
+      instructions: 'Beobachten Sie die Farben, die nacheinander aufblinken, dann klicken Sie sie in der gleichen Reihenfolge!',
+      level: 'Level',
+      sequence: 'Sequenz',
+      watch: 'Beobachten Sie die Sequenz...',
+      yourTurn: 'Sie sind dran! Klicken Sie die Farben in der Reihenfolge',
+      correct: 'Richtig!',
+      wrong: 'Falsche Sequenz!',
+      correctWas: 'Die richtige Sequenz war:'
+    },
     playNow: 'Jetzt spielen'
   },
   
@@ -155,6 +199,30 @@ const de: Translation = {
       intro: 'Trainieren Sie Ihr räumliches Gedächtnis, indem Sie sich Pfade auf einem Raster merken und nachzeichnen.',
       steps: '1. Beobachten Sie, wie ein Pfad auf dem Raster gezeichnet wird\n2. Merken Sie sich die Sequenz der Zellen\n3. Erstellen Sie den Pfad neu, indem Sie Zellen in der Reihenfolge klicken\n4. Zellen müssen benachbart sein (keine Diagonalen)',
       tips: '• Achten Sie auf die Richtungsindikatoren\n• Teilen Sie lange Pfade in kleinere Abschnitte\n• Verwenden Sie Orientierungspunkte oder Muster, um sich Wendungen zu merken'
+    },
+    nBack: {
+      welcome: 'Willkommen bei N-Back-Herausforderung!',
+      intro: 'Testen und verbessern Sie Ihr Arbeitsgedächtnis mit dieser wissenschaftlich validierten Aufgabe.',
+      steps: '1. Buchstaben erscheinen nacheinander auf dem Bildschirm\n2. Drücken Sie LEERTASTE, wenn der aktuelle Buchstabe mit dem N Positionen zurück übereinstimmt\n3. Das Spiel beginnt mit 1-back, dann geht es zu 2-back und 3-back über\n4. Bleiben Sie konzentriert und reagieren Sie schnell, wenn Sie eine Übereinstimmung sehen',
+      tips: '• Behalten Sie eine mentale Liste der letzten N Buchstaben\n• Nicht hetzen - Genauigkeit ist wichtiger als Geschwindigkeit\n• Üben Sie regelmäßig, um Ihre Arbeitsgedächtniskapazität zu verbessern\n• Dies ist eine der wenigen wissenschaftlich bewiesenen Gehirntrainingsaufgaben!'
+    },
+    storyRecall: {
+      welcome: 'Willkommen bei Geschichten-Erinnerung!',
+      intro: 'Verbessern Sie Ihr episodisches Gedächtnis, indem Sie sich Details aus kurzen Geschichten merken.',
+      steps: '1. Lesen Sie die Geschichte während des Timers aufmerksam\n2. Achten Sie auf spezifische Details (Namen, Farben, Zahlen, Orte)\n3. Beantworten Sie Multiple-Choice-Fragen zur Geschichte\n4. Keine Notizen erlaubt - verlassen Sie sich auf Ihr Gedächtnis!',
+      tips: '• Erstellen Sie beim Lesen mentale Bilder\n• Achten Sie auf Wer, Was, Wann, Wo und Wie\n• Verbinden Sie Details, um eine zusammenhängende Geschichte zu bilden\n• Je mehr Sie sich mit der Geschichte beschäftigen, desto besser erinnern Sie sich'
+    },
+    changeDetection: {
+      welcome: 'Willkommen bei Veränderungserkennung!',
+      intro: 'Trainieren Sie Ihr visuelles Arbeitsgedächtnis, indem Sie erkennen, was sich in einer Szene verändert hat.',
+      steps: '1. Studieren Sie die Szene während der Betrachtungsphase aufmerksam\n2. Nach einem kurzen leeren Bildschirm erscheint die Szene mit EINER Veränderung wieder\n3. Klicken Sie auf das Objekt, das sich verändert hat\n4. Veränderungen können sein: Farbe, Position oder Größe',
+      tips: '• Versuchen Sie, sich Position und Farbe jedes Objekts zu merken\n• Erstellen Sie einen mentalen Schnappschuss der Szene\n• Gruppieren Sie Objekte nach Ort oder Farbe, um besser zu merken\n• Mit zunehmender Schwierigkeit erscheinen mehr Objekte'
+    },
+    colorSequence: {
+      welcome: 'Willkommen bei Farb-Sequenz!',
+      intro: 'Meistern Sie Farbmuster und sequenzielles Gedächtnis mit dieser lebendigen Herausforderung.',
+      steps: '1. Beobachten Sie, wie Farben nacheinander aufblinken\n2. Nach Ende der Sequenz sind Sie dran\n3. Klicken Sie die Farben in genau der gleichen Reihenfolge\n4. Jedes Level fügt eine weitere Farbe zur Sequenz hinzu',
+      tips: '• Sagen Sie die Farben laut (oder in Gedanken), während sie blinken\n• Erstellen Sie einen Rhythmus oder ein Muster mit den Farben\n• Nutzen Sie die Farbpositionen, um sich die Sequenz zu merken\n• Drei Fehler und das Spiel endet - bleiben Sie konzentriert!'
     }
   },
   

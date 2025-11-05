@@ -27,7 +27,7 @@ export abstract class BaseGame {
     return this.translationManager.t(key);
   }
 
-  abstract start(): void;
+  abstract start(): void | Promise<void>;
   abstract destroy(): void;
 
   protected calculateResult(): GameResult {

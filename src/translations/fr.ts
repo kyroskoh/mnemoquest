@@ -104,6 +104,50 @@ const fr: Translation = {
       clear: 'Effacer',
       submit: 'Soumettre'
     },
+    nBack: {
+      name: 'Défi N-Back',
+      description: 'Testez la mémoire de travail avec la tâche cognitive de référence',
+      skill: 'Mémoire de Travail',
+      back: 'Retour',
+      howToPlay: 'Comment Jouer',
+      instruction1: 'Les lettres apparaîtront une par une. Appuyez sur ESPACE lorsque la lettre actuelle correspond à celle {n} positions en arrière.',
+      instruction2: 'Concentrez-vous et répondez rapidement quand vous voyez une correspondance !',
+      example: 'Exemple',
+      exampleText: 'En 2-back : A F K F (appuyez sur ESPACE ici, F correspond 2 positions en arrière)',
+      trial: 'Essai',
+      pressSpace: 'Appuyez sur ESPACE quand vous voyez une correspondance',
+      hits: 'Réussites',
+      misses: 'Ratés'
+    },
+    storyRecall: {
+      name: 'Rappel d\'Histoire',
+      description: 'Mémorisez les détails de courtes histoires',
+      skill: 'Mémoire Épisodique',
+      instructions: 'Lisez l\'histoire attentivement et mémorisez les détails...',
+      question: 'Question'
+    },
+    changeDetection: {
+      name: 'Détection de Changement',
+      description: 'Repérez ce qui a changé dans une scène',
+      skill: 'Mémoire de Travail Visuelle',
+      instructions: 'Étudiez la scène, puis identifiez ce qui a changé !',
+      round: 'Manche',
+      memorize: 'Mémorisez cette scène...',
+      findChange: 'Qu\'est-ce qui a changé ? Cliquez dessus !'
+    },
+    colorSequence: {
+      name: 'Séquence de Couleurs',
+      description: 'Mémorisez et répétez des motifs de couleurs',
+      skill: 'Mémoire des Couleurs',
+      instructions: 'Regardez les couleurs clignoter en séquence, puis cliquez-les dans le même ordre !',
+      level: 'Niveau',
+      sequence: 'Séquence',
+      watch: 'Regardez la séquence...',
+      yourTurn: 'À votre tour ! Cliquez sur les couleurs dans l\'ordre',
+      correct: 'Correct !',
+      wrong: 'Mauvaise séquence !',
+      correctWas: 'La séquence correcte était :'
+    },
     playNow: 'Jouer Maintenant'
   },
   
@@ -155,6 +199,30 @@ const fr: Translation = {
       intro: 'Entraînez votre mémoire spatiale en mémorisant et traçant des chemins sur une grille.',
       steps: '1. Regardez le chemin être dessiné sur la grille\n2. Mémorisez la séquence de cellules\n3. Recréez le chemin en cliquant sur les cellules dans l\'ordre\n4. Les cellules doivent être adjacentes (pas de diagonales)',
       tips: '• Faites attention aux indicateurs de direction\n• Divisez les longs chemins en petits segments\n• Utilisez des points de repère ou des motifs pour mémoriser les virages'
+    },
+    nBack: {
+      welcome: 'Bienvenue au Défi N-Back !',
+      intro: 'Testez et améliorez votre mémoire de travail avec cette tâche scientifiquement validée.',
+      steps: '1. Les lettres apparaîtront une par une à l\'écran\n2. Appuyez sur ESPACE lorsque la lettre actuelle correspond à celle N positions en arrière\n3. Le jeu commence avec 1-back, puis progresse vers 2-back et 3-back\n4. Restez concentré et répondez rapidement quand vous voyez une correspondance',
+      tips: '• Gardez une liste mentale des N dernières lettres\n• Ne vous précipitez pas - la précision est plus importante que la vitesse\n• Pratiquez régulièrement pour améliorer votre capacité de mémoire de travail\n• C\'est l\'une des rares tâches d\'entraînement cérébral scientifiquement prouvées !'
+    },
+    storyRecall: {
+      welcome: 'Bienvenue au Rappel d\'Histoire !',
+      intro: 'Améliorez votre mémoire épisodique en mémorisant les détails de courtes histoires.',
+      steps: '1. Lisez l\'histoire attentivement pendant le chronomètre\n2. Faites attention aux détails spécifiques (noms, couleurs, nombres, lieux)\n3. Répondez aux questions à choix multiples sur l\'histoire\n4. Pas de notes autorisées - comptez sur votre mémoire !',
+      tips: '• Créez des images mentales en lisant\n• Faites attention au qui, quoi, quand, où et comment\n• Connectez les détails pour former une histoire cohérente\n• Plus vous vous engagez dans l\'histoire, mieux vous vous en souviendrez'
+    },
+    changeDetection: {
+      welcome: 'Bienvenue à la Détection de Changement !',
+      intro: 'Entraînez votre mémoire de travail visuelle en repérant ce qui a changé dans une scène.',
+      steps: '1. Étudiez la scène attentivement pendant la phase de visualisation\n2. Après un bref écran vide, la scène réapparaît avec UN changement\n3. Cliquez sur l\'objet qui a changé\n4. Les changements peuvent être : couleur, position ou taille',
+      tips: '• Essayez de mémoriser la position et la couleur de chaque objet\n• Créez un instantané mental de la scène\n• Groupez les objets par emplacement ou couleur pour mieux mémoriser\n• À mesure que la difficulté augmente, plus d\'objets apparaîtront'
+    },
+    colorSequence: {
+      welcome: 'Bienvenue à la Séquence de Couleurs !',
+      intro: 'Maîtrisez les motifs de couleurs et la mémoire séquentielle avec ce défi vibrant.',
+      steps: '1. Regardez les couleurs clignoter en séquence\n2. Après la fin de la séquence, c\'est votre tour\n3. Cliquez sur les couleurs dans le même ordre exact\n4. Chaque niveau ajoute une couleur de plus à la séquence',
+      tips: '• Dites les couleurs à voix haute (ou dans votre tête) pendant qu\'elles clignotent\n• Créez un rythme ou un motif avec les couleurs\n• Utilisez les positions des couleurs pour vous aider à mémoriser la séquence\n• Trois erreurs et le jeu se termine - restez concentré !'
     }
   },
   

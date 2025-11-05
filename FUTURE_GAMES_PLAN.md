@@ -2,32 +2,43 @@
 
 This document outlines planned mini-games for future phases of MnemoQuest development.
 
-**Current Status**: Phase 1, 2 & 4 Complete (7 games)  
-**Document Version**: 1.0  
+**Current Status**: Phase 1, 2, 4 & 5 Complete (11 games) ✅  
+**Document Version**: 2.0  
 **Last Updated**: November 2025  
 🎮 **[Play Current Version →](https://kyroskoh.github.io/mnemoquest/)**
 
 ---
 
-## 📊 Current Games (Phase 1 & 2)
+## 📊 Game Implementation Status
 
-✅ **Memory Grid** - Spatial recall  
-✅ **Sequence Sparks** - Working memory  
-✅ **Card Match** - Visual memory  
-✅ **Number Recall** - Numerical memory  
-✅ **Flash Count** - Rapid attention  
-✅ **Word Trail** - Verbal memory  
-✅ **Pattern Path** - Spatial sequencing
+### ✅ Phase 1-2: Foundation (COMPLETE)
+**3 Original Games:**
+1. ✅ **Memory Grid** - Spatial recall  
+2. ✅ **Sequence Sparks** - Working memory  
+3. ✅ **Card Match** - Visual memory
+
+### ✅ Phase 4: Core Expansion (COMPLETE - Q4 2025)
+**4 New Games:**
+4. ✅ **Number Recall** - Numerical memory  
+5. ✅ **Flash Count** - Rapid attention  
+6. ✅ **Word Trail** - Verbal memory  
+7. ✅ **Pattern Path** - Spatial sequencing
+
+### ✅ Phase 5: Advanced Training (COMPLETE - Q4 2025)
+**4 New Games:**
+8. ✅ **N-Back Challenge** - Working memory (gold standard)
+9. ✅ **Story Recall** - Episodic memory
+10. ✅ **Change Detection** - Visual working memory
+11. ✅ **Color Sequence** - Color pattern memory
+
+**Current Total: 11 Games**
 
 ---
 
-## 🗓️ Implementation Roadmap
+## 🗓️ Future Implementation Roadmap
 
-### Phase 4: Core Expansion (Q4 2025)
-**Goal**: Add 4 new games from PRD + high-value additions
-
-### Phase 5: Specialized Training (Q1 2026)
-**Goal**: Advanced cognitive training games
+### Phase 6: Specialized Training (Q1 2026)
+**Goal**: Real-world application games
 
 ### Phase 6: Real-World Applications (Q2 2026)
 **Goal**: Practical memory skills
@@ -324,39 +335,61 @@ At position 6: K matches position 4? NO ✗
 
 ---
 
-### 8. Mental Math Sprint ➗
-**Status**: Cognitive Challenge  
-**Skill**: Working Memory + Calculation  
-**Implementation Difficulty**: ⭐⭐ (Easy)
+### 8. Story Recall 📚
+**Status**: ✅ IMPLEMENTED  
+**Skill**: Episodic Memory & Detail Retention  
+**Implementation Difficulty**: ⭐⭐ (Easy - text based)
 
 **Description**:
-- Solve math problems rapidly
-- Remember previous answers
-- Final question tests memory: "What was the 2nd answer?"
+- Read short stories and answer detail-focused questions
+- Tests episodic memory and narrative comprehension
+- Fully translated content system (8 languages)
 
 **Gameplay**:
-1. Show 3-5 math problems one at a time
-2. Player solves each
-3. After all problems: "What was answer #2?"
-4. Tests working memory under cognitive load
+1. Short story displays with countdown timer
+2. Player reads and memorizes details
+3. Story disappears after time limit
+4. Multiple choice questions test recall
+5. Questions focus on: who, what, where, when, colors, numbers
+
+**Example Story (Easy)**:
+```
+"Maria drove her blue car to the market on Wednesday. 
+She bought tomatoes and cheese. On the way home, 
+she stopped at the library."
+
+Questions:
+- What color was Maria's car? (Blue/Red/Green)
+- When did Maria go to the market? (Tuesday/Wednesday/Thursday)
+- What did she buy? (Tomatoes & cheese / Apples & milk / etc.)
+```
 
 **Difficulty Scaling**:
-| Difficulty | Problems | Operations | Numbers |
-|-----------|----------|------------|---------|
-| 1.0 | 3 | Addition | 1-10 |
-| 5.0 | 4 | +, - | 1-50 |
-| 10.0 | 5 | +, -, ×, ÷ | 1-100 |
+| Difficulty | Story Length | Questions | Display Time |
+|-----------|--------------|-----------|--------------|
+| 1.0-3.0 | 2 sentences | 4 questions | 15 seconds |
+| 4.0-7.0 | 4 sentences | 5 questions | 12 seconds |
+| 8.0+ | 6 sentences | 6 questions | 10 seconds |
 
-**Technical Requirements**:
-- Math problem generator
-- Answer validation
-- Memory tracking
-- Timer
+**Technical Implementation**:
+- Dynamic story loading based on user language
+- Story database: `src/data/storyRecall/[lang].ts`
+- 5 stories per language (2 easy, 2 medium, 1 hard)
+- 40 fully translated stories total (8 languages)
+- Multiple choice question system
+- Visual feedback on correct/incorrect answers
+
+**Translation Coverage**:
+- ✅ English, Spanish, Chinese, French
+- ✅ German, Japanese, Korean, Portuguese
+- 184 translated questions across all languages
+- 736 translated answer options
 
 **Cognitive Benefits**:
-- Working memory under load
-- Dual-task processing
-- Mental calculation speed
+- Episodic memory formation
+- Detail encoding and retrieval
+- Active reading comprehension
+- Real-world application: remembering conversations, meetings, instructions
 
 ---
 
@@ -405,7 +438,43 @@ At position 6: K matches position 4? NO ✗
 
 ---
 
-### 10. Face Memory 👤
+### 10. Mental Math Sprint ➗
+**Status**: Cognitive Challenge  
+**Skill**: Working Memory + Calculation  
+**Implementation Difficulty**: ⭐⭐ (Easy)
+
+**Description**:
+- Solve math problems rapidly
+- Remember previous answers
+- Final question tests memory: "What was the 2nd answer?"
+
+**Gameplay**:
+1. Show 3-5 math problems one at a time
+2. Player solves each
+3. After all problems: "What was answer #2?"
+4. Tests working memory under cognitive load
+
+**Difficulty Scaling**:
+| Difficulty | Problems | Operations | Numbers |
+|-----------|----------|------------|---------|
+| 1.0 | 3 | Addition | 1-10 |
+| 5.0 | 4 | +, - | 1-50 |
+| 10.0 | 5 | +, -, ×, ÷ | 1-100 |
+
+**Technical Requirements**:
+- Math problem generator
+- Answer validation
+- Memory tracking
+- Timer
+
+**Cognitive Benefits**:
+- Working memory under load
+- Dual-task processing
+- Mental calculation speed
+
+---
+
+### 11. Face Memory 👤
 **Status**: Social Memory Training  
 **Skill**: Face Recognition & Name Association  
 **Implementation Difficulty**: ⭐⭐⭐⭐ (Hard - requires assets)
@@ -444,7 +513,7 @@ At position 6: K matches position 4? NO ✗
 
 ---
 
-### 11. Route Planner 🗺️
+### 12. Route Planner 🗺️
 **Status**: Spatial Navigation  
 **Skill**: Spatial Navigation Memory  
 **Implementation Difficulty**: ⭐⭐⭐⭐ (Hard)
@@ -481,7 +550,7 @@ At position 6: K matches position 4? NO ✗
 
 ## 🎵 Phase 7: Multi-Sensory Training (Priority 4)
 
-### 12. Sound Sequence 🎵
+### 13. Sound Sequence 🎵
 **Status**: Auditory Memory  
 **Skill**: Auditory Sequential Memory  
 **Implementation Difficulty**: ⭐⭐⭐ (Medium - requires audio)
@@ -517,7 +586,7 @@ At position 6: K matches position 4? NO ✗
 
 ---
 
-### 13. Rhythm Recall 🥁
+### 14. Rhythm Recall 🥁
 **Status**: Temporal Memory  
 **Skill**: Temporal Pattern Recognition  
 **Implementation Difficulty**: ⭐⭐⭐ (Medium)
@@ -551,55 +620,6 @@ Hard:    ♪♪ ♪  ♪ ♪♪  (syncopated)
 - Tap detection with timing
 - Visual metronome
 - Timing comparison algorithm
-
----
-
-### 14. Story Recall 📚
-**Status**: Episodic Memory  
-**Skill**: Narrative & Detail Memory  
-**Implementation Difficulty**: ⭐⭐ (Easy - text only)
-
-**Description**:
-- Short story appears
-- Answer questions about specific details
-- Tests episodic memory
-
-**Gameplay**:
-1. Show short story (2-5 sentences)
-2. Story disappears
-3. Multiple choice questions about details
-4. Questions: who, what, where, when, what color, etc.
-
-**Example Story (Easy)**:
-```
-"Sarah drove her red car to the grocery store on Tuesday. 
-She bought apples and milk. On the way home, she stopped 
-at the post office."
-
-Questions:
-- What color was Sarah's car? (Red/Blue/Green)
-- When did Sarah go shopping? (Monday/Tuesday/Wednesday)
-- What did she buy? (Apples & milk / Bread & eggs / etc.)
-```
-
-**Difficulty Scaling**:
-| Difficulty | Story Length | Details | Question Type |
-|-----------|--------------|---------|---------------|
-| 1.0 | 2 sentences | 3 details | Direct |
-| 5.0 | 4 sentences | 6 details | Mixed |
-| 10.0 | 6 sentences | 10 details | Inferential |
-
-**Technical Requirements**:
-- Story database with questions
-- Text display system
-- Multiple choice UI
-- Answer validation
-
-**Story Categories**:
-- Daily activities
-- Short adventures
-- News-style reports
-- Instructions
 
 ---
 
@@ -671,19 +691,24 @@ Questions:
 
 ## 📊 Priority Matrix
 
-### Implementation Priority (1-5 scale)
+### ✅ Completed Games (Phase 4 & 5)
+
+| Game | Cognitive Value | Implementation Ease | User Engagement | Real-World Use | **Status** |
+|------|----------------|--------------------|-----------------| ---------------|------------|
+| Number Recall | 4 | 5 | 3 | 5 | ✅ Complete |
+| Flash Count | 3 | 5 | 4 | 3 | ✅ Complete |
+| Word Trail | 4 | 5 | 4 | 4 | ✅ Complete |
+| Pattern Path | 4 | 3 | 5 | 3 | ✅ Complete |
+| N-Back | 5 | 3 | 3 | 4 | ✅ Complete |
+| Story Recall | 4 | 4 | 4 | 4 | ✅ Complete |
+| Change Detection | 4 | 3 | 5 | 3 | ✅ Complete |
+| Color Sequence | 3 | 4 | 4 | 2 | ✅ Complete |
+
+### 📋 Future Games Priority (Phase 6+)
 
 | Game | Cognitive Value | Implementation Ease | User Engagement | Real-World Use | **Priority** |
 |------|----------------|--------------------|-----------------| ---------------|--------------|
-| Word Trail | 4 | 5 | 4 | 4 | ⭐⭐⭐⭐⭐ |
-| Pattern Path | 4 | 3 | 5 | 3 | ⭐⭐⭐⭐⭐ |
-| Number Recall | 4 | 5 | 3 | 5 | ⭐⭐⭐⭐⭐ |
-| Flash Count | 3 | 5 | 4 | 3 | ⭐⭐⭐⭐ |
-| N-Back | 5 | 3 | 3 | 4 | ⭐⭐⭐⭐⭐ |
-| Change Detection | 4 | 3 | 5 | 3 | ⭐⭐⭐⭐ |
 | Shopping List | 3 | 4 | 4 | 5 | ⭐⭐⭐⭐ |
-| Story Recall | 4 | 4 | 4 | 4 | ⭐⭐⭐⭐ |
-| Color Sequence | 3 | 4 | 4 | 2 | ⭐⭐⭐ |
 | Mental Math | 3 | 4 | 3 | 4 | ⭐⭐⭐ |
 | Face Memory | 5 | 2 | 5 | 5 | ⭐⭐⭐⭐ |
 | Sound Sequence | 3 | 3 | 4 | 2 | ⭐⭐⭐ |
@@ -775,33 +800,33 @@ Update:
 
 ---
 
-## 🎯 Recommended Implementation Order
+## 🎯 Implementation Status
 
-### **Phase 4 - Q1 2026** (4 games)
+### **Phase 4 - COMPLETE (Q4 2025)** ✅
 1. ✅ Number Recall (easiest, high value)
 2. ✅ Flash Count (quick, engaging)
 3. ✅ Word Trail (PRD commitment)
 4. ✅ Pattern Path (PRD commitment)
 
-### **Phase 5 - Q2 2026** (4 games)
+### **Phase 5 - COMPLETE (Q4 2025)** ✅
 5. ✅ N-Back Challenge (scientific gold standard)
 6. ✅ Story Recall (text-based, simple)
 7. ✅ Change Detection (visual, engaging)
 8. ✅ Color Sequence (variation)
 
-### **Phase 6 - Q3 2026** (3 games)
-9. ✅ Shopping List (practical)
-10. ✅ Mental Math Sprint (working memory)
-11. ✅ Face Memory (requires asset system)
+### **Phase 6 - PLANNED (Q1 2026)** (4 games)
+9. 📝 Shopping List (practical)
+10. 📝 Mental Math Sprint (working memory)
+11. 📝 Face Memory (requires asset system)
+12. 📝 Route Planner (complex spatial)
 
-### **Phase 7 - Q4 2026** (3 games)
-12. ✅ Sound Sequence (audio system needed)
-13. ✅ Rhythm Recall (temporal)
-14. ✅ Mirror Match (spatial)
+### **Phase 7 - PLANNED (Q2 2026)** (3 games)
+13. 📝 Sound Sequence (audio system needed)
+14. 📝 Rhythm Recall (temporal)
+15. 📝 Shape Rotation (3D/complex)
 
-### **Future Phases** (2 games)
-15. Route Planner (complex spatial)
-16. Shape Rotation (3D/complex)
+### **Future Phases** (1 game)
+16. 📝 Mirror Match (spatial)
 
 ---
 
@@ -904,16 +929,19 @@ Update as games are implemented:
 
 | Game | Status | Start Date | Complete Date | Developer |
 |------|--------|-----------|---------------|-----------|
-| Word Trail | 📝 Planned | - | - | - |
-| Pattern Path | 📝 Planned | - | - | - |
-| Number Recall | 📝 Planned | - | - | - |
-| Flash Count | 📝 Planned | - | - | - |
-| N-Back | 📝 Planned | - | - | - |
-| Change Detection | 📝 Planned | - | - | - |
-| Color Sequence | 📝 Planned | - | - | - |
-| Mental Math | 📝 Planned | - | - | - |
-| Story Recall | 📝 Planned | - | - | - |
+| **Phase 4 Games** |  |  |  |  |
+| Number Recall | ✅ Complete | Nov 2025 | Nov 2025 | Kyros Koh |
+| Flash Count | ✅ Complete | Nov 2025 | Nov 2025 | Kyros Koh |
+| Word Trail | ✅ Complete | Nov 2025 | Nov 2025 | Kyros Koh |
+| Pattern Path | ✅ Complete | Nov 2025 | Nov 2025 | Kyros Koh |
+| **Phase 5 Games** |  |  |  |  |
+| N-Back Challenge | ✅ Complete | Nov 2025 | Nov 2025 | Kyros Koh |
+| Story Recall | ✅ Complete | Nov 2025 | Nov 2025 | Kyros Koh |
+| Change Detection | ✅ Complete | Nov 2025 | Nov 2025 | Kyros Koh |
+| Color Sequence | ✅ Complete | Nov 2025 | Nov 2025 | Kyros Koh |
+| **Future Games** |  |  |  |  |
 | Shopping List | 📝 Planned | - | - | - |
+| Mental Math | 📝 Planned | - | - | - |
 | Face Memory | 📝 Planned | - | - | - |
 | Sound Sequence | 📝 Planned | - | - | - |
 | Rhythm Recall | 📝 Planned | - | - | - |
@@ -935,13 +963,14 @@ Update as games are implemented:
 
 ## 🎮 Total Game Count Projection
 
-- **Current** (Phase 1-2): 3 games
-- **After Phase 4**: 7 games
-- **After Phase 5**: 11 games
-- **After Phase 6**: 14 games
-- **After Phase 7**: 17 games
-- **Future**: 19 games
+- **Phase 1-2** (Foundation): 3 games ✅
+- **Phase 4** (Core Expansion): 7 games total (+4) ✅
+- **Phase 5** (Advanced Training): 11 games total (+4) ✅ **← CURRENT**
+- **Phase 6** (Planned): 15 games total (+4) 📝
+- **Phase 7** (Planned): 18 games total (+3) 📝
+- **Future Phases**: 19 games total (+1) 📝
 
+**Current Status**: 11/19 games complete (58%)  
 **Target**: 15-20 mini-games covering all major cognitive domains
 
 ---

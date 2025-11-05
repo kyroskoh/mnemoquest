@@ -107,6 +107,50 @@ export interface Translation {
       clear: string;
       submit: string;
     };
+    nBack: {
+      name: string;
+      description: string;
+      skill: string;
+      back: string;
+      howToPlay: string;
+      instruction1: string;
+      instruction2: string;
+      example: string;
+      exampleText: string;
+      trial: string;
+      pressSpace: string;
+      hits: string;
+      misses: string;
+    };
+    storyRecall: {
+      name: string;
+      description: string;
+      skill: string;
+      instructions: string;
+      question: string;
+    };
+    changeDetection: {
+      name: string;
+      description: string;
+      skill: string;
+      instructions: string;
+      round: string;
+      memorize: string;
+      findChange: string;
+    };
+    colorSequence: {
+      name: string;
+      description: string;
+      skill: string;
+      instructions: string;
+      level: string;
+      sequence: string;
+      watch: string;
+      yourTurn: string;
+      correct: string;
+      wrong: string;
+      correctWas: string;
+    };
     playNow: string;
   };
   
@@ -155,6 +199,30 @@ export interface Translation {
       tips: string;
     };
     patternPath: {
+      welcome: string;
+      intro: string;
+      steps: string;
+      tips: string;
+    };
+    nBack: {
+      welcome: string;
+      intro: string;
+      steps: string;
+      tips: string;
+    };
+    storyRecall: {
+      welcome: string;
+      intro: string;
+      steps: string;
+      tips: string;
+    };
+    changeDetection: {
+      welcome: string;
+      intro: string;
+      steps: string;
+      tips: string;
+    };
+    colorSequence: {
       welcome: string;
       intro: string;
       steps: string;

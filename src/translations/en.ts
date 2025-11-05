@@ -104,6 +104,50 @@ const en: Translation = {
       clear: 'Clear',
       submit: 'Submit'
     },
+    nBack: {
+      name: 'N-Back Challenge',
+      description: 'Test working memory with the gold standard cognitive task',
+      skill: 'Working Memory',
+      back: 'Back',
+      howToPlay: 'How to Play',
+      instruction1: 'Letters will appear one at a time. Press SPACE when the current letter matches the one {n} positions back.',
+      instruction2: 'Focus and respond quickly when you see a match!',
+      example: 'Example',
+      exampleText: 'In 2-back: A F K F (press SPACE here, F matches 2 positions back)',
+      trial: 'Trial',
+      pressSpace: 'Press SPACE when you see a match',
+      hits: 'Hits',
+      misses: 'Misses'
+    },
+    storyRecall: {
+      name: 'Story Recall',
+      description: 'Remember details from short stories',
+      skill: 'Episodic Memory',
+      instructions: 'Read the story carefully and remember the details...',
+      question: 'Question'
+    },
+    changeDetection: {
+      name: 'Change Detection',
+      description: 'Spot what changed in a scene',
+      skill: 'Visual Working Memory',
+      instructions: 'Study the scene, then identify what changed!',
+      round: 'Round',
+      memorize: 'Memorize this scene...',
+      findChange: 'What changed? Click on it!'
+    },
+    colorSequence: {
+      name: 'Color Sequence',
+      description: 'Remember and repeat color patterns',
+      skill: 'Color Memory',
+      instructions: 'Watch the colors flash in sequence, then click them in the same order!',
+      level: 'Level',
+      sequence: 'Sequence',
+      watch: 'Watch the sequence...',
+      yourTurn: 'Your turn! Click the colors in order',
+      correct: 'Correct!',
+      wrong: 'Wrong sequence!',
+      correctWas: 'The correct sequence was:'
+    },
     playNow: 'Play Now'
   },
   
@@ -155,6 +199,30 @@ const en: Translation = {
       intro: 'Train your spatial memory by remembering and tracing paths on a grid.',
       steps: '1. Watch as a path is drawn on the grid\n2. Memorize the sequence of cells\n3. Recreate the path by clicking cells in order\n4. Cells must be adjacent (no diagonals)',
       tips: '• Pay attention to the direction indicators\n• Break long paths into smaller chunks\n• Use landmarks or patterns to remember turns'
+    },
+    nBack: {
+      welcome: 'Welcome to N-Back Challenge!',
+      intro: 'Test and improve your working memory with this scientifically validated task.',
+      steps: '1. Letters will appear one at a time on screen\n2. Press SPACE when the current letter matches the one N positions back\n3. The game starts with 1-back, then progresses to 2-back and 3-back\n4. Stay focused and respond quickly when you see a match',
+      tips: '• Keep a mental list of the last N letters\n• Don\'t rush - accuracy is more important than speed\n• Practice regularly to improve your working memory capacity\n• This is one of the few scientifically proven brain training tasks!'
+    },
+    storyRecall: {
+      welcome: 'Welcome to Story Recall!',
+      intro: 'Enhance your episodic memory by remembering details from short stories.',
+      steps: '1. Read the story carefully during the timer\n2. Pay attention to specific details (names, colors, numbers, places)\n3. Answer multiple-choice questions about the story\n4. No notes allowed - rely on your memory!',
+      tips: '• Create mental images as you read\n• Pay attention to who, what, when, where, and how\n• Connect details together to form a coherent story\n• The more you engage with the story, the better you\'ll remember it'
+    },
+    changeDetection: {
+      welcome: 'Welcome to Change Detection!',
+      intro: 'Train your visual working memory by spotting what changed in a scene.',
+      steps: '1. Study the scene carefully during the viewing phase\n2. After a brief blank screen, the scene reappears with ONE change\n3. Click on the object that changed\n4. Changes can be: color, position, or size',
+      tips: '• Try to remember the position and color of each object\n• Create a mental snapshot of the scene\n• Group objects by location or color to remember better\n• As difficulty increases, more objects will appear'
+    },
+    colorSequence: {
+      welcome: 'Welcome to Color Sequence!',
+      intro: 'Master color patterns and sequential memory with this vibrant challenge.',
+      steps: '1. Watch as colors flash in sequence\n2. After the sequence ends, it\'s your turn\n3. Click the colors in the exact same order\n4. Each level adds one more color to the sequence',
+      tips: '• Say the colors out loud (or in your head) as they flash\n• Create a rhythm or pattern with the colors\n• Use the color positions to help remember the sequence\n• Three mistakes and the game ends - stay focused!'
     }
   },
   
