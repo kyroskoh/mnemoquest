@@ -274,8 +274,8 @@ export class CardMatchGame extends BaseGame {
   }
 
   private handleCardClick(cardId: number): void {
-    // Only allow clicks during play phase
-    if (!this.canFlip || this.gamePhase !== 'play') return;
+    // Only allow clicks during play phase and if game hasn't ended
+    if (!this.canFlip || this.gamePhase !== 'play' || !this.timerInterval) return;
 
     const card = this.cards.find(c => c.id === cardId);
     if (!card || card.flipped || card.matched) return;
@@ -309,7 +309,20 @@ export class CardMatchGame extends BaseGame {
         this.updateStats();
 
         if (this.pairsFound === this.totalPairs) {
-          this.endGame(true);
+          // All pairs found! Stop timer and end game
+          if (this.timerInterval) {
+            clearInterval(this.timerInterval);
+            this.timerInterval = null;
+          }
+          // Give a moment to see the final match before ending
+          setTimeout(() => {
+            this.endGame(true);
+          }, 500);
+        } else {
+          // Continue playing
+          this.flippedCards = [];
+          this.canFlip = true;
+          this.renderCards();
         }
       } else {
         // No match
@@ -317,11 +330,10 @@ export class CardMatchGame extends BaseGame {
         card2.flipped = false;
         this.mistakes++;
         this.updateStats();
+        this.flippedCards = [];
+        this.canFlip = true;
+        this.renderCards();
       }
-
-      this.flippedCards = [];
-      this.canFlip = true;
-      this.renderCards();
     }, 800);
   }
 
@@ -361,9 +373,14 @@ export class CardMatchGame extends BaseGame {
   }
 
   private endGame(won: boolean): void {
+    // Clear timer if it's still running
     if (this.timerInterval) {
       clearInterval(this.timerInterval);
+      this.timerInterval = null;
     }
+
+    // Prevent any further interaction
+    this.canFlip = false;
 
     // totalAttempts is already tracked correctly (each card flip = 1 attempt)
     // correctAttempts is already tracked correctly (each successful match = 1)
@@ -377,12 +394,14 @@ export class CardMatchGame extends BaseGame {
       // This will naturally give a lower success rate
     }
 
+    // Complete the game and progress to next level
     this.completeGame();
   }
 
   destroy(): void {
     if (this.timerInterval) {
       clearInterval(this.timerInterval);
+      this.timerInterval = null;
     }
 
     const cards = document.querySelectorAll('.card');
