@@ -25,6 +25,7 @@ export class ChangeDetectionGame extends BaseGame {
   private canvas: HTMLCanvasElement | null = null;
   private ctx: CanvasRenderingContext2D | null = null;
   private gamePhase: 'viewing' | 'blank' | 'changed' = 'viewing';
+  private changedObjects: GameObject[] = []; // Store the changed objects
   
   private colors = ['#ef4444', '#3b82f6', '#10b981', '#f59e0b', '#8b5cf6', '#ec4899'];
   private canvasSize = 500;
@@ -115,6 +116,9 @@ export class ChangeDetectionGame extends BaseGame {
     this.currentRound = this.generateRound();
     this.totalAttempts++;
     
+    // Generate changed objects once and store them
+    this.changedObjects = this.applyChange(this.currentRound);
+    
     // Show original scene
     this.gamePhase = 'viewing';
     this.updatePhaseMessage(this.t('games.changeDetection.memorize'));
@@ -130,8 +134,8 @@ export class ChangeDetectionGame extends BaseGame {
       setTimeout(() => {
         this.gamePhase = 'changed';
         this.updatePhaseMessage(this.t('games.changeDetection.findChange'));
-        const changedObjects = this.applyChange(this.currentRound!);
-        this.drawScene(changedObjects);
+        // Use the stored changed objects
+        this.drawScene(this.changedObjects);
       }, this.blankTime);
     }, this.viewingTime);
   }
@@ -334,12 +338,11 @@ export class ChangeDetectionGame extends BaseGame {
     const canvasX = clickX * scaleX;
     const canvasY = clickY * scaleY;
 
-    // Check which object was clicked
-    const changedObjects = this.applyChange(this.currentRound);
+    // Check which object was clicked using the stored changed objects
     let clickedObjectId = -1;
 
-    for (let i = changedObjects.length - 1; i >= 0; i--) {
-      const obj = changedObjects[i];
+    for (let i = this.changedObjects.length - 1; i >= 0; i--) {
+      const obj = this.changedObjects[i];
       
       if (this.isPointInObject(canvasX, canvasY, obj)) {
         clickedObjectId = obj.id;
