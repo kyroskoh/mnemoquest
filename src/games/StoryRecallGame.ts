@@ -13,8 +13,9 @@ export class StoryRecallGame extends BaseGame {
   private currentStory: StoryData | null = null;
   private userAnswers: UserAnswer[] = [];
   private currentQuestionIndex: number = 0;
-  private displayTime: number = 10000; // ms to display story
+  private displayTime: number = 30000; // ms to display story (30 seconds)
   private storyDatabase: StoryData[] = [];
+  private countdownInterval: number | null = null;
 
   async start(): Promise<void> {
     this.calculateDifficultyParameters();
@@ -29,13 +30,8 @@ export class StoryRecallGame extends BaseGame {
     // Difficulty 4-7: Medium stories
     // Difficulty 8+: Hard stories
     
-    if (this.difficulty <= 3) {
-      this.displayTime = 15000; // 15 seconds
-    } else if (this.difficulty <= 7) {
-      this.displayTime = 12000; // 12 seconds
-    } else {
-      this.displayTime = 10000; // 10 seconds
-    }
+    // All difficulties get 30 seconds, but can continue early
+    this.displayTime = 30000; // 30 seconds
   }
 
   private async initializeStoryDatabase(): Promise<void> {
@@ -79,6 +75,7 @@ export class StoryRecallGame extends BaseGame {
         <div class="story-screen" id="storyScreen">
           <div class="timer-display" id="timerDisplay">${Math.floor(this.displayTime / 1000)}</div>
           <div class="story-content" id="storyContent"></div>
+          <button class="continue-btn" id="continueBtn">${this.t('games.storyRecall.continue')}</button>
         </div>
 
         <div class="question-screen" id="questionScreen" style="display: none;">
@@ -100,6 +97,7 @@ export class StoryRecallGame extends BaseGame {
   private showStory(): void {
     const storyContent = document.getElementById('storyContent');
     const timerDisplay = document.getElementById('timerDisplay');
+    const continueBtn = document.getElementById('continueBtn');
     
     if (storyContent && this.currentStory) {
       storyContent.textContent = this.currentStory.text;
@@ -109,23 +107,37 @@ export class StoryRecallGame extends BaseGame {
     let remaining = Math.floor(this.displayTime / 1000);
     if (timerDisplay) timerDisplay.textContent = remaining.toString();
 
-    const countdownInterval = setInterval(() => {
+    this.countdownInterval = window.setInterval(() => {
       remaining--;
       if (timerDisplay) {
         timerDisplay.textContent = remaining.toString();
-        if (remaining <= 3) {
+        if (remaining <= 5) {
           timerDisplay.style.color = '#ef4444';
         }
       }
 
       if (remaining <= 0) {
-        clearInterval(countdownInterval);
-        this.startQuestions();
+        this.stopCountdownAndContinue();
       }
     }, 1000);
 
+    // Continue button handler
+    if (continueBtn) {
+      continueBtn.addEventListener('click', () => {
+        this.stopCountdownAndContinue();
+      });
+    }
+
     // Dispatch first interaction
     window.dispatchEvent(new CustomEvent('gameFirstInteraction'));
+  }
+
+  private stopCountdownAndContinue(): void {
+    if (this.countdownInterval) {
+      clearInterval(this.countdownInterval);
+      this.countdownInterval = null;
+    }
+    this.startQuestions();
   }
 
   private startQuestions(): void {
@@ -219,7 +231,10 @@ export class StoryRecallGame extends BaseGame {
   }
 
   destroy(): void {
-    // Cleanup if needed
+    if (this.countdownInterval) {
+      clearInterval(this.countdownInterval);
+      this.countdownInterval = null;
+    }
   }
 
   private addGameStyles(): void {
@@ -273,6 +288,33 @@ export class StoryRecallGame extends BaseGame {
         text-align: justify;
         padding-right: 100px; /* Space for timer */
         padding-top: 0.5rem;
+        margin-bottom: 2rem;
+      }
+
+      .continue-btn {
+        display: block;
+        margin: 0 auto;
+        padding: 1rem 3rem;
+        background: var(--primary);
+        color: white;
+        border: none;
+        border-radius: var(--radius-lg);
+        font-size: 1.25rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 12px rgba(13, 148, 136, 0.3);
+      }
+
+      .continue-btn:hover {
+        background: var(--primary-dark);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 16px rgba(13, 148, 136, 0.4);
+      }
+
+      .continue-btn:active {
+        transform: translateY(0);
+        box-shadow: 0 2px 8px rgba(13, 148, 136, 0.3);
       }
 
       .question-screen {
