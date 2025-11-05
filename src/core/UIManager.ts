@@ -82,7 +82,7 @@ export class UIManager {
     const progress = this.storageManager.loadProgress();
     const recentScores = progress.recentScores.slice(0, 10).reverse();
 
-    const labels = recentScores.map((_, index) => `${this.t('progress.game')} ${index + 1}`);
+    const labels = recentScores.map(score => this.formatGameType(score.gameType));
     const data = recentScores.map(score => score.accuracy);
 
     this.accuracyChart = new Chart(canvas, {
