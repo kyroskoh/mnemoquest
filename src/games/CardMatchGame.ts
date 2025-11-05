@@ -37,19 +37,15 @@ export class CardMatchGame extends BaseGame {
     // No maximum limit - scales indefinitely!
     this.totalPairs = Math.floor(Math.max(3, 2 + this.difficulty));
     
-    // Memorization time - CHALLENGING MODE!
-    // Time decreases per card as difficulty increases - true memory challenge
-    // Difficulty 1: 3 pairs (6 cards) - ~3 seconds (0.5 sec/card)
-    // Difficulty 5: 7 pairs (14 cards) - ~5 seconds (0.36 sec/card)
-    // Difficulty 10: 12 pairs (24 cards) - ~7 seconds (0.29 sec/card)
-    // Difficulty 20: 22 pairs (44 cards) - ~10 seconds (0.23 sec/card)
-    // Difficulty 30: 32 pairs (64 cards) - ~13 seconds (0.20 sec/card)
-    // Difficulty 50: 52 pairs (104 cards) - ~16 seconds (0.15 sec/card)
-    const baseTime = 1; // Minimal base time
-    const timePerPair = Math.max(0.15, 0.6 - (this.difficulty * 0.02)); // Time per pair decreases significantly
-    // Small scroll bonus only for very large grids (20+ pairs)
-    const scrollBonus = this.totalPairs > 20 ? Math.floor((this.totalPairs - 20) * 0.05) : 0;
-    this.memorizeTime = Math.max(2, Math.floor(baseTime + (this.totalPairs * timePerPair) + scrollBonus));
+    // Memorization time - Simple and fair formula
+    // 1 second per pair with minimum of 3 seconds
+    // Difficulty 1: 3 pairs = 3 seconds
+    // Difficulty 2: 4 pairs = 4 seconds
+    // Difficulty 5: 7 pairs = 7 seconds
+    // Difficulty 10: 12 pairs = 12 seconds
+    // Difficulty 20: 22 pairs = 22 seconds
+    // Difficulty 30: 32 pairs = 32 seconds
+    this.memorizeTime = Math.max(3, this.totalPairs);
     
     // Time limit for finding all pairs (after memorization) - CHALLENGING!
     // Less time forces players to remember accurately
