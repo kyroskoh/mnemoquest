@@ -39,7 +39,10 @@ const ja: Translation = {
       name: 'カードマッチ',
       description: '時間制限内にペアを見つける',
       skill: '視覚記憶',
-      instructions: '時間切れになる前にすべてのペアを見つけてください！'
+      instructions: '時間切れになる前にすべてのペアを見つけてください！',
+      memorizePhase: 'カードを覚えてください！',
+      playPhase: 'ペアを見つけてください！',
+      cardsFlipIn: 'カードが裏返るまで...'
     },
     numberRecall: {
       name: '数字記憶',

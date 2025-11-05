@@ -39,7 +39,10 @@ const pt: Translation = {
       name: 'Combinação de Cartas',
       description: 'Encontre pares correspondentes sob pressão de tempo',
       skill: 'Memória Visual',
-      instructions: 'Encontre todos os pares antes que o tempo acabe!'
+      instructions: 'Encontre todos os pares antes que o tempo acabe!',
+      memorizePhase: 'Memorize as cartas!',
+      playPhase: 'Encontre os pares correspondentes!',
+      cardsFlipIn: 'Cartas viram em...'
     },
     numberRecall: {
       name: 'Recordar Números',

@@ -39,7 +39,10 @@ const fr: Translation = {
       name: 'Association de Cartes',
       description: 'Associez des paires sous pression temporelle',
       skill: 'Mémoire Visuelle',
-      instructions: 'Trouvez toutes les paires avant la fin du temps !'
+      instructions: 'Trouvez toutes les paires avant la fin du temps !',
+      memorizePhase: 'Mémorisez les cartes !',
+      playPhase: 'Trouvez les paires correspondantes !',
+      cardsFlipIn: 'Les cartes se retournent dans...'
     },
     numberRecall: {
       name: 'Rappel des Nombres',

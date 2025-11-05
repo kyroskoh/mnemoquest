@@ -39,7 +39,10 @@ const en: Translation = {
       name: 'Card Match',
       description: 'Match pairs under time pressure',
       skill: 'Visual Memory',
-      instructions: 'Find all matching pairs before time runs out!'
+      instructions: 'Find all matching pairs before time runs out!',
+      memorizePhase: 'Memorize the cards!',
+      playPhase: 'Find the matching pairs!',
+      cardsFlipIn: 'Cards flip in...'
     },
     numberRecall: {
       name: 'Number Recall',

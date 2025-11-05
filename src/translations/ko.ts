@@ -39,7 +39,10 @@ const ko: Translation = {
       name: '카드 매치',
       description: '시간 제한 내에 짝을 찾으세요',
       skill: '시각 기억',
-      instructions: '시간이 다 되기 전에 모든 쌍을 찾으세요!'
+      instructions: '시간이 다 되기 전에 모든 쌍을 찾으세요!',
+      memorizePhase: '카드를 기억하세요!',
+      playPhase: '짝을 찾으세요!',
+      cardsFlipIn: '카드가 뒤집힐 때까지...'
     },
     numberRecall: {
       name: '숫자 기억',

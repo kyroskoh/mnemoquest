@@ -43,6 +43,9 @@ export interface Translation {
       description: string;
       skill: string;
       instructions: string;
+      memorizePhase: string;
+      playPhase: string;
+      cardsFlipIn: string;
     };
     numberRecall: {
       name: string;

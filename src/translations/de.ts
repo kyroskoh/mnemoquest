@@ -39,7 +39,10 @@ const de: Translation = {
       name: 'Karten-Paare',
       description: 'Finden Sie passende Paare unter Zeitdruck',
       skill: 'Visuelles Gedächtnis',
-      instructions: 'Finden Sie alle Paare bevor die Zeit abläuft!'
+      instructions: 'Finden Sie alle Paare bevor die Zeit abläuft!',
+      memorizePhase: 'Merken Sie sich die Karten!',
+      playPhase: 'Finden Sie die passenden Paare!',
+      cardsFlipIn: 'Karten drehen sich in...'
     },
     numberRecall: {
       name: 'Zahlen Merken',

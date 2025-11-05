@@ -39,7 +39,10 @@ const zh: Translation = {
       name: '配对卡牌',
       description: '在时间压力下配对',
       skill: '视觉记忆',
-      instructions: '在时间用完之前找到所有配对！'
+      instructions: '在时间用完之前找到所有配对！',
+      memorizePhase: '记住这些卡牌！',
+      playPhase: '找到所有配对！',
+      cardsFlipIn: '卡牌即将翻回...'
     },
     numberRecall: {
       name: '数字记忆',

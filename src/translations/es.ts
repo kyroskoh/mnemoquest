@@ -39,7 +39,10 @@ const es: Translation = {
       name: 'Empareja Cartas',
       description: 'Encuentra parejas bajo presión de tiempo',
       skill: 'Memoria Visual',
-      instructions: '¡Encuentra todos los pares antes de que se acabe el tiempo!'
+      instructions: '¡Encuentra todos los pares antes de que se acabe el tiempo!',
+      memorizePhase: '¡Memoriza las cartas!',
+      playPhase: '¡Encuentra los pares!',
+      cardsFlipIn: 'Las cartas se voltean en...'
     },
     numberRecall: {
       name: 'Recordar Números',
